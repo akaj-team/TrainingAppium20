@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Android Test Suite" verbose="1">
+    <parameter name="server" value="http://127.0.0.1:4723/wd/hub"/>
+    <test name="Android Test" enabled="true">
+        <parameter name="platformName" value="android"/>
+        <parameter name="deviceName" value="PIXEL XL API P"/>
+        <parameter name="udid" value="emulator-5556"/>
+        <parameter name="app" value="staging_jp.co.lc.karadakawarunavi.staging_v4.3.9.apk"/>
+        <classes>
+            <class name="TestRunner"/>
+        </classes>
+    </test>
+
+    <test name="Ios Test" enabled="true">
+        <parameter name="platformName" value="ios"/>
+        <parameter name="deviceName" value="iPhone X"/>
+        <parameter name="platformVersion" value="12.2"/>
+        <parameter name="app" value="staging_jp.co.lc.karadakawarunavi.staging_v4.3.9.ipa"/>
+        <classes>
+            <class name="TestRunner"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Check Suite" verbose="1">
+    <parameter name="server" value="http://hub:4444/wd/hub"/>
+    <test name="Android Test" enabled="true">
+        <parameter name="platformName" value="android"/>
+        <parameter name="deviceName" value="Available Device"/>
+        <parameter name="appWaitDuration" value="30000"/>
+        <parameter name="appActivity" value="jp.co.lc.platform.ui.splash.SplashActivity_"/>
+        <parameter name="appPackage" value="jp.co.lc.karadakawarunavi.staging"/>
+        <parameter name="app" value="staging_jp.co.lc.karadakawarunavi.staging_v4.3.9.apk"/>
+        <classes>
+            <class name="CheckTestRunner"/>
+        </classes>
+    </test>
+</suite>

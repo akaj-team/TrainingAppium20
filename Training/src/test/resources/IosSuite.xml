@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Ios Test Suite" verbose="1">
+    <parameter name="server" value="http://hub:4444/wd/hub"/>
+    <test name="Ios Test" enabled="true">
+        <parameter name="platformName" value="iOS"/>
+        <parameter name="deviceName" value="iPhone 8"/>
+        <parameter name="platformVersion" value="13.7"/>
+        <parameter name="app" value="staging_jp.co.lc.karadakawarunavi.staging_v4.3.9.ipa"/>
+        <classes>
+            <class name="TestRunner"/>
+        </classes>
+    </test>
+</suite>

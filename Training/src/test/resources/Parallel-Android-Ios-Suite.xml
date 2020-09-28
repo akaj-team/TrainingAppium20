@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Main Suite" verbose="1" parallel="tests" thread-count="2">
+    <parameter name="server" value="http://hub:4444/wd/hub"/>
+
+    <test name="IOS Test" enabled="true">
+        <parameter name="platformName" value="ios"/>
+        <parameter name="deviceName" value="iPhone X"/>
+        <parameter name="platformVersion" value="12.2"/>
+        <parameter name="app" value="staging_jp.co.lc.karadakawarunavi.staging_v4.3.9.ipa"/>
+        <classes>
+            <class name="ParallelTestRunner"/>
+        </classes>
+    </test>
+    <test name="Android Test" enabled="true">
+        <parameter name="platformName" value="android"/>
+        <parameter name="deviceName" value="PIXEL XL API 28"/>
+        <parameter name="platformVersion" value="9"/>
+        <parameter name="appPackage" value="jp.co.lc.karadakawarunavi.staging"/>
+        <parameter name="appActivity" value="jp.co.lc.platform.ui.splash.SplashActivity_"/>
+        <parameter name="app" value="staging_jp.co.lc.karadakawarunavi.staging_v4.3.9.apk"/>
+        <classes>
+            <class name="ParallelTestRunner"/>
+        </classes>
+    </test>
+</suite>
