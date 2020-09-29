@@ -54,8 +54,8 @@ class AppiumController {
             workSpace = System.getProperty("workSpace");
         } else {
             workSpace = System.getProperty("user.dir");
-            if (workSpace.contains("/Training")) {
-                workSpace = workSpace.replace("/Training", "");
+            if (workSpace.contains("20/Training")) {
+                workSpace = workSpace.replace("20/Training", "20");
             }
         }
 
