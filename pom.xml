@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <groupId>com.rena.appium</groupId>
-    <artifactId>Training-Test</artifactId>
+    <artifactId>RENA-Test</artifactId>
     <version>1.0</version>
 
     <modules>
-        <module>Training</module>
+        <module>Knavi</module>
         <module>Core</module>
     </modules>
 </project>
