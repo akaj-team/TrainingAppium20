@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author tien.hoang
@@ -126,6 +127,9 @@ public abstract class BasePage {
      */
     public void waitForElementHide(MobileElement element) {
         try {
+            WebDriverWait wait = new WebDriverWait(getDriver(),Const.TIME_OUT_MEDIUM_ELEMENT);
+
+            wait.until(driver -> !isElementDisplayed(element));
             new WebDriverWait(getDriver(), Const.TIME_OUT_NORMAL_ELEMENT).until(
                     driver -> !isElementDisplayed(element));
         } catch (Exception e) {
