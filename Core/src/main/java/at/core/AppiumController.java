@@ -118,6 +118,10 @@ class AppiumController {
         return parameters;
     }
 
+
+
+
+
     
 
     private Map<String, String> defaultIosParameters() {
