@@ -118,6 +118,8 @@ class AppiumController {
         return parameters;
     }
 
+    
+
     private Map<String, String> defaultIosParameters() {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "ios");
