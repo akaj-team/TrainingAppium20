@@ -1,10 +1,10 @@
-package stepdefs.home;
+package stepdefs.exam;
 
 import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import page.home.HomePage;
+import page.exam.HomePage;
 
 /**
  * for screen
