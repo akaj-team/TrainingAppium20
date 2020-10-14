@@ -1,4 +1,4 @@
-package page.home;
+package page.exam;
 
 import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
