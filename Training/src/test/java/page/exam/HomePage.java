@@ -31,9 +31,10 @@ public class HomePage extends BasePage {
     }
 
     @Override
-    public BasePage open() {
+    public HomePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
+            waitForElementDisplay(actionBar);
         }
         return this;
     }
@@ -47,6 +48,9 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    public void moveToDetail() {
+        listMenu.findElements(By.id("food_name")).get(6).click();
+    }
     public String getTextTvMenuToggleModes() {
         return tvMenuToggleModes.getText();
     }
