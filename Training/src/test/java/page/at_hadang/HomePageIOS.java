@@ -3,6 +3,7 @@ package page.at_hadang;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
+
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ import java.util.List;
  * @author at-ha.dang
  */
 
-public class HomePageIOS extends HomePage{
+public class HomePageIOS extends HomePage {
     @iOSFindBy(xpath = "//*[@text='0 / 24']")
     private MobileElement txtNumServings;
 
@@ -25,7 +26,7 @@ public class HomePageIOS extends HomePage{
         super(driver);
     }
 
-    public final void clickChartButton(){
+    public final void clickChartButton() {
         waitForElementDisplay(btnChart);
         btnChart.click();
     }

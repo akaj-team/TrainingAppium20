@@ -58,9 +58,6 @@ public class HomePage extends BasePage {
 
     @Override
     public BasePage open() {
-        if (!isPageDisplayed()){
-            getDriver().launchApp();
-        }
         return this;
     }
 
@@ -69,23 +66,23 @@ public class HomePage extends BasePage {
         return txtTitle.getText();
     }
 
-    public final void click21TweaksButton(){
+    public final void click21TweaksButton() {
         waitForElementDisplay(btn21Tweaks);
         btn21Tweaks.click();
     }
 
-    public final void clickInfoMenuButton(){
+    public final void clickInfoMenuButton() {
         waitForElementDisplay(btnInfoMenu);
         btnInfoMenu.click();
     }
 
-    public final boolean verifyLstFoodName(String name){
+    public final boolean verifyLstFoodName(String name) {
         int i = 0;
-        for (MobileElement elementServings: lstFoodName){
+        for (MobileElement elementServings : lstFoodName) {
             String foodName = elementServings.getText().trim();
-            if (foodName == name){
+            if (foodName == name) {
                 i++;
-                if (i == lstFoodName.size());
+                if (i == lstFoodName.size()) ;
                 return true;
             }
         }

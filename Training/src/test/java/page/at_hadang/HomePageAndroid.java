@@ -30,20 +30,20 @@ public class HomePageAndroid extends HomePage {
         super(driver);
     }
 
-    public final void clickChartButton(){
+    public final void clickChartButton() {
         waitForElementDisplay(btnChart);
         containerCheckBoxes.get(1).click();
         btnChart.click();
     }
 
-    public final boolean verifyCheckBoxQuantity(String name, int quantity){
+    public final boolean verifyCheckBoxQuantity(String name, int quantity) {
         int i = 0;
-        for (MobileElement elementServings: lstFoodServings){
+        for (MobileElement elementServings : lstFoodServings) {
             String foodName = elementServings.findElements(By.id("food_name")).get(i).getText();
             int countCheckBox = containerCheckBoxes.size();
-            if (foodName == name && countCheckBox == quantity){
+            if (foodName == name && countCheckBox == quantity) {
                 i++;
-                if (i == lstFoodServings.size());
+                if (i == lstFoodServings.size()) ;
                 return true;
             }
         }
