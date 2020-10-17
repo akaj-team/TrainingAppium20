@@ -9,35 +9,32 @@ import page.exam.HomePage;
 
 public class FlaxseedsDetailPage extends BasePage {
 
-    @AndroidFindBy(className = "android.widget.TextView")
+    @AndroidFindBy(xpath = "//*[@text='Flaxseeds']")
     private MobileElement screenName;
 
     @AndroidFindBy(className = "android.widget.ImageButton")
-    private MobileElement backbutton;
+    private MobileElement backButton;
 
     @AndroidFindBy(id = "food_info_videos")
-    private MobileElement videosbutton;
+    private MobileElement videosButton;
 
-    @AndroidFindBy(id = "food_info_image")
-    private MobileElement image;
+    @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
+    private MobileElement servingSizes;
 
-    @AndroidFindBy(className = "android.widget.TextView")
-    private MobileElement servingsizes;
-
-    @AndroidFindBy(id = "org.nutritionfacts.dailydozen:id/change_units_button")
-    private MobileElement imperialbutton;
-
-    @AndroidFindBy(id = "org.nutritionfacts.dailydozen:id/change_units_button")
-    private MobileElement metricbutton;
+    @AndroidFindBy(id = "//*[@resource-id='org.nutritionfacts.dailydozen:id/change_units_button']")
+    private MobileElement imperialButton;
 
     @AndroidFindBy(id = "android:id/text1")
-    private MobileElement subcontent;
+    private MobileElement subContent;
 
-    @AndroidFindBy(id = "org.nutritionfacts.dailydozen:id/food_name")
-    private MobileElement typebrowmflaxseed;
+    @AndroidFindBy(xpath = "//*[@text='Types']")
+    private MobileElement types;
 
-    @AndroidFindBy(id = "org.nutritionfacts.dailydozen:id/food_name")
-    private MobileElement typegoldenflaxseed;
+    @AndroidFindBy(xpath = "//*[@text='Brown flaxseeds']")
+    private MobileElement typeBrownFlaxseed;
+
+    @AndroidFindBy(xpath = "//*[@text='Golden flaxseeds']")
+    private MobileElement typeGoldenFlaxseed;
 
     public HomePage hp;
 
@@ -62,38 +59,45 @@ public class FlaxseedsDetailPage extends BasePage {
     }
 
     public String getScreenName() {
-        return screenName.findElement(By.className("android.widget.TextView")).getText();
+        return screenName.getText();
     }
 
     public FlaxseedsDetailPage clickBackButton() {
-        backbutton.findElement(By.className("android.widget.ImageButton")).click();
+        backButton.findElement(By.className("android.widget.ImageButton")).click();
         return this;
     }
 
     public FlaxseedsDetailPage clickVideosButton() {
-        videosbutton.findElement(By.id("food_info_videos")).click();
+        videosButton.click();
         return this;
     }
 
     public String getContentServingSize(){
-        return servingsizes.findElement(By.className("android.widget.TextView")).getText();
+        return servingSizes.getText();
     }
 
     public FlaxseedsDetailPage clickImperialButton() {
-        imperialbutton.findElement(By.id("org.nutritionfacts.dailydozen:id/change_units_button")).click();
+        imperialButton.click();
         return this;
     }
 
     public String getSubContent() {
-        return subcontent.findElement(By.id("android:id/text1")).getText();
+        return subContent.getText();
+    }
+
+    public String getContentTypes(){
+        return types.getText();
     }
 
     public String getTypeBrownFlaxseeds() {
-        return typebrowmflaxseed.findElement(By.id("org.nutritionfacts.dailydozen:id/food_name")).getText();
+        return typeBrownFlaxseed.getText();
     }
 
     public String getTypeGoldenFlaxseeds() {
-        return typegoldenflaxseed.findElement(By.id("org.nutritionfacts.dailydozen:id/food_name")).getText();
+        return typeGoldenFlaxseed.getText();
     }
 
+    public String getTextButtonImerial() {
+        return imperialButton.getText();
+    }
 }

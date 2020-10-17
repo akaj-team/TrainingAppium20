@@ -17,12 +17,15 @@ Feature: Test on Flaxseeds Detail screen
   Scenario: Check content of [Serving Sizes]
     Then The content is "Serving Sizes"
 
-  Scenario: Check default value of [Serving Sizes]
-    Then The default is "IMPERIAL"
-
   Scenario: Check click "IMPERIAL" button
-    When I click "IMPERIAL" button
-    Then "IMPERIAL" button change to "METRIC" button
+    Given Button must is IMPERIAL
+    When I click IMPERIAL button
+    Then IMPERIAL button change to METRIC button
+
+  Scenario: Check click "METRIC" button
+    Given Button must is METRIC
+    When I click METRIC button
+    Then METRIC button change to IMPERIAL button
 
   Scenario: Check sub content of [Serving Sizes]
     Then The sub content of [Serving Sizes] is "1 tablespoon ground"

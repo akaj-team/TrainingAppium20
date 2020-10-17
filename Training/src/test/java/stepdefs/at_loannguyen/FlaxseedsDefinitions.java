@@ -36,15 +36,34 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
         Then("^The content is \"([^\"]*)\"$", (String arg0) -> {
         });
 
-        Then("^The default is \"([^\"]*)\"$", (String arg0) -> {
+        Given("^Button must is IMPERIAL$", () -> {
+            String currentValue = flaxseedsPage.getTextButtonImerial();
+            if (!currentValue.equals("IMPERIAL")) {
+                flaxseedsPage.clickImperialButton();
+            }
+        });
+        When("^I click IMPERIAL button$", () -> {
+            flaxseedsPage.clickImperialButton();
+        });
+        Then("^IMPERIAL button change to METRIC button$", () -> {
+            Assert.assertEquals(flaxseedsPage.getTextButtonImerial(), "METRIC");
         });
 
-        When("^I click \"([^\"]*)\" button$", (String arg0) -> {
+        Given("^Button must is METRIC$", () -> {
+            String currentValue = flaxseedsPage.getTextButtonImerial();
+            if(!currentValue.equals("METRIC")){
+                flaxseedsPage.clickImperialButton();
+            }
         });
-        Then("^\"([^\"]*)\" button change to \"([^\"]*)\" button$", (String arg0, String arg1) -> {
+        When("^I click METRIC button$", () -> {
+            flaxseedsPage.clickImperialButton();
+        });
+        Then("^METRIC button change to IMPERIAL button$", () -> {
+            Assert.assertEquals(flaxseedsPage.getTextButtonImerial(), "IMPERIAL" );
         });
 
         Then("^The sub content of \\[Serving Sizes\\] is \"([^\"]*)\"$", (String arg0) -> {
+
         });
 
         Then("^The content (\\d+) is \"([^\"]*)\"$", (Integer arg0, String arg1) -> {
@@ -55,7 +74,5 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
 
         Then("^The sub content (\\d+) of \\[Types\\] is \"([^\"]*)\"$", (Integer arg0, String arg1) -> {
         });
-
-
     }
 }
