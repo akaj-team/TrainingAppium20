@@ -39,9 +39,9 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
         Then("^The default is \"([^\"]*)\"$", (String arg0) -> {
         });
 
-        When("^I click \"([^\"]*)\" value$", (String arg0) -> {
+        When("^I click \"([^\"]*)\" button$", (String arg0) -> {
         });
-        Then("^\"([^\"]*)\" change to \"([^\"]*)\"$", (String arg0, String arg1) -> {
+        Then("^\"([^\"]*)\" button change to \"([^\"]*)\" button$", (String arg0, String arg1) -> {
         });
 
         Then("^The sub content of \\[Serving Sizes\\] is \"([^\"]*)\"$", (String arg0) -> {
@@ -55,5 +55,7 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
 
         Then("^The sub content (\\d+) of \\[Types\\] is \"([^\"]*)\"$", (Integer arg0, String arg1) -> {
         });
+
+
     }
 }

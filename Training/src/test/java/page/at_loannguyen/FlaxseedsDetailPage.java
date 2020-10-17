@@ -21,7 +21,7 @@ public class FlaxseedsDetailPage extends BasePage {
     @AndroidFindBy(id = "food_info_image")
     private MobileElement image;
 
-    @AndroidFindBy(className = "android.widget.ImageButton")
+    @AndroidFindBy(className = "android.widget.TextView")
     private MobileElement servingsizes;
 
     @AndroidFindBy(id = "org.nutritionfacts.dailydozen:id/change_units_button")
@@ -73,6 +73,10 @@ public class FlaxseedsDetailPage extends BasePage {
     public FlaxseedsDetailPage clickVideosButton() {
         videosbutton.findElement(By.id("food_info_videos")).click();
         return this;
+    }
+
+    public String getContentServingSize(){
+        return servingsizes.findElement(By.className("android.widget.TextView")).getText();
     }
 
     public FlaxseedsDetailPage clickImperialButton() {

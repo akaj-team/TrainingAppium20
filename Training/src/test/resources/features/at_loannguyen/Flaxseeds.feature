@@ -20,9 +20,9 @@ Feature: Test on Flaxseeds Detail screen
   Scenario: Check default value of [Serving Sizes]
     Then The default is "IMPERIAL"
 
-  Scenario: Check click "IMPERIAL" value
-    When I click "IMPERIAL" value
-    Then "IMPERIAL" change to "METRIC"
+  Scenario: Check click "IMPERIAL" button
+    When I click "IMPERIAL" button
+    Then "IMPERIAL" button change to "METRIC" button
 
   Scenario: Check sub content of [Serving Sizes]
     Then The sub content of [Serving Sizes] is "1 tablespoon ground"
