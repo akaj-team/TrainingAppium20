@@ -5,6 +5,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
 
@@ -41,11 +42,11 @@ public class HomePage extends BasePage {
 
     @AndroidFindBy(id = "food_name")
     @iOSFindBy(xpath = "//*[@text='More Info']")
-    private List<MobileElement> lstBtnFoodInfo;
+    private List<MobileElement> lstBtnMoreInfo;
 
     @AndroidFindBy(id = "food_history")
     @iOSFindBy(xpath = "//*[@text='ic calendar']")
-    private List<MobileElement> lstBtnFoodHistory;
+    private List<MobileElement> lstBtnCalendar;
 
     public HomePage(MobileDriver driver) {
         super(driver);
@@ -80,13 +81,32 @@ public class HomePage extends BasePage {
         int i = 0;
         for (MobileElement elementServings : lstFoodName) {
             String foodName = elementServings.getText().trim();
+            scrollToElementContainText(foodName);
             if (foodName == name) {
                 i++;
-                if (i == lstFoodName.size()) ;
+                if (i <= lstFoodName.size()) ;
                 return true;
             }
         }
         return false;
     }
 
+    protected void scrollToElementContainText(String foodName) {
+    }
+
+    public final void clickInfoIcon() {
+        for (int i = 0; i < lstBtnMoreInfo.size(); i++) {
+            lstBtnMoreInfo.get(i).click();
+        }
+    }
+
+    public final void clickCalendarButton() {
+        for (int i = 0; i <= lstBtnCalendar.size(); i++) {
+            lstBtnCalendar.get(i).click();
+        }
+    }
+
+    public final void clickMoreInfoButtonOfVitaminB12(){
+        lstBtnMoreInfo.get(12).click();
+    }
 }

@@ -3,6 +3,7 @@ package page.at_hadang;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import org.openqa.selenium.By;
 
 import java.util.List;
 
@@ -26,8 +27,12 @@ public class HomePageIOS extends HomePage {
         super(driver);
     }
 
-    public final void clickChartButton() {
+    public final void clickChartButtonIOS() {
         waitForElementDisplay(btnChart);
         btnChart.click();
+    }
+
+    public final boolean verifyCheckBoxQuantityIOS(String name, int quantity) {
+        return true;
     }
 }

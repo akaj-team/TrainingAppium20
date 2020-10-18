@@ -9,7 +9,7 @@ Feature: Test on Home screen
 
   Scenario Outline: Verify display of items in the Servings list
     When I check display of items in the Servings list
-    Then I see 12 items with "<name>" correctly
+    Then I see 13 items with "<name>" correctly
 
     Examples:
       | name                   |
@@ -25,6 +25,7 @@ Feature: Test on Home screen
       | Whole Grains           |
       | Beverages              |
       | Exercise               |
+      | Vitamin B12            |
 
   Scenario Outline: Verify quantity of checkboxes on each item
     When I check quantity of checkboxes on each item
@@ -44,12 +45,65 @@ Feature: Test on Home screen
       | Whole Grains           | 3        |
       | Beverages              | 5        |
       | Exercise               | 1        |
+      | Vitamin B12            | 1        |
+
+  Scenario: Check function of the checkbox
+    When I click on the first checkbox of the "Beans" item
+    Then All of checkboxes are selected
+    When I click on the first checkbox again
+    Then The first checkbox is unselected
+    And The 2nd checkbox and the 3rd checkbox are still selected
+    When I click on the 3rd checkbox of the "Beans" item
+    Then The 2nd checkbox and the 3rd checkbox are unselected
+
+  Scenario Outline: Check function of the Calendar button
+    When I click on the [Calendar] button of each item
+    Then Move to History screen of "<name>" item successfully
+
+    Examples:
+      | name                   |
+      | Beans                  |
+      | Berries                |
+      | Other Fruits           |
+      | Cruciferous Vegetables |
+      | Greens                 |
+      | Other Vegetables       |
+      | Flaxseeds              |
+      | Nuts and Seeds         |
+      | Herbs and Spices       |
+      | Whole Grains           |
+      | Beverages              |
+      | Exercise               |
+      | Vitamin B12            |
+
+  Scenario Outline: Check function of the More Info button in the Servings list
+    When I click on the More Info button of each item
+    Then Move to Servings Size screen of "<name>" item successfully
+
+    Examples:
+      | name                   |
+      | Beans                  |
+      | Berries                |
+      | Other Fruits           |
+      | Cruciferous Vegetables |
+      | Greens                 |
+      | Other Vegetables       |
+      | Flaxseeds              |
+      | Nuts and Seeds         |
+      | Herbs and Spices       |
+      | Whole Grains           |
+      | Beverages              |
+      | Exercise               |
+
+  Scenario: Check function of More Info button of Vitamin B12 item
+    When I click on the More Info button of Vitamin B12 item
+    Then Move to website "https://nutritionfacts.org/topics/vitamin-b12/"
 
   Scenario: Check function of the 21Tweaks button
     When I click on the 21Tweaks button
     Then Move to 21 Tweaks screen successfully
 
-  Scenario: Check function of the InfoMenu button
+  Scenario: Check function of the Info Menu button
     When I click on the InfoMenu button
     Then Move to Info screen successfully
 
