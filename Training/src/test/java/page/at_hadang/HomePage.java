@@ -5,7 +5,6 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
 
@@ -94,7 +93,7 @@ public class HomePage extends BasePage {
     protected void scrollToElementContainText(String foodName) {
     }
 
-    public final void clickInfoIcon() {
+    public final void clickMoreInfoButton() {
         for (int i = 0; i < lstBtnMoreInfo.size(); i++) {
             lstBtnMoreInfo.get(i).click();
         }

@@ -3,7 +3,6 @@ package page.at_hadang;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import org.openqa.selenium.By;
 
 import java.util.List;
 
