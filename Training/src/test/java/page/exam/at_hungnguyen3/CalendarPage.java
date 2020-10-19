@@ -85,7 +85,7 @@ public class CalendarPage extends BasePage {
         String[] parts = currentTime.split("(?=-)");
         String month = parts[1];
         String year = parts[2];
-        if ((currentTime.contains(month)) && (currentTime.contains(month))){
+        if ((currentTime.contains(month)) && (currentTime.contains(year))){
 
             return true;
         }
