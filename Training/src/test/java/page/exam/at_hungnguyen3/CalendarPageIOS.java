@@ -30,4 +30,10 @@ public class CalendarPageIOS extends CalendarPage {
         info.click();
         return this;
     }
+
+    public CalendarPageIOS clickSettingsButton(){
+        waitForElementDisplay(settings);
+        settings.click();
+        return this;
+    }
 }
