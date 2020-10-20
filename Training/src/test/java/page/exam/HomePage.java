@@ -21,6 +21,9 @@ public class HomePage extends BasePage {
     @AndroidFindBy(className = "android.widget.ListView")
     private MobileElement listMenu;
 
+    @AndroidFindBy (id = "menu_toggle_modes")
+    private MobileElement ln21Tweaks;
+
     public HomePage(MobileDriver driver) {
         super(driver);
     }
@@ -58,4 +61,9 @@ public class HomePage extends BasePage {
     public boolean isContentTvMenuToggleModesContain(String text) {
         return getTextTvMenuToggleModes().contains(text);
     }
+
+    public void clickRightHeader(){
+        ln21Tweaks.click();
+    }
+
 }
