@@ -1,14 +1,16 @@
 package page.at_hoatran;
 
-import at.base.BasePage;
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
+import page.exam.HomePage;
 
-import java.util.List;
-
-public class InfoPageAndroid extends BasePage {
+public class InfoPageAndroid extends HomePage {
     @AndroidFindBy(id = "action_bar")
     private MobileElement actionBar;
 
@@ -27,14 +29,9 @@ public class InfoPageAndroid extends BasePage {
         return isForElementPresent(listTitle.findElement(By.xpath("//*[@text='Latest Videos']")));
     }
 
-    @Override
-    public BasePage open(){
-        clickMoreOptionsButton();
-        if (!isPageDisplayed()) {
-            getDriver().launchApp();
-            clickMoreOptionsButton();
-            waitForPageDisplayed(listTitle.findElement(By.xpath("//*[@text='Latest Videos']")));
-        }
+    public HomePage openInfoScreen(){
+        HomePage homePage = new PageFactory<>(HomePage.class).create();
+        homePage.openInfoPageAndroid();
         return this;
     }
 
@@ -44,22 +41,18 @@ public class InfoPageAndroid extends BasePage {
     }
 
     public String getTitle(int n) {
-        List<MobileElement> title = listTitle.findElements(By.className("android.widget.LinearLayout"));
-//        List<MobileElement> title = listTitle.findElements(By.id("Title"));
-        System.out.println(title.size());
-        if (!title.isEmpty()) {
-            return title.get(n).getText();
-        }
-        return null;
+       return listTitle.findElements(By.id("title")).get(n-1).getText();
     }
 
     public InfoPageAndroid clickTitleButton(int n) {
-        List<MobileElement> title = listTitle.findElements(By.id("Title"));
-        System.out.println(title.size());
-        if (!title.isEmpty()) {
-            title.get(n).click(); // print text in {n}th element
+            listTitle.findElements(By.id("title")).get(n-1).click();
             return this;
-        }
+    }
+
+    // BACK button of Android
+    public InfoPageAndroid backKeyDevice() {
+        AndroidDriver driver = (AndroidDriver) getDriver();
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
         return this;
     }
 }
