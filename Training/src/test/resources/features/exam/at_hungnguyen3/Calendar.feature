@@ -31,8 +31,6 @@ Feature: Test on Calendar screen
     When I swipe from right to left in current time
     Then The time is still current time
 
-
-
   Scenario: Check some buttons of Android devices
     When I tap on next button
     Then The time is forward to one month
