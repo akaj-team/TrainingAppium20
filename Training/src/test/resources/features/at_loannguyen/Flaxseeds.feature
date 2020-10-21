@@ -17,6 +17,10 @@ Feature: Test on Flaxseeds Detail screen
   Scenario: Check content of [Serving Sizes]
     Then The content is "Serving Sizes"
 
+  Scenario: Check display of Units label
+    When I check display of Units label
+    Then The content of units is "Units"
+
   Scenario: Check click "IMPERIAL" button
     Given Button must is IMPERIAL
     When I click IMPERIAL button
@@ -33,11 +37,9 @@ Feature: Test on Flaxseeds Detail screen
   Scenario: Check content of [Types]
     Then The content 1 is "Types"
 
-  Scenario: Check sub content of [Types]
-    Then The sub content of [Types] is "Brown flaxseed"
-
-  Scenario: Check sub content of [Types]
-    Then The sub content 1 of [Types] is "Golden flaxseed"
+  Scenario: Check list of [Types]
+    When I check list of [Types]
+    Then The list of [Types] is displayed correctly
 
 
 

@@ -1,42 +1,47 @@
 package page.at_loannguyen;
 
 import at.base.BasePage;
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 import page.exam.HomePage;
 
+import java.util.List;
+
 public class FlaxseedsDetailPage extends BasePage {
 
-    @AndroidFindBy(xpath = "//*[@text='Flaxseeds']")
-    private MobileElement screenName;
+    @AndroidFindBy(id = "action_bar")
+    private MobileElement actionBar;
 
-    @AndroidFindBy(className = "android.widget.ImageButton")
-    private MobileElement backButton;
-
+    @iOSFindBy(xpath = "//*[@id='VIDEOS']")
     @AndroidFindBy(id = "food_info_videos")
     private MobileElement videosButton;
 
+    @iOSFindBy(xpath = "//*[@id='Serving Sizes']//*[@text='Serving Sizes']")
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
     private MobileElement servingSizes;
 
-    @AndroidFindBy(id = "//*[@resource-id='org.nutritionfacts.dailydozen:id/change_units_button']")
+    @iOSFindBy(xpath = "//*[@id='Units:']")
+    @AndroidFindBy(xpath = "//*[@text='Units']")
+    private MobileElement units;
+
+    @iOSFindBy(xpath = "//*[@class='UIAButton']//*[@id='IMPERIAL']")
+    @AndroidFindBy(id = "change_units_button")
     private MobileElement imperialButton;
 
+    @iOSFindBy(id = "1 tablespoon ground")
     @AndroidFindBy(id = "android:id/text1")
     private MobileElement subContent;
 
+    @iOSFindBy(xpath = "//*[@id='Types']//*[@text='Types']")
     @AndroidFindBy(xpath = "//*[@text='Types']")
     private MobileElement types;
 
-    @AndroidFindBy(xpath = "//*[@text='Brown flaxseeds']")
-    private MobileElement typeBrownFlaxseed;
-
-    @AndroidFindBy(xpath = "//*[@text='Golden flaxseeds']")
-    private MobileElement typeGoldenFlaxseed;
-
-    public HomePage hp;
+    @AndroidFindBy(className = "android.widget.TextView")
+    private MobileElement listTypes;
 
     public FlaxseedsDetailPage(MobileDriver driver) {
         super(driver);
@@ -50,21 +55,13 @@ public class FlaxseedsDetailPage extends BasePage {
     @Override
     public FlaxseedsDetailPage open() {
         if (!isPageDisplayed()) {
-            hp = new HomePage(getDriver());
-            hp.open().moveToDetail();
             getDriver().launchApp();
-            waitForElementDisplay(screenName);
         }
         return this;
     }
 
     public String getScreenName() {
-        return screenName.getText();
-    }
-
-    public FlaxseedsDetailPage clickBackButton() {
-        backButton.findElement(By.className("android.widget.ImageButton")).click();
-        return this;
+        return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
     public FlaxseedsDetailPage clickVideosButton() {
@@ -76,9 +73,17 @@ public class FlaxseedsDetailPage extends BasePage {
         return servingSizes.getText();
     }
 
+    public String getContentUnit(){
+        return units.getText();
+    }
+
     public FlaxseedsDetailPage clickImperialButton() {
         imperialButton.click();
         return this;
+    }
+
+    public String getTextButtonImperial() {
+        return imperialButton.getText();
     }
 
     public String getSubContent() {
@@ -89,15 +94,7 @@ public class FlaxseedsDetailPage extends BasePage {
         return types.getText();
     }
 
-    public String getTypeBrownFlaxseeds() {
-        return typeBrownFlaxseed.getText();
-    }
-
-    public String getTypeGoldenFlaxseeds() {
-        return typeGoldenFlaxseed.getText();
-    }
-
-    public String getTextButtonImerial() {
-        return imperialButton.getText();
+    public void getTypeCategory(int pos) {
+        listTypes.findElements(By.id("food_name")).get(pos).getText();
     }
 }

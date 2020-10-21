@@ -23,7 +23,7 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
             flaxseedsPage.clickBackButton();
         });
         Then("^Display Home screen$", () -> {
-            Assert.assertTrue(flaxseedsPage.hp.isPageDisplayed());
+            Assert.assertTrue(flaxseedsPage.isPageDisplayed());
         });
 
         When("^I click VIDEOS button$", () -> {
@@ -37,7 +37,7 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
         });
 
         Given("^Button must is IMPERIAL$", () -> {
-            String currentValue = flaxseedsPage.getTextButtonImerial();
+            String currentValue = flaxseedsPage.getTextButtonImperial();
             if (!currentValue.equals("IMPERIAL")) {
                 flaxseedsPage.clickImperialButton();
             }
@@ -46,11 +46,11 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
             flaxseedsPage.clickImperialButton();
         });
         Then("^IMPERIAL button change to METRIC button$", () -> {
-            Assert.assertEquals(flaxseedsPage.getTextButtonImerial(), "METRIC");
+            Assert.assertEquals(flaxseedsPage.getTextButtonImperial(), "METRIC");
         });
 
         Given("^Button must is METRIC$", () -> {
-            String currentValue = flaxseedsPage.getTextButtonImerial();
+            String currentValue = flaxseedsPage.getTextButtonImperial();
             if(!currentValue.equals("METRIC")){
                 flaxseedsPage.clickImperialButton();
             }
@@ -59,7 +59,7 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
             flaxseedsPage.clickImperialButton();
         });
         Then("^METRIC button change to IMPERIAL button$", () -> {
-            Assert.assertEquals(flaxseedsPage.getTextButtonImerial(), "IMPERIAL" );
+            Assert.assertEquals(flaxseedsPage.getTextButtonImperial(), "IMPERIAL" );
         });
 
         Then("^The sub content of \\[Serving Sizes\\] is \"([^\"]*)\"$", (String arg0) -> {
@@ -69,10 +69,14 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
         Then("^The content (\\d+) is \"([^\"]*)\"$", (Integer arg0, String arg1) -> {
         });
 
-        Then("^The sub content of \\[Types\\] is \"([^\"]*)\"$", (String arg0) -> {
+        When("^I check display of Units label$", () -> {
         });
-
-        Then("^The sub content (\\d+) of \\[Types\\] is \"([^\"]*)\"$", (Integer arg0, String arg1) -> {
+        Then("^The content of units is \"([^\"]*)\"$", (String arg0) -> {
+        });
+        
+        When("^I check list of \\[Types\\]$", () -> {
+        });
+        Then("^The list of \\[Types\\] is displayed correctly$", () -> {
         });
     }
 }
