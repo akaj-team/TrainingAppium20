@@ -3,6 +3,8 @@ package stepdefs.at_nghiatruong;
 import at.core.PageFactory;
 import at_nghiatruong.TweaksPage;
 import cucumber.api.java8.En;
+import org.testng.Assert;
+import page.exam.HomePage;
 
 /**
  * @author AT-Nghia Truong on 10/19/20.
@@ -10,8 +12,9 @@ import cucumber.api.java8.En;
 public class TweaksDefinitions implements En {
     TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
 
+
     public TweaksDefinitions() {
-        Given("^Tweaks screen is opened$", () -> tweaksPage.clickOnTweaksButton());
+        Given("^Tweaks screen is opened$", () -> Assert.assertTrue(tweaksPage.open().isPageDisplayed()));
         When("^I click the first checkbox$", () -> {
         });
         When("^I go to Tweaks page$", () -> {
@@ -22,10 +25,6 @@ public class TweaksDefinitions implements En {
         });
         When("^I click the Second checkbox$", () -> {
         });
-        Then("^(\\d+)rd checkboxes is also checked$", (Integer arg0) -> {
-        });
-        Then("^Only the (\\d+)rd checkboxes is checked$", (Integer arg0) -> {
-        });
         And("^I click the third checkbox$", () -> {
         });
         When("^I click the checkbox$", () -> {
@@ -33,6 +32,12 @@ public class TweaksDefinitions implements En {
         Then("^The check  box is checked$", () -> {
         });
         And("^I click the second checkbox$", () -> {
+        });
+        Then("^third checkboxes is also checked$", () -> {
+        });
+        Then("^Only the third checkboxes is checked$", () -> {
+        });
+        When("^I click all the first checkbox$", () -> {tweaksPage.clickAllCheckboxes().isAllCheckboxesSelected();
         });
     }
 }

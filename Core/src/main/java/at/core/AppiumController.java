@@ -102,7 +102,7 @@ class AppiumController {
 
     private synchronized void startDefaultServer() throws MalformedURLException {
         XmlTest xmlTest = new XmlTest();
-        xmlTest.setParameters(defaultIosParameters());
+        xmlTest.setParameters(defaultAndroidParameters());
         start(xmlTest);
     }
 
@@ -110,7 +110,7 @@ class AppiumController {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "android");
         parameters.put(MobileCapabilityType.DEVICE_NAME, "Pixel XL API 27");
-        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "8.1");
+        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "9");
         parameters.put(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         parameters.put(AndroidMobileCapabilityType.APP_PACKAGE, "org.nutritionfacts.dailydozen");
         parameters.put(MobileCapabilityType.APP, "org.nutritionfacts.dailydozen.apk");

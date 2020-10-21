@@ -1,6 +1,7 @@
 package page.exam;
 
 import at.base.BasePage;
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -29,6 +30,7 @@ public class HomePage extends BasePage {
     public boolean isPageDisplayed() {
         return isForElementPresent(actionBar);
     }
+    HomePage homePage = new PageFactory<>(HomePage.class).create();
 
     @Override
     public BasePage open() {
@@ -37,25 +39,23 @@ public class HomePage extends BasePage {
         }
         return this;
     }
-
     public String getTextTitle() {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
-
     public HomePage clickMenuButton() {
         actionBar.findElement(By.className("android.widget.ImageView")).click();
         return this;
     }
 
+
     public String getTextTvMenuToggleModes() {
         return tvMenuToggleModes.getText();
     }
-
     public boolean isListMenuDisplay() {
         return isForElementPresent(listMenu);
     }
-
     public boolean isContentTvMenuToggleModesContain(String text) {
         return getTextTvMenuToggleModes().contains(text);
     }
+
 }
