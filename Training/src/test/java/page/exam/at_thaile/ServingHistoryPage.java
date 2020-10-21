@@ -23,6 +23,9 @@ public class ServingHistoryPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Daily Servings History']")
     private MobileElement backButton;
 
+    @iOSFindBy(xpath = "//*[@class='UIAView']")
+    private MobileElement timeView;
+
     @AndroidFindBy(xpath = "//*[@id='time_scale_spinner']")
     private MobileElement timeDropDownList;
 
