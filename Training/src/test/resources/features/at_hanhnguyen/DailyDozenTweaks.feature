@@ -15,14 +15,26 @@ Feature: Test on Daily Dozen Tweaks screen
     When I check title under Tweak text
     Then The title under the Tweak text is "Weight"
 
-  Scenario Outline: Check showing the all items on Tweak screen
-    Then Display all items on Tweak screen with "<itemTitle>"
-    Examples:
-      |itemTitle  |
-      |Preload with Water|
-      |Preload with Negative Calorie Foods|
-      |Incorporate Vinegar (2 tsp with each meal)|
-      |Enjoy Undistracted Meals|
+    Scenario Outline: Check showing the title at AT EACH MEAL group
+      When I check showing the title at AT EACH MEAL group
+      Then The group title shows as "<titleGroup>"
+      Examples:
+        |titleGroup|
+        |At Each Meal|
+        |Every Day|
+        |Take your daily doses|
+        |Every Night|
+
+  Scenario Outline: Check showing all items in AT EACH MEAL
+      When I check showing the all items AT EACH MEAL
+      Then All items in AT EACH MEAL are shown correctly with "<itemTitle>"
+      Examples:
+        |itemTitle|
+        |Preload with Water|
+        |Preload with Water|
+        |Preload with Negative Calorie Foods|
+        |Incorporate Vinegar (2 tsp with each meal)|
+        |Enjoy Undistracted Meals|
 
   Scenario: Check action when user tap into calendar
     When I tap into calendar icon
@@ -33,11 +45,11 @@ Feature: Test on Daily Dozen Tweaks screen
     And I tap into 19/10
     Then showing the tab is 19/10
 
-  Scenario: Check showing the item detail when user tap into i icon
+  Scenario: Check showing the item detail when user tap into item
     When I tap into first item
     Then Showing the item detail page with title is "About Tweak"
     And Showing the image on this page
-    And showing the title of content is "Incorporate Vinegar (2 tsp with each meal)"
+    And showing the title of content is "Preload with Water"
     And Showing the content on this page
 
   Scenario: Check back to the previous page when user tap into the back button

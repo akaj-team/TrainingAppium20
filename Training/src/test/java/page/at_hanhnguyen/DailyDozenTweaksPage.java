@@ -2,6 +2,7 @@ package page.at_hanhnguyen;
 
 import at.base.BasePage;
 import at.core.PageFactory;
+import cucumber.api.java.en.And;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -14,23 +15,31 @@ import page.exam.HomePage;
 import java.util.List;
 
 public class DailyDozenTweaksPage extends BasePage {
-    @AndroidFindBy(xpath = "//*[@text='Tweaks']")
-    private MobileElement lbTweak;
 
-    @AndroidFindBy(xpath = "//*[@text='Weight']")
-    private MobileElement lbWeight;
 
-    @AndroidFindBy(id = "tweak_name")
+    @AndroidFindBy(id= "header_tweaks")
+    private MobileElement headerTweak;
+
+    @AndroidFindBy(id = "date_weights")
+    private MobileElement datWeight;
+
+    @AndroidFindBy(className = "android.widget.LinearLayout")
     private List<MobileElement>lstTweak;
 
-    @AndroidFindBy(xpath = "//*[@class='android.widget.LinearLayout' and ./*[@text='Preload with Water \uF05A']]")
-     private MobileElement lbTweakName;
+    @AndroidFindBy(id="tweak_name")
+    private MobileElement lbTweakName;
+
+    @AndroidFindBy(id = "tweak_group_title")
+    private MobileElement lbGroupTitle;
 
     @AndroidFindBy(xpath = "//*[@text='History']")
-     private MobileElement lbHistory;
+     private MobileElement lnHistory;
 
-    @AndroidFindBy(xpath = "(//*[@id='tweak_history'])[1]")
-    private MobileElement calendarIcon;
+    @AndroidFindBy(id = "tweak_history")
+    private List<MobileElement> lstcalendarIcon;
+
+    @AndroidFindBy(xpath = "//*[@id='tweak_checkboxes']//*[@class='android.widget.CheckBox']")
+    private  List<MobileElement> lstCheckbox;
 
     HomePage homePage = new PageFactory<>(HomePage.class).create();
 
@@ -40,27 +49,27 @@ public class DailyDozenTweaksPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(lbTweak);
+        return isForElementPresent(headerTweak.findElement(By.id("header")));
     }
 
     @Override
     public BasePage open() {
         if (!isPageDisplayed()) {
-            getDriver().launchApp();
+            homePage.open();
             homePage.clickRightHeader();
         }
         return this;
     }
 
     public String verifyWeightText(){
-        return lbWeight.getText();
+        return datWeight.findElement(By.id("header")).getText();
     }
 
     public String verifyTweakText(){
-        return lbTweak.getText();
+        return headerTweak.findElement(By.id("header")).getText();
     }
 
-    public boolean showAllItems(String name) {
+    public boolean verifyAllItemsShowCorrectly(String name) {
         for (MobileElement element : lstTweak) {
             if (!lbTweakName.getText().equals(name)){
                 return false;
@@ -68,10 +77,27 @@ public class DailyDozenTweaksPage extends BasePage {
         } return true ;
     }
 
-    public String verifyCalendarPopUpTitle(){ return lbHistory.getText(); }
+    public boolean verifyTitleGroupShowCorrectly(String title) {
+        for (MobileElement element : lstTweak) {
+            if (!lbGroupTitle.getText().equals(title)){
+                return false;
+            }
+        } return true ;
+    }
+
+    public String verifyCalendarPopUpTitle(){ return lnHistory.getText(); }
 
     public void clickIntoCalendarIcon(){
-        calendarIcon.isDisplayed();
-        calendarIcon.click();
+        lstcalendarIcon.get(0).click();
+    }
+
+    public void clickIntoFirstCheckbox(){
+        if (!lstCheckbox.get(0).isSelected()){
+            lstCheckbox.get(0).click();
+        }
+    }
+
+    public boolean verifyCheckboxIsChecked(){
+        return lstCheckbox.get(1).isSelected()&& lstCheckbox.get(2).isSelected();
     }
 }

@@ -65,5 +65,4 @@ public class HomePage extends BasePage {
     public void clickRightHeader(){
         ln21Tweaks.click();
     }
-
 }
