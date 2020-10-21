@@ -21,6 +21,9 @@ public class HomePage extends BasePage {
     @AndroidFindBy(className = "android.widget.ListView")
     private MobileElement listMenu;
 
+    @AndroidFindBy(id = "food_name")
+    private MobileElement btnFood;
+
     public HomePage(MobileDriver driver) {
         super(driver);
     }
@@ -36,6 +39,10 @@ public class HomePage extends BasePage {
             getDriver().launchApp();
         }
         return this;
+    }
+
+    public void clickBtnFoodName(){
+        btnFood.click();
     }
 
     public String getTextTitle() {
