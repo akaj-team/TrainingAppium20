@@ -50,5 +50,3 @@ Feature: Test on Calendar screen
   Scenario: Check some buttons of IOS devices
     When I tap on settings button
     Then Settings screen is opened
-
-

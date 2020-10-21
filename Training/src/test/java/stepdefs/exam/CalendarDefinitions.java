@@ -27,6 +27,5 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
         When("^I tap on next button$", () -> {calendarPageAndroid.clickToNextButton(); });
         When("^I tap on next previous button$", () -> {calendarPageAndroid.clickToPreviousButton(); });
 
-
     }
     }
