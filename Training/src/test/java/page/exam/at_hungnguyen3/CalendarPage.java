@@ -103,7 +103,7 @@ public class CalendarPage extends BasePage {
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
-    public void swipeToTheLeft(AppiumDriver driver){
+    public CalendarPage swipeToTheLeft(AppiumDriver driver){
         Dimension dimension = driver.manage().window().getSize();
         int startY = (dimension.height / 2);
         int startX = (int) (dimension.width * 0.05);
@@ -114,9 +114,10 @@ public class CalendarPage extends BasePage {
                 .moveTo(PointOption.point(endX, startY))
                 .release()
                 .perform();
+        return this;
     }
 
-    public void swipeToTheRight(AppiumDriver driver){
+    public CalendarPage swipeToTheRight(AppiumDriver driver){
         Dimension dimension = driver.manage().window().getSize();
         int startY = (int) (dimension.height / 2);
         int startX = (int) (dimension.width * 0.90);
@@ -127,6 +128,7 @@ public class CalendarPage extends BasePage {
                 .moveTo(PointOption.point(endX, startY))
                 .release()
                 .perform();
+        return this;
     }
 }
 
