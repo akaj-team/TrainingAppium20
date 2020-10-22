@@ -3,10 +3,10 @@ package page.exam.at_thaile;
 import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import org.openqa.selenium.By;
+import page.exam.HomePage;
+import at.core.PageFactory;
 
 /**
  * for screen
@@ -71,18 +71,47 @@ public class ServingHistoryPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return false;
+        return isForElementPresent(screenTitle);
     }
 
     @Override
     public BasePage open() {
         if (!isPageDisplayed()) {
+            HomePage hp = new PageFactory<>(HomePage.class).create();
             getDriver().launchApp();
+            waitForElementDisplay(screenTitle);
         }
+        return this;
+    }
 
-        public TweaksHistoryPage clickDailyDozenButton {
-            backButton.click();
-            return this;
-        }
+    @Override
+    public BasePage clickBackButton() {
+        backButton.click();
+        return super.clickBackButton();
+    }
+
+    public String getTextTimeView() {
+        return timeView.getText();
+    }
+
+    public String getTextScreenTitle() {
+        return screenTitle.getText();
+    }
+
+    public void clickMonthButton() {
+        monthButton.click();
+    }
+
+    public void clickYearbutton() {
+        yearButton.click();
+    }
+    public void clickTweakButton(){
+        tweaksButton.click();
+    }
+    public void clickInfoButton(){
+        infoButton.click();
+    }
+    public void clickSettingButton(){
+        settingButton.click();
     }
 }

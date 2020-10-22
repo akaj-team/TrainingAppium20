@@ -4,6 +4,7 @@ import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
 /**
@@ -20,6 +21,9 @@ public class HomePage extends BasePage {
 
     @AndroidFindBy(className = "android.widget.ListView")
     private MobileElement listMenu;
+
+    @iOSFindBy(id = "ic stat")
+    private MobileElement statButton;
 
     public HomePage(MobileDriver driver) {
         super(driver);
@@ -51,6 +55,9 @@ public class HomePage extends BasePage {
         return tvMenuToggleModes.getText();
     }
 
+    public void clickStatButton(){
+        statButton.click();
+    }
     public boolean isListMenuDisplay() {
         return isForElementPresent(listMenu);
     }
