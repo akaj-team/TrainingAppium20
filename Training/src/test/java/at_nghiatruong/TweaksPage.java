@@ -53,5 +53,15 @@ public class TweaksPage extends BasePage {
         return this;
     }
 
+    public TweaksPage getTitleMenuInTweaksList(int pos){
+        tweakList.get(pos).findElement(By.id("tweak_name")).getText();
+        return this;
+    }
+
+    public TweaksPage clickCheckboxInTweaksList(int pos){
+        tweakList.get(pos).findElement(By.className("android.widget.CheckBox")).click();
+        return this;
+    }
+
 }
 
