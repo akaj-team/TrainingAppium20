@@ -4,6 +4,7 @@ import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
 /**
@@ -21,6 +22,7 @@ public class HomePage extends BasePage {
     @AndroidFindBy(className = "android.widget.ListView")
     private MobileElement listMenu;
 
+    @iOSFindBy(xpath = "//*[@text='More Info']")
     @AndroidFindBy(id = "food_name")
     private MobileElement btnFood;
 
