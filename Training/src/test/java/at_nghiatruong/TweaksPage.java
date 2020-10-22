@@ -25,10 +25,21 @@ public class TweaksPage extends BasePage {
     @AndroidFindBy(id = "action_bar")
     private MobileElement actionBar;
 
+    @AndroidFindBy(id= "tweak_name")
+    private MobileElement tweakName;
+
+
+    @AndroidFindBy(className = "android.widget.CheckBox")
+    private MobileElement listCheckboxes;
+
+    @AndroidFindBy(className = "android.widget.ScrollView")
+    private MobileElement listScrollView;
+
     @Override
     public boolean isPageDisplayed() {
         return isForElementPresent(actionBar);
     }
+
     @Override
     public BasePage open() {
         if (!isPageDisplayed()) {
@@ -37,31 +48,38 @@ public class TweaksPage extends BasePage {
         return this;
     }
 
-    MobileElement container = (MobileElement) getDriver().findElement(By.id("date_tweaks"));
-    List<MobileElement> tweakList = container.findElements(By.className("android.widget.LinearLayout"));
+    public boolean isListCheckboxesDisplay(){
+        return isForElementPresent(listCheckboxes);
+    }
+
+    public boolean isListScrollViewDisplay(){
+        return isForElementPresent(listScrollView);
+    }
+
+    MobileElement dateTweaks = (MobileElement) getDriver().findElement(By.id("date_tweaks"));
+    List<MobileElement> container = dateTweaks.findElements(By.className("android.widget.LinearLayout"));
 
     public TweaksPage clickAllCheckboxes(){
 
-        for (int i = 0; i< tweakList.size(); i++)
-            tweakList.get(i).findElement(By.className("android.widget.CheckBox")).click();
+        for (int i = 0; i< container.size(); i++)
+            container.get(i).findElement(By.className("android.widget.CheckBox")).click();
         return this;
     }
     public TweaksPage isAllCheckboxesSelected(){
 
-        for (int i = 0; i< tweakList.size(); i++)
-            Assert.assertTrue(tweakList.get(i).findElement(By.className("android.widget.CheckBox")).isSelected());
+        for (int i = 0; i< container.size(); i++)
+            Assert.assertTrue(container.get(i).findElement(By.className("android.widget.CheckBox")).isSelected());
         return this;
     }
 
     public TweaksPage getTitleMenuInTweaksList(int pos){
-        tweakList.get(pos).findElement(By.id("tweak_name")).getText();
+        container.get(pos).findElement(By.className("android.widget.CheckBox")).getText();
         return this;
     }
 
     public TweaksPage clickCheckboxInTweaksList(int pos){
-        tweakList.get(pos).findElement(By.className("android.widget.CheckBox")).click();
+        container.get(pos).findElement(By.className("android.widget.CheckBox")).click();
         return this;
     }
-
 }
 

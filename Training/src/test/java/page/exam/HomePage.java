@@ -28,6 +28,7 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
+
         return isForElementPresent(actionBar);
     }
     HomePage homePage = new PageFactory<>(HomePage.class).create();
@@ -40,6 +41,7 @@ public class HomePage extends BasePage {
         return this;
     }
     public String getTextTitle() {
+
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
     public HomePage clickMenuButton() {
@@ -49,12 +51,14 @@ public class HomePage extends BasePage {
 
 
     public String getTextTvMenuToggleModes() {
+
         return tvMenuToggleModes.getText();
     }
     public boolean isListMenuDisplay() {
         return isForElementPresent(listMenu);
     }
     public boolean isContentTvMenuToggleModesContain(String text) {
+
         return getTextTvMenuToggleModes().contains(text);
     }
 
