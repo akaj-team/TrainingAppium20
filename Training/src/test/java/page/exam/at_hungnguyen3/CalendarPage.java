@@ -2,16 +2,22 @@ package page.exam.at_hungnguyen3;
 
 import at.base.BasePage;
 import at.core.PageFactory;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import page.exam.HomePage;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 public class CalendarPage extends BasePage {
@@ -95,6 +101,32 @@ public class CalendarPage extends BasePage {
 
     public void scrollToElement(MobileElement element) {
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public void swipeToTheLeft(AppiumDriver driver){
+        Dimension dimension = driver.manage().window().getSize();
+        int startY = (dimension.height / 2);
+        int startX = (int) (dimension.width * 0.05);
+        int endX = (int) (dimension.width * 0.90);
+        new TouchAction(driver)
+                .press(PointOption.point(startX, startY))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(3000)))
+                .moveTo(PointOption.point(endX, startY))
+                .release()
+                .perform();
+    }
+
+    public void swipeToTheRight(AppiumDriver driver){
+        Dimension dimension = driver.manage().window().getSize();
+        int startY = (int) (dimension.height / 2);
+        int startX = (int) (dimension.width * 0.90);
+        int endX = (int) (dimension.width * 0.05);
+        new TouchAction(driver)
+                .press(PointOption.point(startX, startY))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(3000)))
+                .moveTo(PointOption.point(endX, startY))
+                .release()
+                .perform();
     }
 }
 

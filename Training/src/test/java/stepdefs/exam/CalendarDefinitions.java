@@ -22,8 +22,7 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
         Then("^Calendar is displayed$", () -> {calendarPage.isHistoryDisplay(); });
         When("^I tap on info button$", () -> {calendarPageIOS.clickInfoButton(); });
         When("^I tap on settings button$", () -> {calendarPageIOS.clickSettingsButton(); });
-        When("^I tap on daily dozen button$", () -> {calendarPageIOS.clickDailyDozenButton();
-        });
+        When("^I tap on daily dozen button$", () -> {calendarPageIOS.clickDailyDozenButton(); });
         When("^I tap on next button$", () -> {calendarPageAndroid.clickToNextButton(); });
         When("^I tap on next previous button$", () -> {calendarPageAndroid.clickToPreviousButton(); });
 
