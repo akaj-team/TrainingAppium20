@@ -102,7 +102,7 @@ public class ServingHistoryPage extends BasePage {
         monthButton.click();
     }
 
-    public void clickYearbutton() {
+    public void clickYearButton() {
         yearButton.click();
     }
     public void clickTweakButton(){
