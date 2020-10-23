@@ -14,6 +14,8 @@ public class CalendarPageAndroid extends CalendarPage{
     @AndroidFindBy(id = "next")
     private MobileElement next;
 
+    private MobileElement item = actionBar.findElementByClassName("android.widget.TextView");
+
     public CalendarPageAndroid clickToNextButton(){
         waitForElementDisplay(next);
         next.click();

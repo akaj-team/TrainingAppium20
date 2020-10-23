@@ -58,10 +58,11 @@ public class CalendarPage extends BasePage {
     }
 
     @Override
-    public BasePage open() {
+    public CalendarPage open() {
         if (!isPageDisplayed()) {
+            getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.open();
+            homePage.open().clickCalendarButton();
         }
         return null;
     }
