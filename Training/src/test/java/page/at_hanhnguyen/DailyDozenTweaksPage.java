@@ -39,6 +39,12 @@ public class DailyDozenTweaksPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@id='tweak_checkboxes']//*[@class='android.widget.CheckBox']")
     private List<MobileElement> lstCheckbox;
 
+    @AndroidFindBy(className = "//*[@class='android.widget.CheckedTextView']")
+    private List<MobileElement> lstDate;
+
+    @AndroidFindBy(id = "date_pager_indicato")
+    private MobileElement viewGroupDate;
+
     HomePage homePage = new PageFactory<>(HomePage.class).create();
 
     public DailyDozenTweaksPage(MobileDriver driver) {
@@ -105,10 +111,22 @@ public class DailyDozenTweaksPage extends BasePage {
 
     public String getCurrentDate(){
         Date todaysDate = new Date();
-        DateFormat formatDate = new SimpleDateFormat("E, MMM dd yyyy");
+        DateFormat formatDate = new SimpleDateFormat("E, MMM dd");
         String formatDateString = formatDate.format(todaysDate);
         // System.out.println("String in E, MMM dd yyyy format is: " + formatDateString);
         return formatDateString;
+    }
+
+    public void selectDate(String date){
+        for (MobileElement element: lstDate){
+            if (element.getText().equals(date)){
+                element.click(); break;
+            }
+        }
+    }
+
+    public String verifyDateAfterSelectDate(){
+        return viewGroupDate.findElement(By.className("android.widget.TextView")).getText();
     }
 
 }

@@ -42,7 +42,7 @@ Feature: Test on Daily Dozen Tweaks screen
 
   Scenario: Check showing the tab when user select date on calendar popup
     When I tap into calendar icon
-    And I tap into 19/10
+    And I tap into "19"
     Then showing the tab is 19/10
 
   Scenario: Check showing the item detail when user tap into item

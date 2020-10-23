@@ -61,11 +61,4 @@ public class TweakDetailPage extends BasePage {
         return this;
     }
 
-    public String getCurrentDate()  {
-        Date todaysDate = new Date();
-        DateFormat formatDate = new SimpleDateFormat("E, MMM dd");
-        String formatDateString = formatDate.format(todaysDate);
-        System.out.println("String in E, MMM dd yyyy format is: " + formatDateString);
-        return formatDateString;
-    }
 }
