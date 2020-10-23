@@ -9,7 +9,7 @@ Feature: Test on Daily Dozen Tweaks screen
 
   Scenario: Check showing the default tap is today
     When I check default tab on Tweak screen
-    Then The default tab is today
+    Then The default tab is today as "Thu, Oct 22"
 
   Scenario: Check showing the weight item under Tweaks title
     When I check title under Tweak text

@@ -4,7 +4,14 @@ import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.joda.time.LocalDate;
 import org.openqa.selenium.By;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class TweakDetailPage extends BasePage {
     @AndroidFindBy(id="action_bar")
@@ -52,5 +59,13 @@ public class TweakDetailPage extends BasePage {
     public BasePage clickBackButton(){
         actionBar.findElement(By.className("android.widget.ImageButton")).click();
         return this;
+    }
+
+    public String getCurrentDate()  {
+        Date todaysDate = new Date();
+        DateFormat formatDate = new SimpleDateFormat("E, MMM dd");
+        String formatDateString = formatDate.format(todaysDate);
+        System.out.println("String in E, MMM dd yyyy format is: " + formatDateString);
+        return formatDateString;
     }
 }

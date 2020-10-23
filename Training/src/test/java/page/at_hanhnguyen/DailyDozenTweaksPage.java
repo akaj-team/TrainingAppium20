@@ -7,6 +7,10 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import page.exam.HomePage;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class DailyDozenTweaksPage extends BasePage {
@@ -98,4 +102,13 @@ public class DailyDozenTweaksPage extends BasePage {
     public boolean verifyCheckboxIsChecked() {
         return lstCheckbox.get(1).isSelected() && lstCheckbox.get(2).isSelected();
     }
+
+    public String getCurrentDate(){
+        Date todaysDate = new Date();
+        DateFormat formatDate = new SimpleDateFormat("E, MMM dd yyyy");
+        String formatDateString = formatDate.format(todaysDate);
+        // System.out.println("String in E, MMM dd yyyy format is: " + formatDateString);
+        return formatDateString;
+    }
+
 }
