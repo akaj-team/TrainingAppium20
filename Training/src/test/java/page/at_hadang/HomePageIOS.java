@@ -24,10 +24,6 @@ public class HomePageIOS extends HomePage {
         super(driver);
     }
 
-    public String getTextTitleIOS() {
-        return actionBar.findElement(By.className("UIAStaticText")).getText();
-    }
-
     public String getTextOfFoodNameIOS(int pos) {
         return container.findElements(By.className("UIAStaticText")).get(pos).getText();
     }
@@ -46,12 +42,5 @@ public class HomePageIOS extends HomePage {
         if (foodName == name) {
             lstBtnMoreInfo.get(pos).click();
         }
-    }
-
-    public final boolean isHomePageDisplayedIOS() {
-        if (!actionBar.findElement(By.className("UIAStaticText")).isDisplayed()) {
-            return false;
-        }
-        return true;
     }
 }

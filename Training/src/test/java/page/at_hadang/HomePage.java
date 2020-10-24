@@ -19,9 +19,9 @@ public class HomePage extends BasePage {
     @iOSFindBy(className = "UIANavigationBar")
     protected MobileElement actionBar;
 
-    @AndroidFindBy(id = "Daily Dozen")
+    @AndroidFindBy(xpath = "//*[@text='Daily Dozen']")
     @iOSFindBy(id = "Daily Dozen")
-    private MobileElement tvTitle;
+    protected MobileElement tvTitle;
 
     @AndroidFindBy(id = "header")
     @iOSFindBy(id = "Servings")
@@ -61,6 +61,11 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    public String getTextTitle() {
+        waitForElementDisplay(tvTitle);
+        return tvTitle.getText();
+    }
+
     public String getTextHeader() {
         waitForElementDisplay(tvHeader);
         return tvHeader.getText();
@@ -86,5 +91,12 @@ public class HomePage extends BasePage {
         for (int i = 0; i < lstBtnCalendar.size(); i++) {
             lstBtnCalendar.get(i).click();
         }
+    }
+
+    public final boolean isHomePageDisplayed() {
+        if (!tvTitle.isDisplayed()) {
+            return false;
+        }
+        return true;
     }
 }

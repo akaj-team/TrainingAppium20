@@ -14,9 +14,6 @@ import java.util.List;
  */
 
 public class HomePageAndroid extends HomePage {
-    @AndroidFindBy(xpath = "//*[@text='Daily Dozen']")
-    private MobileElement tvTitle;
-
     @AndroidFindBy(className = "android.widget.ScrollView")
     private MobileElement container;
 
@@ -34,11 +31,6 @@ public class HomePageAndroid extends HomePage {
 
     public HomePageAndroid(MobileDriver driver) {
         super(driver);
-    }
-
-    public String getTextTitleAndroid() {
-        waitForElementDisplay(tvTitle);
-        return tvTitle.getText();
     }
 
     public final void clickChartButtonAndroid() {
@@ -68,13 +60,6 @@ public class HomePageAndroid extends HomePage {
         if (foodName == name) {
             lstBtnMoreInfo.get(pos).click();
         }
-    }
-
-    public final boolean isHomePageDisplayedAndroid() {
-        if (!tvTitle.isDisplayed()) {
-            return false;
-        }
-        return true;
     }
 
     public final void clickCheckBoxOfFirstItem() {
