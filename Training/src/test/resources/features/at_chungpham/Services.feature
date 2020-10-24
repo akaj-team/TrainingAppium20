@@ -13,7 +13,7 @@ Feature : Test on Services screen
 
   Scenario: Check title of Unit
     When I check title of Unit
-    Then The content contain ""
+    Then The content contain "Unit"
 
   Scenario: Check display name of Video button
     When I check display name of Video button
@@ -22,10 +22,6 @@ Feature : Test on Services screen
   Scenario: Check function of Video button
     When I taping on Video button
     Then The App redirect to http://nutritionfacts.org/topics/ website
-
-  Scenario: Check display of Unit label
-    When I check display of Unit label
-    Then The content contain "Unit"
 
   Scenario: Check display of Imperial
     When I check display of Imperial

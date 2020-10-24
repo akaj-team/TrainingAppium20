@@ -6,27 +6,26 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import org.openqa.selenium.By;
 import page.HomePage;
+import org.openqa.selenium.By;
 
 
+/**
+ * @author at_chungpham
+ */
 public class ServicesPage extends BasePage {
 
-    @iOSFindBy(xpath = "//*[@text='Daily Dozen' and @class='UIAButton' and ./parent::*[@text='Daily Dozen']]")
+    @iOSFindBy(xpath = "//*[@text='Daily Dozen'")
     @AndroidFindBy(xpath = "//*[@contentDescription='Navigate up']")
     private MobileElement btnBack;
 
-    //@iOSFindBy(xpath = "")
-    @AndroidFindBy(xpath = "//*[@class='android.widget.TextView' and ./parent::*[@id='action_bar']]")
-    private MobileElement title;
-
-    @iOSFindBy(xpath = "//*[@text='VIDEOS' and @class='UIAButton' and ./parent::*[@text='Daily Dozen']]")
+    @iOSFindBy(xpath = "//*[@text='VIDEOS'")
     @AndroidFindBy(id = "food_info_videos")
     private MobileElement btnVideo;
 
     @iOSFindBy(xpath = "//*[@knownSuperClass='UIImageView']")
     @AndroidFindBy(id = "food_info_image")
-    private MobileElement foodImage;
+    private MobileElement imgFoodImage;
 
     @iOSFindBy(xpath = "//*[@id='Serving Sizes' and @class='UIAStaticText']")
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
@@ -36,32 +35,21 @@ public class ServicesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Units']")
     private MobileElement txtUnit;
 
-    @AndroidFindBy(id = "change_units_button")
-    private MobileElement btnChangeUnit;
-
-    @iOSFindBy(xpath = "//*[@text='METRIC' and @class='UIAButton' and ./parent::*[@class='UIATable']]")
+    @iOSFindBy(xpath = "//*[@text='METRIC'")
     @AndroidFindBy(xpath = "//*[@text='METRIC']")
     private MobileElement btnChangeToImperial;
 
-    @iOSFindBy(xpath = "//*[@text='IMPERIAL' and @class='UIAStaticText' and ./parent::*[./parent::*[@text='Serving Sizes']]]")
+    @iOSFindBy(xpath = "//*[@text='IMPERIAL']")
     @AndroidFindBy(xpath = "//*[@text='IMPERIAL']")
     private MobileElement btnChangeToMetric;
 
-    @AndroidFindBy(id = "text1")
-    private MobileElement txtListServingSizes;
-
-    @iOSFindBy(xpath = "//*[@text='Types' and @class='UIAStaticText'")
+    @iOSFindBy(xpath = "//*[@text='Types'")
     @AndroidFindBy(xpath = "//*[@text='Types']")
     private MobileElement txtTypes;
-
-    @AndroidFindBy(id = "food_name")
-    private MobileElement txtFoodName;
 
     @iOSFindBy(id = "VIDEOS")
     @AndroidFindBy(id = "food_videos")
     private MobileElement btnFoodVideo;
-
-
 
     public ServicesPage(MobileDriver driver) {
         super(driver);
@@ -116,18 +104,6 @@ public class ServicesPage extends BasePage {
 
     public void clickBtnChangeToMetric() {
         btnChangeToMetric.click();
-    }
-
-    public void clickBtnChangeUnit() {
-        btnChangeUnit.click();
-    }
-
-    public boolean isTypesPresent() {
-        if (txtListServingSizes.isDisplayed()) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public boolean isVideoRedirect() {

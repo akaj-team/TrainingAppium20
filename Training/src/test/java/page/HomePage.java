@@ -13,14 +13,10 @@ import org.openqa.selenium.By;
  * @author at-anh.quach
  */
 public class HomePage extends BasePage {
+
+    @iOSFindBy(className = "UIANavigationBar")
     @AndroidFindBy(id = "action_bar")
     private MobileElement actionBar;
-
-    @AndroidFindBy(id = "menu_toggle_modes")
-    private MobileElement tvMenuToggleModes;
-
-    @AndroidFindBy(className = "android.widget.ListView")
-    private MobileElement listMenu;
 
     @iOSFindBy(xpath = "//*[@text='More Info']")
     @AndroidFindBy(id = "food_name")
@@ -45,26 +41,5 @@ public class HomePage extends BasePage {
 
     public void clickBtnFoodName(){
         btnFood.click();
-    }
-
-    public String getTextTitle() {
-        return actionBar.findElement(By.className("android.widget.TextView")).getText();
-    }
-
-    public HomePage clickMenuButton() {
-        actionBar.findElement(By.className("android.widget.ImageView")).click();
-        return this;
-    }
-
-    public String getTextTvMenuToggleModes() {
-        return tvMenuToggleModes.getText();
-    }
-
-    public boolean isListMenuDisplay() {
-        return isForElementPresent(listMenu);
-    }
-
-    public boolean isContentTvMenuToggleModesContain(String text) {
-        return getTextTvMenuToggleModes().contains(text);
     }
 }
