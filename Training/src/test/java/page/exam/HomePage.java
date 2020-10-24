@@ -60,16 +60,4 @@ public class HomePage extends BasePage {
     public boolean isContentTvMenuToggleModesContain(String text) {
         return getTextTvMenuToggleModes().contains(text);
     }
-
-    public HomePage openInfoPageAndroid(){
-        open();
-        actionBar.findElement(By.className("android.widget.ImageView")).click();
-        return this;
-    }
-
-    public HomePage openInfoPageIOS(){
-        open();
-        actionBar.findElements(By.className("UIAButton")).get(2).click();
-        return this;
-    }
 }
