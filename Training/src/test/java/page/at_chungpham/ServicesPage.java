@@ -27,7 +27,7 @@ public class ServicesPage extends BasePage {
     @AndroidFindBy(id = "food_info_image")
     private MobileElement imgFoodImage;
 
-    @iOSFindBy(xpath = "//*[@id='Serving Sizes' and @class='UIAStaticText']")
+    @iOSFindBy(xpath = "//*[@text='Serving Sizes']")
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
     private MobileElement txtServingSizesTitle;
 
