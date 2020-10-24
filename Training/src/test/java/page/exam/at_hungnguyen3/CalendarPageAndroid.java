@@ -58,14 +58,16 @@ public class CalendarPageAndroid extends CalendarPage{
     }
 
     public void isItemCorrect(){
-        String itemText = getItemText();
         clickBackButton();
         HomePage homePage = new PageFactory<>(HomePage.class).create();
         homePage.waitForElementDisplay(actionBar);
+        int pos = 0;
+        String itemListText = listItem.get(pos).getText();
         listItem.get(pos).click ;
         scrollToElement(itemToClick);
         listItem.get(pos).click();
         Assert.assertEquals(getItemText(),getItemText());
+        pos++;
     }
 
     public CalendarPageAndroid(MobileDriver driver) {
