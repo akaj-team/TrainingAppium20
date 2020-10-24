@@ -12,12 +12,12 @@ import page.exam.HomePage;
 public class TweaksDefinitions implements En {
     TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
 
-
     public TweaksDefinitions() {
-        Given("^Tweaks screen is opened$", () -> Assert.assertTrue(tweaksPage.open().isPageDisplayed()));
+        Given("^Tweaks screen is opened$", () -> {
+        });
         When("^I click the first checkbox$", () -> {
         });
-        When("^I go to Tweaks page$", () -> {
+        When("^I go to Tweaks page$", () -> { tweaksPage.isPageDisplayed();
         });
         Then("^all checkboxes are unchecked$", () -> {
         });
@@ -38,6 +38,10 @@ public class TweaksDefinitions implements En {
         Then("^Only the third checkboxes is checked$", () -> {
         });
         When("^I click all the first checkbox$", () -> {tweaksPage.clickAllCheckboxes().isAllCheckboxesSelected();
+        });
+        Then("^I see (\\d+) items with \"([^\"]*)\" correctly$", (Integer arg0, String arg1) -> {
+        });
+        Then("^I see \"([^\"]*)\" checkboxes on \"([^\"]*)\" item$", (String arg0, String arg1) -> {
         });
     }
 }

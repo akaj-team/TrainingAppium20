@@ -2,15 +2,16 @@ package at_nghiatruong;
 
 import at.base.BasePage;
 import at.core.PageFactory;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.*;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
+import jdk.internal.jimage.ImageReaderFactory;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import page.exam.HomePage;
 
+import java.time.Duration;
 import java.util.List;
 
 /**
@@ -21,19 +22,34 @@ public class TweaksPage extends BasePage {
     public TweaksPage(MobileDriver<WebElement> driver) {
         super(driver);
     }
+    HomePage homePage = new PageFactory<>(HomePage.class).create();
+
 
     @AndroidFindBy(id = "action_bar")
-    private MobileElement actionBar;
+    @iOSFindBy(accessibility = "21 Tweaks")
+    MobileElement actionBar;
 
     @AndroidFindBy(id= "tweak_name")
-    private MobileElement tweakName;
+    @iOSFindBy(className = "UIAStaticText")
+    private List<MobileElement> tweakName;
 
 
     @AndroidFindBy(className = "android.widget.CheckBox")
-    private MobileElement listCheckboxes;
+    @iOSFindBy(className = "UIAButton")
+    List<MobileElement> listCheckboxes;
 
-    @AndroidFindBy(className = "android.widget.ScrollView")
-    private MobileElement listScrollView;
+    @AndroidFindBy(id = "tweak_history")
+    @iOSFindBy(id = "ic calendar")
+    List<MobileElement> listHistory;
+
+    @AndroidFindBy(className = "android.widget.TextView")
+    @iOSFindBy(id = "21 Tweaks")
+    private MobileElement textTitle;
+
+    @AndroidFindBy(id = "tweak_icon")
+    protected List<MobileElement> listTweakIcon;
+
+
 
     @Override
     public boolean isPageDisplayed() {
@@ -44,16 +60,9 @@ public class TweaksPage extends BasePage {
     public BasePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
+            homePage.clickMenuButton();
         }
         return this;
-    }
-
-    public boolean isListCheckboxesDisplay(){
-        return isForElementPresent(listCheckboxes);
-    }
-
-    public boolean isListScrollViewDisplay(){
-        return isForElementPresent(listScrollView);
     }
 
     MobileElement dateTweaks = (MobileElement) getDriver().findElement(By.id("date_tweaks"));
@@ -63,6 +72,7 @@ public class TweaksPage extends BasePage {
 
         for (int i = 0; i< container.size(); i++)
             container.get(i).findElement(By.className("android.widget.CheckBox")).click();
+            scrollToElementContainText("Trendelenburg",container.get(20));
         return this;
     }
     public TweaksPage isAllCheckboxesSelected(){
@@ -72,14 +82,17 @@ public class TweaksPage extends BasePage {
         return this;
     }
 
-    public TweaksPage getTitleMenuInTweaksList(int pos){
-        container.get(pos).findElement(By.className("android.widget.CheckBox")).getText();
+    public TweaksPage getTitleMenuInTweaksList(){
+        container.get(pos).findElement(By.id("tweak_name")).getText();
         return this;
     }
-
-    public TweaksPage clickCheckboxInTweaksList(int pos){
+    int pos;
+    public TweaksPage clickCheckboxInTweaksList(){
         container.get(pos).findElement(By.className("android.widget.CheckBox")).click();
         return this;
     }
+    public String getTextTitle() {
+        waitForElementDisplay(textTitle);
+        return textTitle.getText();
+    }
 }
-
