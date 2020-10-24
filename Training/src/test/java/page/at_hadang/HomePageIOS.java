@@ -17,13 +17,7 @@ public class HomePageIOS extends HomePage {
     @iOSFindBy(className = "UIATable")
     private MobileElement container;
 
-    @iOSFindBy(xpath = "//*[@text='0 / 24']")
-    private MobileElement txtNumServings;
-
-    @iOSFindBy(xpath = "((//*[@class='UIATable']/*[@class='UIAView'])/*[@class='UIAButton'])")
-    private List<MobileElement> containerCheckBoxes;
-
-    @iOSFindBy(xpath = "//*[@text='ic stat']")
+    @iOSFindBy(id = "ic stat")
     private MobileElement btnChart;
 
     public HomePageIOS(MobileDriver driver) {

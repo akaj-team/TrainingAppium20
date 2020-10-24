@@ -20,6 +20,9 @@ public class HomePageAndroid extends HomePage {
     @AndroidFindBy(className = "android.widget.ScrollView")
     private MobileElement container;
 
+    @AndroidFindBy(id = "sub_header")
+    private MobileElement subHeader;
+
     @AndroidFindBy(id = "num_servings")
     private MobileElement txtNumServings;
 
@@ -28,9 +31,6 @@ public class HomePageAndroid extends HomePage {
 
     @AndroidFindBy(className = "android.widget.CheckBox")
     private List<MobileElement> lstCheckBoxes;
-
-    @AndroidFindBy(xpath = "//*[@text='\uF080']")
-    private MobileElement btnChart;
 
     public HomePageAndroid(MobileDriver driver) {
         super(driver);
@@ -42,9 +42,9 @@ public class HomePageAndroid extends HomePage {
     }
 
     public final void clickChartButtonAndroid() {
-        waitForElementDisplay(btnChart);
-        lstCheckBoxes.get(0).click();
-        btnChart.click();
+        waitForElementDisplay(subHeader);
+        List<MobileElement> el = subHeader.findElements(By.className("android.widget.TextView"));
+        el.get(el.size() - 1).click();
     }
 
     public String getTextOfFoodNameAndroid(int pos) {
