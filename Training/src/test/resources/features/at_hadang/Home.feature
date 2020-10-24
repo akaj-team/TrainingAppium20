@@ -7,6 +7,10 @@ Feature: Test on Home screen
     When I check title of Home screen
     Then The title is "Daily Dozen"
 
+  Scenario: Check header text of Home screen
+    When I check header text of Home screen
+    Then The header text is "Servings"
+
   Scenario Outline: Verify display of items in the Servings list
     When I check display of items in the Servings list
     Then I see 13 items with "<name>" correctly
@@ -96,8 +100,8 @@ Feature: Test on Home screen
       | Exercise               |
 
   Scenario: Check function of More Info button of Vitamin B12 item
-    When I click on the More Info button of Vitamin B12 item
-    Then Move to website "https://nutritionfacts.org/topics/vitamin-b12/"
+    When I click on the More Info button of "<Vitamin B12>" item
+    Then The Home screen is not displayed
 
   Scenario: Check function of the 21Tweaks button
     When I click on the 21Tweaks button

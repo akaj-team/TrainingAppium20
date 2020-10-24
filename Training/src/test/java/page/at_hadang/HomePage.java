@@ -16,35 +16,31 @@ import java.util.List;
 
 public class HomePage extends BasePage {
     @AndroidFindBy(id = "action_bar")
-    @iOSFindBy(xpath = "//*[@accessibilityLabel='Daily Dozen']")
-    private MobileElement actionBar;
+    @iOSFindBy(className = "UIANavigationBar")
+    protected MobileElement actionBar;
 
-    @AndroidFindBy(className = "//*[@text='Daily Dozen']")
-    @iOSFindBy(xpath = "//*[@text='Daily Dozen' and @class='UIAStaticText']")
-    private MobileElement txtTitle;
+    @AndroidFindBy(id = "Daily Dozen")
+    @iOSFindBy(id = "Daily Dozen")
+    private MobileElement tvTitle;
+
+    @AndroidFindBy(id = "header")
+    @iOSFindBy(id = "Servings")
+    private MobileElement tvHeader;
 
     @AndroidFindBy(id = "menu_toggle_modes")
-    @iOSFindBy(xpath = "//*[@text='21 Tweaks']")
+    @iOSFindBy(id = "21 Tweaks")
     private MobileElement btn21Tweaks;
 
     @AndroidFindBy(className = "android.widget.ImageView")
-    @iOSFindBy(xpath = "//*[@text='Info']")
+    @iOSFindBy(id = "Info")
     private MobileElement btnInfoMenu;
 
-    @AndroidFindBy(xpath = "//*[@class='android.widget.LinearLayout' and ./*[@id='food_icon'] and ./*]")
-    @iOSFindBy(className = "UIAView")
-    protected List<MobileElement> lstFoodServings;
-
     @AndroidFindBy(id = "food_name")
-    @iOSFindBy(className = "UIAStaticText")
-    private List<MobileElement> lstFoodName;
-
-    @AndroidFindBy(id = "food_name")
-    @iOSFindBy(xpath = "//*[@text='More Info']")
-    private List<MobileElement> lstBtnMoreInfo;
+    @iOSFindBy(id = "More Info")
+    protected List<MobileElement> lstBtnMoreInfo;
 
     @AndroidFindBy(id = "food_history")
-    @iOSFindBy(xpath = "//*[@text='ic calendar']")
+    @iOSFindBy(id = "ic calendar")
     private List<MobileElement> lstBtnCalendar;
 
     public HomePage(MobileDriver driver) {
@@ -58,12 +54,16 @@ public class HomePage extends BasePage {
 
     @Override
     public BasePage open() {
+//        if (!isPageDisplayed()){
+//            getDriver().launchApp();
+//            waitForElementDisplay(actionBar);
+//        }
         return this;
     }
 
-    public String getTextTitle() {
-        waitForElementDisplay(txtTitle);
-        return txtTitle.getText();
+    public String getTextHeader() {
+        waitForElementDisplay(tvHeader);
+        return tvHeader.getText();
     }
 
     public final void click21TweaksButton() {
@@ -76,23 +76,6 @@ public class HomePage extends BasePage {
         btnInfoMenu.click();
     }
 
-    public final boolean verifyLstFoodName(String name) {
-        int i = 0;
-        for (MobileElement elementServings : lstFoodName) {
-            String foodName = elementServings.getText().trim();
-            scrollToElementContainText(foodName);
-            if (foodName == name) {
-                i++;
-                if (i <= lstFoodName.size()) ;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    protected void scrollToElementContainText(String foodName) {
-    }
-
     public final void clickMoreInfoButton() {
         for (int i = 0; i < lstBtnMoreInfo.size(); i++) {
             lstBtnMoreInfo.get(i).click();
@@ -100,12 +83,8 @@ public class HomePage extends BasePage {
     }
 
     public final void clickCalendarButton() {
-        for (int i = 0; i <= lstBtnCalendar.size(); i++) {
+        for (int i = 0; i < lstBtnCalendar.size(); i++) {
             lstBtnCalendar.get(i).click();
         }
-    }
-
-    public final void clickMoreInfoButtonOfVitaminB12(){
-        lstBtnMoreInfo.get(12).click();
     }
 }
