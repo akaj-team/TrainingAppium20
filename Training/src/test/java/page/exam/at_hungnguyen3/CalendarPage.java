@@ -13,7 +13,6 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import page.exam.HomePage;
 import java.text.SimpleDateFormat;
@@ -21,7 +20,6 @@ import java.time.Duration;
 import java.util.Date;
 
 public class CalendarPage extends BasePage {
-    Actions action;
     JavascriptExecutor jsExecutor;
 
     @AndroidFindBy(className = "android.widget.ImageButton")
@@ -31,10 +29,6 @@ public class CalendarPage extends BasePage {
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIANavigationBar")
     protected MobileElement actionBar;
-
-    @AndroidFindBy(xpath = "//*[@id='action_bar']//*[@class='android.widget.TextView']")
-    @iOSFindBy(xpath = "//*[@className = 'UIANavigationBar']/*[@class='UIAStaticText']")
-    private MobileElement item;
 
     @AndroidFindBy(xpath = "//*[@text='History']")
     @iOSFindBy(id = "History")
@@ -64,18 +58,13 @@ public class CalendarPage extends BasePage {
             HomePage homePage = new PageFactory<>(HomePage.class).create();
             homePage.open().clickCalendarButton();
         }
-        return null;
+        return this;
     }
 
     public CalendarPage clickBackButton() {
         waitForElementDisplay(back);
         back.click();
         return this;
-    }
-
-    public String getItemText() {
-        waitForElementDisplay(item);
-        return item.getText();
     }
 
     public boolean isHistoryDisplay() {
@@ -87,17 +76,6 @@ public class CalendarPage extends BasePage {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMMM-yyyy");
         String strDate = formatter.format(date);
         return strDate;
-    }
-
-    public void isItemCorrect(){
-        String itemText = this.getItemText();
-        this.clickBackButton();
-        HomePage homePage = new PageFactory<>(HomePage.class).create();
-        homePage.waitForElementDisplay(actionBar);
-        MobileElement itemToClick = (MobileElement) getDriver().findElement(By.xpath(getItemText()));
-        scrollToElement(itemToClick);
-        itemToClick.click();
-        Assert.assertEquals(getItemText(), itemText);
     }
 
     public void scrollToElement(MobileElement element) {

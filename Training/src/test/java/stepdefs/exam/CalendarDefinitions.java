@@ -23,7 +23,6 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
         });
 
         When("^I check content of item$", () -> {
-            calendarPage.getItemText();
         });
         When("^I check display initial time$", () -> {
         });
