@@ -1,22 +1,14 @@
 package page.at_loannguyen;
 
 import at.base.BasePage;
-import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
-import page.exam.HomePage;
 
-import java.util.List;
-
-public class FlaxseedsDetailPage extends BasePage {
-
-    @AndroidFindBy(id = "action_bar")
-    private MobileElement actionBar;
-
-    @iOSFindBy(xpath = "//*[@id='VIDEOS']")
+public class FlaxseedsPage extends BasePage {
+    @iOSFindBy(id = "VIDEOS")
     @AndroidFindBy(id = "food_info_videos")
     private MobileElement videosButton;
 
@@ -24,7 +16,7 @@ public class FlaxseedsDetailPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
     private MobileElement servingSizes;
 
-    @iOSFindBy(xpath = "//*[@id='Units:']")
+    @iOSFindBy(id = "Units:")
     @AndroidFindBy(xpath = "//*[@text='Units']")
     private MobileElement units;
 
@@ -43,7 +35,7 @@ public class FlaxseedsDetailPage extends BasePage {
     @AndroidFindBy(className = "android.widget.TextView")
     private MobileElement listTypes;
 
-    public FlaxseedsDetailPage(MobileDriver driver) {
+    public FlaxseedsPage(MobileDriver driver) {
         super(driver);
     }
 
@@ -53,18 +45,14 @@ public class FlaxseedsDetailPage extends BasePage {
     }
 
     @Override
-    public FlaxseedsDetailPage open() {
+    public FlaxseedsPage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
         }
         return this;
     }
 
-    public String getScreenName() {
-        return actionBar.findElement(By.className("android.widget.TextView")).getText();
-    }
-
-    public FlaxseedsDetailPage clickVideosButton() {
+    public FlaxseedsPage clickVideosButton() {
         videosButton.click();
         return this;
     }
@@ -77,7 +65,7 @@ public class FlaxseedsDetailPage extends BasePage {
         return units.getText();
     }
 
-    public FlaxseedsDetailPage clickImperialButton() {
+    public FlaxseedsPage clickImperialButton() {
         imperialButton.click();
         return this;
     }

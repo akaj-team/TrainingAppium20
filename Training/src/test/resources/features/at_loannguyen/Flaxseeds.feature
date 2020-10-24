@@ -22,12 +22,12 @@ Feature: Test on Flaxseeds Detail screen
     Then The content of units is "Units"
 
   Scenario: Check click "IMPERIAL" button
-    Given Button must is IMPERIAL
+    Then Button is IMPERIAL
     When I click IMPERIAL button
     Then IMPERIAL button change to METRIC button
 
   Scenario: Check click "METRIC" button
-    Given Button must is METRIC
+    Then Button is METRIC
     When I click METRIC button
     Then METRIC button change to IMPERIAL button
 
@@ -40,8 +40,3 @@ Feature: Test on Flaxseeds Detail screen
   Scenario: Check list of [Types]
     When I check list of [Types]
     Then The list of [Types] is displayed correctly
-
-
-
-
-

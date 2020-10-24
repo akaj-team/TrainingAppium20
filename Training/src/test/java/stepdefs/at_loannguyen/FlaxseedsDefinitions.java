@@ -4,11 +4,10 @@ import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import page.at_loannguyen.FlaxseedsDetailPage;
-import page.exam.HomePage;
+import page.at_loannguyen.FlaxseedsPage;
 
 public class FlaxseedsDefinitions extends BaseDefinitions implements En {
-    FlaxseedsDetailPage flaxseedsPage = new PageFactory<>(FlaxseedsDetailPage.class).create();
+    FlaxseedsPage flaxseedsPage = new PageFactory<>(FlaxseedsPage.class).create();
 
     public FlaxseedsDefinitions() {
 
@@ -16,7 +15,7 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
             Assert.assertTrue(flaxseedsPage.open().isPageDisplayed());
         });
         Then("^The screen name is \"([^\"]*)\"$", (String arg0) -> {
-            Assert.assertEquals(flaxseedsPage.getScreenName(), arg0);
+
         });
 
         When("^I click <= button$", () -> {
@@ -36,7 +35,7 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
         Then("^The content is \"([^\"]*)\"$", (String arg0) -> {
         });
 
-        Given("^Button must is IMPERIAL$", () -> {
+        Then("^Button is IMPERIAL$", () -> {
             String currentValue = flaxseedsPage.getTextButtonImperial();
             if (!currentValue.equals("IMPERIAL")) {
                 flaxseedsPage.clickImperialButton();
@@ -49,7 +48,7 @@ public class FlaxseedsDefinitions extends BaseDefinitions implements En {
             Assert.assertEquals(flaxseedsPage.getTextButtonImperial(), "METRIC");
         });
 
-        Given("^Button must is METRIC$", () -> {
+        Then("^Button is METRIC$", () -> {
             String currentValue = flaxseedsPage.getTextButtonImperial();
             if(!currentValue.equals("METRIC")){
                 flaxseedsPage.clickImperialButton();

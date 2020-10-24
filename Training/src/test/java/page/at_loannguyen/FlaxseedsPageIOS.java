@@ -4,9 +4,12 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
-public class FlaxseedsDetailPageIOS {
-    @iOSFindBy(xpath = "//*[@class='UIANavigationBar']")
+public class FlaxseedsPageIOS {
+    @iOSFindBy(className = "UIANavigationBar")
     private MobileElement actionBar;
+
+    @iOSFindBy(id = "Flaxseeds")
+    private MobileElement screenName;
 
     @iOSFindBy(id = "Brown flaxseeds")
     private MobileElement typeBrownFlaxseeds;
@@ -14,17 +17,21 @@ public class FlaxseedsDetailPageIOS {
     @iOSFindBy(id = "Golden flaxseeds")
     private MobileElement typeGoldenFlaxseeds;
 
-    public FlaxseedsDetailPageIOS clickBackButton () {
+    public String getScreenName(){
+        return screenName.getText();
+    }
+
+    public FlaxseedsPageIOS clickBackButton () {
          actionBar.findElement(By.id("Daily Dozen")).click();
          return this;
     }
 
-    public FlaxseedsDetailPageIOS getTypeBrownFlaxseeds(){
+    public FlaxseedsPageIOS getTypeBrownFlaxseeds(){
         typeBrownFlaxseeds.getText();
         return this;
     }
 
-    public FlaxseedsDetailPageIOS getTypeGoldenFlaxseeds(){
+    public FlaxseedsPageIOS getTypeGoldenFlaxseeds(){
         typeGoldenFlaxseeds.getText();
         return this;
     }
