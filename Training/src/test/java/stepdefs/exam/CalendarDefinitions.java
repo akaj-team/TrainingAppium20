@@ -21,7 +21,6 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
         When("^I tap on back button$", () -> {
             calendarPage.clickBackButton();
         });
-
         When("^I check content of item$", () -> {
         });
         When("^I check display initial time$", () -> {
@@ -47,6 +46,5 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
         When("^I tap on next previous button$", () -> {
             calendarPageAndroid.clickToPreviousButton();
         });
-
     }
 }

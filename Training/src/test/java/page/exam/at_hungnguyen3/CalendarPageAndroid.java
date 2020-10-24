@@ -3,11 +3,8 @@ import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import page.exam.HomePage;
-
-import java.util.List;
 
 public class CalendarPageAndroid extends CalendarPage{
 
@@ -50,11 +47,7 @@ public class CalendarPageAndroid extends CalendarPage{
         String[] parts = currentTime.split("(?=-)");
         String month = parts[1];
         String year = parts[2];
-        if ((getTimeText().contains(month)) && (getTimeText().contains(year))) {
-            return true;
-        } else {
-            return false;
-        }
+        return  ((getTimeText().contains(month)) && (getTimeText().contains(year)));
     }
 
     public void isItemCorrect(){

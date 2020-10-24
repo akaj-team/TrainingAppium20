@@ -24,7 +24,7 @@ public class CalendarPage extends BasePage {
 
     @AndroidFindBy(className = "android.widget.ImageButton")
     @iOSFindBy(className = "UIAButton")
-    private MobileElement back;
+    private MobileElement btnBack;
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIANavigationBar")
@@ -32,15 +32,15 @@ public class CalendarPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='History']")
     @iOSFindBy(id = "History")
-    private MobileElement history;
+    private MobileElement tvHistory;
 
     @AndroidFindBy(xpath = "//*[@text='Some servings']")
     @iOSFindBy(xpath = "//*[@text='Some servings']")
-    private MobileElement someServings;
+    private MobileElement tvSomeServings;
 
     @AndroidFindBy(xpath = "//*[@text='All servings']")
     @iOSFindBy(xpath = "//*[@text='All servings']")
-    private MobileElement allServings;
+    private MobileElement tvAllServings;
 
     public CalendarPage(MobileDriver driver) {
         super(driver);
@@ -48,7 +48,7 @@ public class CalendarPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(history);
+        return isForElementPresent(tvHistory);
     }
 
     @Override
@@ -62,13 +62,13 @@ public class CalendarPage extends BasePage {
     }
 
     public CalendarPage clickBackButton() {
-        waitForElementDisplay(back);
-        back.click();
+        waitForElementDisplay(btnBack);
+        btnBack.click();
         return this;
     }
 
     public boolean isHistoryDisplay() {
-        return isForElementPresent(history);
+        return isForElementPresent(tvHistory);
     }
 
     public String getCurrentTime() {

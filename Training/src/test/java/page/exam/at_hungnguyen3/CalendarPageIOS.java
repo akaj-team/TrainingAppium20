@@ -65,11 +65,7 @@ public class CalendarPageIOS extends CalendarPage {
         String[] parts = currentTime.split("(?=-)");
         String month = parts[1];
         String year = parts[2];
-        if ((getTimeText().contains(month)) && (getTimeText().contains(year))) {
-            return true;
-        } else {
-            return false;
-        }
+        return  ((getTimeText().contains(month)) && (getTimeText().contains(year)));
     }
 
     public void isItemCorrect(){
