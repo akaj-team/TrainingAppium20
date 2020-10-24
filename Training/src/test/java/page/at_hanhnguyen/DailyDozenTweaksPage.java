@@ -15,37 +15,31 @@ import java.util.List;
 
 public class DailyDozenTweaksPage extends BasePage {
 
+    HomePage homePage = new PageFactory<>(HomePage.class).create();
     @AndroidFindBy(id = "header_tweaks")
     private MobileElement headerTweak;
-
     @AndroidFindBy(id = "date_weights")
     private MobileElement datWeight;
-
     @AndroidFindBy(className = "android.widget.LinearLayout")
     private List<MobileElement> lstTweak;
-
     @AndroidFindBy(id = "tweak_name")
     private MobileElement lbTweakName;
-
     @AndroidFindBy(id = "tweak_group_title")
     private MobileElement lbGroupTitle;
-
     @AndroidFindBy(xpath = "//*[@text='History']")
     private MobileElement lnHistory;
-
     @AndroidFindBy(id = "tweak_history")
     private List<MobileElement> lstcalendarIcon;
-
-    @AndroidFindBy(xpath = "//*[@id='tweak_checkboxes']//*[@class='android.widget.CheckBox']")
+    @AndroidFindBy(className = "android.widget.CheckBox")
     private List<MobileElement> lstCheckbox;
-
-    @AndroidFindBy(className = "//*[@class='android.widget.CheckedTextView']")
+    @AndroidFindBy(className = "android.widget.CheckedTextView")
     private List<MobileElement> lstDate;
-
     @AndroidFindBy(id = "date_pager_indicato")
     private MobileElement viewGroupDate;
-
-    HomePage homePage = new PageFactory<>(HomePage.class).create();
+    @AndroidFindBy(id = "morning_weight")
+    private MobileElement txtMorningWeight;
+    @AndroidFindBy(id = "evening_weigh")
+    private MobileElement txtEveningWeight;
 
     public DailyDozenTweaksPage(MobileDriver driver) {
         super(driver);
@@ -53,7 +47,7 @@ public class DailyDozenTweaksPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(headerTweak.findElement(By.id("header")));
+        return isForElementPresent(headerTweak.findElement(By.id("header"))) && headerTweak.findElement(By.id("header")).getText().equals("Tweaks") ;
     }
 
     @Override
@@ -106,27 +100,33 @@ public class DailyDozenTweaksPage extends BasePage {
     }
 
     public boolean verifyCheckboxIsChecked() {
-        return lstCheckbox.get(1).isSelected() && lstCheckbox.get(2).isSelected();
+        return lstCheckbox.get(0).isSelected() && lstCheckbox.get(1).isSelected() && lstCheckbox.get(2).isSelected();
     }
 
-    public String getCurrentDate(){
+    public String getCurrentDate() {
         Date todaysDate = new Date();
         DateFormat formatDate = new SimpleDateFormat("E, MMM dd");
         String formatDateString = formatDate.format(todaysDate);
-        // System.out.println("String in E, MMM dd yyyy format is: " + formatDateString);
         return formatDateString;
     }
 
-    public void selectDate(String date){
-        for (MobileElement element: lstDate){
-            if (element.getText().equals(date)){
-                element.click(); break;
+    public void selectDate(String date) {
+        for (MobileElement element : lstDate) {
+            if (element.getText().equals(date)) {
+                element.click();
+                break;
             }
         }
     }
 
-    public String verifyDateAfterSelectDate(){
+    public String verifyDateAfterSelectDate() {
         return viewGroupDate.findElement(By.className("android.widget.TextView")).getText();
     }
 
+    public boolean verifyTheEyeOpen() {
+        if (isForElementPresent(txtMorningWeight) && isForElementPresent(txtEveningWeight)) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -11,9 +11,18 @@ Feature: Test on Daily Dozen Tweaks screen
     When I check default tab on Tweak screen
     Then The default tab is today as "Thu, Oct 22"
 
+  Scenario: Check showing the tab when user select date on calendar popup
+    When I tap into calendar icon
+    And I tap into "24"
+    Then showing the tab is "Sat, Oct 24"
+
   Scenario: Check showing the weight item under Tweaks title
     When I check title under Tweak text
     Then The title under the Tweak text is "Weight"
+
+    Scenario: Check showing the eye open
+      When I check  the eye open is shown or not
+      Then The the eye open is shown
 
     Scenario Outline: Check showing the title at AT EACH MEAL group
       When I check showing the title at AT EACH MEAL group
@@ -39,11 +48,6 @@ Feature: Test on Daily Dozen Tweaks screen
   Scenario: Check action when user tap into calendar
     When I tap into calendar icon
     Then Showing the calendar
-
-  Scenario: Check showing the tab when user select date on calendar popup
-    When I tap into calendar icon
-    And I tap into "19"
-    Then showing the tab is 19/10
 
   Scenario: Check showing the item detail when user tap into item
     When I tap into first item

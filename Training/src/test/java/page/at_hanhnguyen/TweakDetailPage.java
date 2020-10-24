@@ -60,5 +60,4 @@ public class TweakDetailPage extends BasePage {
         actionBar.findElement(By.className("android.widget.ImageButton")).click();
         return this;
     }
-
 }
