@@ -47,7 +47,11 @@ public class TweaksPage extends BasePage {
     private MobileElement textTitle;
 
     @AndroidFindBy(id = "tweak_icon")
-    protected List<MobileElement> listTweakIcon;
+    List<MobileElement> listTweakIcon;
+
+    @iOSFindBy(className = "UIAView")
+    List<MobileElement> iosTweakContainer;
+
 
 
 
