@@ -1,6 +1,7 @@
 package page.exam.at_thaile;
 
 import at.base.BasePage;
+import cucumber.api.java.en.And;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -16,17 +17,27 @@ import at.core.PageFactory;
 
 public class ServingHistoryPage extends BasePage {
     @iOSFindBy(id = "Servings History")
-    @AndroidFindBy(xpath = "//*[@contentDescription='Navigate up']")
+    @AndroidFindBy(className = "android.widget.TextView")
     private MobileElement screenTitle;
 
-    @iOSFindBy(id = "Daily Dozen")
-    @AndroidFindBy(xpath = "//*[@text='Daily Servings History']")
+    @iOSFindBy(id = "21 Tweaks")
+    @AndroidFindBy(className = "android.widget.ImageButton")
     private MobileElement backButton;
 
-    @iOSFindBy(xpath = "//*[@class='UIAView']")
+    @iOSFindBy(id = "Time Scale")
+    @AndroidFindBy(className = "android.widget.TextView")
+    private MobileElement scaleText;
+
+    @iOSFindBy(className = "UIAView")
     private MobileElement timeView;
 
-    @AndroidFindBy(xpath = "//*[@id='time_scale_spinner']")
+    @AndroidFindBy(id = "time_range_selector_selected_year")
+    private MobileElement yearSelected;
+
+    @AndroidFindBy(id = "time_range_selector_selected_month")
+    private MobileElement monthSelected;
+
+    @AndroidFindBy(id = "time_scale_spinner")
     private MobileElement timeDropDownList;
 
     @iOSFindBy(id = "Day")
@@ -96,6 +107,10 @@ public class ServingHistoryPage extends BasePage {
 
     public String getTextScreenTitle() {
         return screenTitle.getText();
+    }
+
+    public String getTextTimeScale(){
+        return scaleText.getText();
     }
 
     public void clickMonthButton() {

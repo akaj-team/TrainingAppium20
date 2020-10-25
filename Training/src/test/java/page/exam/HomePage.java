@@ -55,9 +55,8 @@ public class HomePage extends BasePage {
         return tvMenuToggleModes.getText();
     }
 
-    public void clickStatButton(){
-        statButton.click();
-    }
+    public void clickStatButton(){ statButton.click(); }
+
     public boolean isListMenuDisplay() {
         return isForElementPresent(listMenu);
     }
