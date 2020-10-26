@@ -63,10 +63,6 @@ public class ServingHistoryPage extends BasePage {
         return super.clickBackButton();
     }
 
-    public String getTextTimeView() {
-        return timeView.getText();
-    }
-
     public String getTextScreenTitle() {
         return screenTitle.getText();
     }
