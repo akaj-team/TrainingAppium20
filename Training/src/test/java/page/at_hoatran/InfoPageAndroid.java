@@ -24,8 +24,7 @@ public class InfoPageAndroid extends InfoPage {
 
     @Override
     public InfoPage clickTitleButton(int n) {
-            listTitle.findElements(By.id("title")).get(n-1).click();
-            listTitle.findElements(By.className("UIAStaticText")).get(n-1).click();
+        listTitle.findElements(By.id("title")).get(n-1).click();
         return this;
     }
 
