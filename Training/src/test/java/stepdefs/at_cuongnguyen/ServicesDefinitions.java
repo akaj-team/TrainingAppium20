@@ -4,10 +4,10 @@ import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import at_cuongnguyen.Android_Services;
+import at_cuongnguyen.ServicesPageAndroid;
 
 public class ServicesDefinitions extends BaseDefinitions implements En {
-    Android_Services service = new PageFactory<>(Android_Services.class).create();
+    ServicesPageAndroid service = new PageFactory<>(ServicesPageAndroid.class).create();
 
     public ServicesDefinitions() {
         Then("^The header bar including Back button on the left$", () -> Assert.assertTrue(service.isImageBtnContain()));
