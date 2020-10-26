@@ -8,6 +8,11 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
 public class FlaxseedsPage extends BasePage {
+
+    @iOSFindBy(className = "UIANavigationBar")
+    @AndroidFindBy(id = "action_bar")
+    public MobileElement actionBar;
+
     @iOSFindBy(id = "VIDEOS")
     @AndroidFindBy(id = "food_info_videos")
     private MobileElement videosButton;

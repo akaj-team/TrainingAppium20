@@ -1,13 +1,11 @@
 package page.at_loannguyen;
 
+import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
-public class FlaxseedsPageIOS {
-    @iOSFindBy(className = "UIANavigationBar")
-    private MobileElement actionBar;
-
+public class FlaxseedsPageIOS extends FlaxseedsPage{
     @iOSFindBy(id = "Flaxseeds")
     private MobileElement screenName;
 
@@ -17,12 +15,18 @@ public class FlaxseedsPageIOS {
     @iOSFindBy(id = "Golden flaxseeds")
     private MobileElement typeGoldenFlaxseeds;
 
+    MobileElement btnBack = actionBar.findElementById("Daily Dozen");
+
+    public FlaxseedsPageIOS(MobileDriver driver) {
+        super(driver);
+    }
+
     public String getScreenName(){
         return screenName.getText();
     }
 
     public FlaxseedsPageIOS clickBackButton () {
-         actionBar.findElement(By.id("Daily Dozen")).click();
+         btnBack.click();
          return this;
     }
 
