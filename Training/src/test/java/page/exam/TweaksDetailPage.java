@@ -29,7 +29,7 @@ public class TweaksDetailPage extends BasePage{
      private MobileElement listTweak;
 
     @AndroidFindBy(xpath = "//*[@class='android.widget.ImageButton']")
-    private MobileElement backButton;
+    private MobileElement btnBack;
 
     @AndroidFindBy(xpath = "//*[@text='About Tweak']")
     private MobileElement lbAboutTweak;
@@ -46,23 +46,31 @@ public class TweaksDetailPage extends BasePage{
     @AndroidFindBy(id = "action_bar")
     private MobileElement actionBar;
 
-    public void open1stTweak() {
+    public void openTweak() {
         actionBar.findElement(By.id("menu_toggle_modes")).click();
         listTweak.findElement(By.xpath("//*[@index='0']")).click();
     }
 
+    public TweaksDetailPage clickBackButton() {
+        waitForElementDisplay(btnBack);
+        btnBack.click();
+        return this;
+    }
+    public boolean isImagebtnBackDisplay(){ return btnBack.isDisplayed(); }
+
     public boolean isImageDisplay(){
         return tweakInfoImage.isDisplayed();
     }
-    public String verifyHeaderText(){
-        return lbAboutTweak.getText();
+
+    public boolean verifyHeaderText(){ return lbAboutTweak.isDisplayed(); }
+
+    public boolean verifyTitleText(){
+        return lbTweakShort.isDisplayed();
     }
 
-    public String verifyTitleText(){
-        return lbTweakShort.getText();
-    }
-    public String verifyContentText(){
-        return lbTweakText.getText();
+    public boolean verifyContentText(){
+        return lbTweakText.isDisplayed();
     }
 
 }
+
