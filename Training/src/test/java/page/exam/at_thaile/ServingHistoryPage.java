@@ -52,30 +52,6 @@ public class ServingHistoryPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Year']")
     private MobileElement yearButton;
 
-    @iOSFindBy(id = "ic left")
-    private MobileElement leftButton;
-
-    @iOSFindBy(id = "ic left double")
-    private MobileElement leftDoubleButton;
-
-    @iOSFindBy(id = "ic right")
-    private MobileElement rightButton;
-
-    @iOSFindBy(id = "ic right double")
-    private MobileElement rightDoubleButton;
-
-    @iOSFindBy(id = "Daily Dozen")
-    private MobileElement dailyDozenButton;
-
-    @iOSFindBy(id = "21 Tweaks")
-    private MobileElement tweaksButton;
-
-    @iOSFindBy(id = "Info")
-    private MobileElement infoButton;
-
-    @iOSFindBy(id = "Settings")
-    private MobileElement settingButton;
-
     public ServingHistoryPage(MobileDriver driver) {
         super(driver);
     }
@@ -88,9 +64,7 @@ public class ServingHistoryPage extends BasePage {
     @Override
     public BasePage open() {
         if (!isPageDisplayed()) {
-            HomePage hp = new PageFactory<>(HomePage.class).create();
             getDriver().launchApp();
-            waitForElementDisplay(screenTitle);
         }
         return this;
     }
@@ -119,14 +93,5 @@ public class ServingHistoryPage extends BasePage {
 
     public void clickYearButton() {
         yearButton.click();
-    }
-    public void clickTweakButton(){
-        tweaksButton.click();
-    }
-    public void clickInfoButton(){
-        infoButton.click();
-    }
-    public void clickSettingButton(){
-        settingButton.click();
     }
 }
