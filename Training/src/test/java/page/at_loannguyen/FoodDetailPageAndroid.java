@@ -2,14 +2,13 @@ package page.at_loannguyen;
 
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 
-public class FlaxseedsPageAndroid extends FlaxseedsPage {
+public class FoodDetailPageAndroid extends FoodDetailPage {
     MobileElement btnBack = actionBar.findElementByClassName("android.widget.ImageButton");
 
 
-    public FlaxseedsPageAndroid(MobileDriver driver) {
+    public FoodDetailPageAndroid(MobileDriver driver) {
         super(driver);
     }
 
@@ -17,7 +16,7 @@ public class FlaxseedsPageAndroid extends FlaxseedsPage {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
-    public FlaxseedsPageAndroid clickBackButton() {
+    public FoodDetailPageAndroid clickBackButton() {
         btnBack.click();
         return this;
     }

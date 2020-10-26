@@ -7,7 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
-public class FlaxseedsPage extends BasePage {
+public class FoodDetailPage extends BasePage {
 
     @iOSFindBy(className = "UIANavigationBar")
     @AndroidFindBy(id = "action_bar")
@@ -17,7 +17,7 @@ public class FlaxseedsPage extends BasePage {
     @AndroidFindBy(id = "food_info_videos")
     private MobileElement videosButton;
 
-    @iOSFindBy(xpath = "//*[@id='Serving Sizes']//*[@text='Serving Sizes']")
+    @iOSFindBy(id = "Serving Sizes")
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
     private MobileElement servingSizes;
 
@@ -25,7 +25,7 @@ public class FlaxseedsPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Units']")
     private MobileElement units;
 
-    @iOSFindBy(xpath = "//*[@class='UIAButton']//*[@id='IMPERIAL']")
+    @iOSFindBy(id = "IMPERIAL")
     @AndroidFindBy(id = "change_units_button")
     private MobileElement imperialButton;
 
@@ -33,14 +33,14 @@ public class FlaxseedsPage extends BasePage {
     @AndroidFindBy(id = "android:id/text1")
     private MobileElement subContent;
 
-    @iOSFindBy(xpath = "//*[@id='Types']//*[@text='Types']")
+    @iOSFindBy(id = "Types")
     @AndroidFindBy(xpath = "//*[@text='Types']")
     private MobileElement types;
 
     @AndroidFindBy(className = "android.widget.TextView")
     private MobileElement listTypes;
 
-    public FlaxseedsPage(MobileDriver driver) {
+    public FoodDetailPage(MobileDriver driver) {
         super(driver);
     }
 
@@ -50,14 +50,14 @@ public class FlaxseedsPage extends BasePage {
     }
 
     @Override
-    public FlaxseedsPage open() {
+    public FoodDetailPage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
         }
         return this;
     }
 
-    public FlaxseedsPage clickVideosButton() {
+    public FoodDetailPage clickVideosButton() {
         videosButton.click();
         return this;
     }
@@ -70,7 +70,7 @@ public class FlaxseedsPage extends BasePage {
         return units.getText();
     }
 
-    public FlaxseedsPage clickImperialButton() {
+    public FoodDetailPage clickImperialButton() {
         imperialButton.click();
         return this;
     }

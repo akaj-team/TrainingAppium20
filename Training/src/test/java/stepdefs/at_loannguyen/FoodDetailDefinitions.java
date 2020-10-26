@@ -4,61 +4,61 @@ import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import page.at_loannguyen.FlaxseedsPage;
+import page.at_loannguyen.FoodDetailPage;
 
-public class FlaxseedsDefinitions extends BaseDefinitions implements En {
-    FlaxseedsPage flaxseedsPage = new PageFactory<>(FlaxseedsPage.class).create();
+public class FoodDetailDefinitions extends BaseDefinitions implements En {
+    FoodDetailPage foodDetailPage = new PageFactory<>(FoodDetailPage.class).create();
 
-    public FlaxseedsDefinitions() {
+    public FoodDetailDefinitions() {
 
         Given("^Flaxseeds Detail screen is opened$", () -> {
-            Assert.assertTrue(flaxseedsPage.open().isPageDisplayed());
+            Assert.assertTrue(foodDetailPage.open().isPageDisplayed());
         });
         Then("^The screen name is \"([^\"]*)\"$", (String arg0) -> {
 
         });
 
         When("^I click <= button$", () -> {
-            flaxseedsPage.clickBackButton();
+            foodDetailPage.clickBackButton();
         });
         Then("^Display Home screen$", () -> {
-            Assert.assertTrue(flaxseedsPage.isPageDisplayed());
+            Assert.assertTrue(foodDetailPage.isPageDisplayed());
         });
 
         When("^I click VIDEOS button$", () -> {
-            flaxseedsPage.clickVideosButton();
+            foodDetailPage.clickVideosButton();
         });
         Then("^Display \\[Information of Flaxseeds\\] webview$", () -> {
-            Assert.assertTrue(flaxseedsPage.isPageDisplayed());
+            Assert.assertTrue(foodDetailPage.isPageDisplayed());
         });
 
         Then("^The content is \"([^\"]*)\"$", (String arg0) -> {
         });
 
         Then("^Button is IMPERIAL$", () -> {
-            String currentValue = flaxseedsPage.getTextButtonImperial();
+            String currentValue = foodDetailPage.getTextButtonImperial();
             if (!currentValue.equals("IMPERIAL")) {
-                flaxseedsPage.clickImperialButton();
+                foodDetailPage.clickImperialButton();
             }
         });
         When("^I click IMPERIAL button$", () -> {
-            flaxseedsPage.clickImperialButton();
+            foodDetailPage.clickImperialButton();
         });
         Then("^IMPERIAL button change to METRIC button$", () -> {
-            Assert.assertEquals(flaxseedsPage.getTextButtonImperial(), "METRIC");
+            Assert.assertEquals(foodDetailPage.getTextButtonImperial(), "METRIC");
         });
 
         Then("^Button is METRIC$", () -> {
-            String currentValue = flaxseedsPage.getTextButtonImperial();
+            String currentValue = foodDetailPage.getTextButtonImperial();
             if(!currentValue.equals("METRIC")){
-                flaxseedsPage.clickImperialButton();
+                foodDetailPage.clickImperialButton();
             }
         });
         When("^I click METRIC button$", () -> {
-            flaxseedsPage.clickImperialButton();
+            foodDetailPage.clickImperialButton();
         });
         Then("^METRIC button change to IMPERIAL button$", () -> {
-            Assert.assertEquals(flaxseedsPage.getTextButtonImperial(), "IMPERIAL" );
+            Assert.assertEquals(foodDetailPage.getTextButtonImperial(), "IMPERIAL" );
         });
 
         Then("^The sub content of \\[Serving Sizes\\] is \"([^\"]*)\"$", (String arg0) -> {

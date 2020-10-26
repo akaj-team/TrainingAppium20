@@ -3,9 +3,8 @@ package page.at_loannguyen;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import org.openqa.selenium.By;
 
-public class FlaxseedsPageIOS extends FlaxseedsPage{
+public class FoodDetailPageIOS extends FoodDetailPage {
     @iOSFindBy(id = "Flaxseeds")
     private MobileElement screenName;
 
@@ -17,7 +16,7 @@ public class FlaxseedsPageIOS extends FlaxseedsPage{
 
     MobileElement btnBack = actionBar.findElementById("Daily Dozen");
 
-    public FlaxseedsPageIOS(MobileDriver driver) {
+    public FoodDetailPageIOS(MobileDriver driver) {
         super(driver);
     }
 
@@ -25,17 +24,17 @@ public class FlaxseedsPageIOS extends FlaxseedsPage{
         return screenName.getText();
     }
 
-    public FlaxseedsPageIOS clickBackButton () {
+    public FoodDetailPageIOS clickBackButton () {
          btnBack.click();
          return this;
     }
 
-    public FlaxseedsPageIOS getTypeBrownFlaxseeds(){
+    public FoodDetailPageIOS getTypeBrownFlaxseeds(){
         typeBrownFlaxseeds.getText();
         return this;
     }
 
-    public FlaxseedsPageIOS getTypeGoldenFlaxseeds(){
+    public FoodDetailPageIOS getTypeGoldenFlaxseeds(){
         typeGoldenFlaxseeds.getText();
         return this;
     }
