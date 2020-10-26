@@ -69,10 +69,6 @@ public class ServicesPage extends BasePage {
 
     @Override
     public BasePage open() {
-        if (!isPageDisplayed()) {
-            homePage.open();
-            homePage.clickBtnFoodName();
-        }
         return this;
     }
 
