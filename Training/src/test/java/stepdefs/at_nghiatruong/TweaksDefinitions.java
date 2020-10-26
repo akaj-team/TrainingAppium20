@@ -43,5 +43,7 @@ public class TweaksDefinitions implements En {
         });
         Then("^I see \"([^\"]*)\" checkboxes on \"([^\"]*)\" item$", (String arg0, String arg1) -> {
         });
+        When("^I check display of items in the Tweaks list$", () -> {
+        });
     }
 }

@@ -5,13 +5,10 @@ import at.core.PageFactory;
 import io.appium.java_client.*;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import jdk.internal.jimage.ImageReaderFactory;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import page.exam.HomePage;
-
-import java.time.Duration;
 import java.util.List;
 
 /**
@@ -22,8 +19,8 @@ public class TweaksPage extends BasePage {
     public TweaksPage(MobileDriver<WebElement> driver) {
         super(driver);
     }
-    HomePage homePage = new PageFactory<>(HomePage.class).create();
 
+    HomePage homePage = new PageFactory<>(HomePage.class).create();
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(accessibility = "21 Tweaks")
@@ -32,7 +29,6 @@ public class TweaksPage extends BasePage {
     @AndroidFindBy(id= "tweak_name")
     @iOSFindBy(className = "UIAStaticText")
     private List<MobileElement> tweakName;
-
 
     @AndroidFindBy(className = "android.widget.CheckBox")
     @iOSFindBy(className = "UIAButton")
@@ -47,13 +43,9 @@ public class TweaksPage extends BasePage {
     private MobileElement textTitle;
 
     @AndroidFindBy(id = "tweak_icon")
-    List<MobileElement> listTweakIcon;
-
     @iOSFindBy(className = "UIAView")
+    List<MobileElement> listTweakIcon;
     List<MobileElement> iosTweakContainer;
-
-
-
 
     @Override
     public boolean isPageDisplayed() {
@@ -73,14 +65,13 @@ public class TweaksPage extends BasePage {
     List<MobileElement> container = dateTweaks.findElements(By.className("android.widget.LinearLayout"));
 
     public TweaksPage clickAllCheckboxes(){
-
         for (int i = 0; i< container.size(); i++)
             container.get(i).findElement(By.className("android.widget.CheckBox")).click();
             scrollToElementContainText("Trendelenburg",container.get(20));
         return this;
     }
-    public TweaksPage isAllCheckboxesSelected(){
 
+    public TweaksPage isAllCheckboxesSelected(){
         for (int i = 0; i< container.size(); i++)
             Assert.assertTrue(container.get(i).findElement(By.className("android.widget.CheckBox")).isSelected());
         return this;
@@ -90,11 +81,13 @@ public class TweaksPage extends BasePage {
         container.get(pos).findElement(By.id("tweak_name")).getText();
         return this;
     }
+
     int pos;
     public TweaksPage clickCheckboxInTweaksList(){
         container.get(pos).findElement(By.className("android.widget.CheckBox")).click();
         return this;
     }
+
     public String getTextTitle() {
         waitForElementDisplay(textTitle);
         return textTitle.getText();

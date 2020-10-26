@@ -7,11 +7,9 @@ Feature: Test on Tweaks screen
     When I go to Tweaks page
     Then all checkboxes are unchecked
 
-
   Scenario: Check function when select 1st checkbox on Green Tea
     When I click all the first checkbox
     Then all checkboxes are checked
-
 
   Scenario: Check function when select 2nd checkbox on Green Tea
     When I click the Second checkbox
@@ -38,7 +36,6 @@ Feature: Test on Tweaks screen
     When I click the checkbox
     Then The check  box is checked
 
-
   Scenario: Check function when select checkbox on Time-restrict Eating
     When I click the checkbox
     Then The check  box is checked
@@ -59,7 +56,6 @@ Feature: Test on Tweaks screen
   Scenario: Check function when select 1st checkbox on Complete intentions
     When I click the first checkbox
     Then all checkboxes are checked
-
 
   Scenario: Check function when select 2nd checkbox on Complete intentions
     When I click the Second checkbox
@@ -139,6 +135,3 @@ Feature: Test on Tweaks screen
       | Fast After 7:00 p.m.     | 1        |
       | Sufficient Sleep         | 1        |
       | Trendelenburg            | 1        |
-
-
-
