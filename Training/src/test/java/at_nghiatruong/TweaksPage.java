@@ -69,7 +69,8 @@ public class TweaksPage extends BasePage {
 
     public TweaksPage clickAllCheckboxes(){
         for (int i = 0; i< listLayout.size(); i++)
-            listLayout.get(i).findElement(By.className("android.widget.CheckBox")).click();
+           if (listLayout.get(i).findElement(By.className("android.widget.CheckBox")).isEnabled())
+               listLayout.get(i).findElement(By.className("android.widget.CheckBox")).click();
             scrollToElementContainText("Trendelenburg",listLayout.get(20));
         return this;
     }
@@ -96,7 +97,7 @@ public class TweaksPage extends BasePage {
         return txtTitle.getText();
     }
 
-    public TweaksPage clickOnHistoryButton(){
+    public void clickOnHistoryButton(){
         waitForElementDisplay(btnHistory);
         btnHistory.click();
     }
