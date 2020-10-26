@@ -20,89 +20,33 @@ public class HomePageAndroid extends HomePage {
     @AndroidFindBy(id = "sub_header")
     private MobileElement subHeader;
 
-    @AndroidFindBy(id = "num_servings")
-    private MobileElement txtNumServings;
-
-    @AndroidFindBy(id = "max")
-    private MobileElement txtMaxServings;
-
-    @AndroidFindBy(className = "android.widget.CheckBox")
-    private List<MobileElement> lstCheckBoxes;
+    @AndroidFindBy(id = "food_name")
+    private List<MobileElement> lstBtnMoreInfo;
 
     public HomePageAndroid(MobileDriver driver) {
         super(driver);
     }
 
-    public final void clickChartButtonAndroid() {
-        waitForElementDisplay(subHeader);
-        List<MobileElement> el = subHeader.findElements(By.className("android.widget.TextView"));
-        el.get(el.size() - 1).click();
-    }
-
-    public String getTextOfFoodNameAndroid(int pos) {
+    @Override
+    public String getTextOfFoodName(int pos) {
         return container.findElements(By.id("food_name")).get(pos).getText();
     }
 
-    public final boolean verifyCheckBoxQuantityAndroid(String name, int quantity) {
-        List<MobileElement> containerCheckBox = container.findElements(By.id("food_check_boxes_container"));
-        for (int i = 0; i < containerCheckBox.size(); i++) {
-            String foodName = container.findElements(By.id("food_name")).get(i).getText();
-            List<MobileElement> countCheckBox = (List<MobileElement>) containerCheckBox.get(i).findElement(By.className("android.widget.CheckBox"));
-            if (foodName == name && countCheckBox.size() == quantity) {
-                return true;
-            }
-        }
-        return false;
+    @Override
+    public HomePage clickChartButton() {
+        waitForElementDisplay(subHeader);
+        List<MobileElement> el = subHeader.findElements(By.className("android.widget.TextView"));
+        el.get(el.size() - 1).click();
+        return this;
     }
 
-    public final void clickMoreInfoButtonOfVitaminB12Android(String name, int pos) {
+    @Override
+    public HomePage clickMoreInfoButton(String name, int pos) {
         String foodName = container.findElements(By.id("food_name")).get(pos).getText();
-        if (foodName == name) {
+        if (foodName.equals(name)) {
             lstBtnMoreInfo.get(pos).click();
         }
-    }
-
-    public final void clickCheckBoxOfFirstItem() {
-        List<MobileElement> containerCheckBox = container.findElements(By.id("food_check_boxes_container"));
-        List<MobileElement> lstCheckBox = (List<MobileElement>) containerCheckBox.get(0).findElement(By.className("android.widget.CheckBox"));
-        lstCheckBox.get(0).click();
-    }
-
-    public final boolean isAllCheckBoxOfFirstItemSelected() {
-        List<MobileElement> containerCheckBox = container.findElements(By.id("food_check_boxes_container"));
-        List<MobileElement> lstCheckBox = (List<MobileElement>) containerCheckBox.get(0).findElement(By.className("android.widget.CheckBox"));
-        for (int i = 0; i < lstCheckBox.size(); i++) {
-            if (!lstCheckBox.get(i).isSelected()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public final boolean isFirstCheckBoxOfFirstItemUnselected() {
-        List<MobileElement> containerCheckBox = container.findElements(By.id("food_check_boxes_container"));
-        List<MobileElement> lstCheckBox = (List<MobileElement>) containerCheckBox.get(0).findElement(By.className("android.widget.CheckBox"));
-        if (!lstCheckBox.get(0).isSelected()) {
-            return true;
-        }
-        return false;
-    }
-
-    public final void clickLastCheckBoxOfFirstItem() {
-        List<MobileElement> containerCheckBox = container.findElements(By.id("food_check_boxes_container"));
-        List<MobileElement> lstCheckBox = (List<MobileElement>) containerCheckBox.get(0).findElement(By.className("android.widget.CheckBox"));
-        lstCheckBox.get(lstCheckBox.size() - 1).click();
-    }
-
-    public final boolean isAllCheckBoxOfFirstItemUnselected() {
-        List<MobileElement> containerCheckBox = container.findElements(By.id("food_check_boxes_container"));
-        List<MobileElement> lstCheckBox = (List<MobileElement>) containerCheckBox.get(0).findElement(By.className("android.widget.CheckBox"));
-        for (int i = 0; i < lstCheckBox.size(); i++) {
-            if (!lstCheckBox.get(i).isSelected()) {
-                return true;
-            }
-        }
-        return false;
+        return this;
     }
 }
 

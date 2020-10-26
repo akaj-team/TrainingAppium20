@@ -21,7 +21,7 @@ public class HomePage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='Daily Dozen']")
     @iOSFindBy(id = "Daily Dozen")
-    protected MobileElement tvTitle;
+    private MobileElement tvTitle;
 
     @AndroidFindBy(id = "header")
     @iOSFindBy(id = "Servings")
@@ -34,10 +34,6 @@ public class HomePage extends BasePage {
     @AndroidFindBy(className = "android.widget.ImageView")
     @iOSFindBy(id = "Info")
     private MobileElement btnInfoMenu;
-
-    @AndroidFindBy(id = "food_name")
-    @iOSFindBy(id = "More Info")
-    protected List<MobileElement> lstBtnMoreInfo;
 
     @AndroidFindBy(id = "food_history")
     @iOSFindBy(id = "ic calendar")
@@ -71,32 +67,38 @@ public class HomePage extends BasePage {
         return tvHeader.getText();
     }
 
-    public final void click21TweaksButton() {
+    public HomePage click21TweaksButton() {
         waitForElementDisplay(btn21Tweaks);
         btn21Tweaks.click();
+        return this;
     }
 
-    public final void clickInfoMenuButton() {
+    public HomePage clickChartButton() {
+        return this;
+    }
+
+    public HomePage clickInfoMenuButton() {
         waitForElementDisplay(btnInfoMenu);
         btnInfoMenu.click();
+        return this;
     }
 
-    public final void clickMoreInfoButton() {
-        for (int i = 0; i < lstBtnMoreInfo.size(); i++) {
-            lstBtnMoreInfo.get(i).click();
-        }
+    public String getTextOfFoodName(int pos) {
+        return "";
     }
 
-    public final void clickCalendarButton() {
-        for (int i = 0; i < lstBtnCalendar.size(); i++) {
-            lstBtnCalendar.get(i).click();
-        }
+    public HomePage clickMoreInfoButton(String name, int pos) {
+        return this;
     }
 
-    public final boolean isHomePageDisplayed() {
-        if (!tvTitle.isDisplayed()) {
-            return false;
+    public HomePage clickCalendarButton() {
+        for (MobileElement mobileElement : lstBtnCalendar) {
+            mobileElement.click();
         }
-        return true;
+        return this;
+    }
+
+    public boolean isHomePageNotDisplayed() {
+        return !tvTitle.isDisplayed();
     }
 }

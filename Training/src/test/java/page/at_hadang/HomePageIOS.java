@@ -20,27 +20,31 @@ public class HomePageIOS extends HomePage {
     @iOSFindBy(id = "ic stat")
     private MobileElement btnChart;
 
+    @iOSFindBy(id = "More Info")
+    private List<MobileElement> lstBtnMoreInfo;
+
     public HomePageIOS(MobileDriver driver) {
         super(driver);
     }
 
-    public String getTextOfFoodNameIOS(int pos) {
+    @Override
+    public String getTextOfFoodName(int pos) {
         return container.findElements(By.className("UIAStaticText")).get(pos).getText();
     }
 
-    public final void clickChartButtonIOS() {
+    @Override
+    public HomePage clickChartButton() {
         waitForElementDisplay(btnChart);
         btnChart.click();
+        return this;
     }
 
-    public final boolean verifyCheckBoxQuantityIOS(String name, int quantity) {
-        return true;
-    }
-
-    public final void clickMoreInfoButtonOfVitaminB12IOS(String name, int pos) {
+    @Override
+    public HomePage clickMoreInfoButton(String name, int pos) {
         String foodName = container.findElements(By.className("UIAStaticText")).get(pos).getText();
-        if (foodName == name) {
+        if (foodName.equals(name)) {
             lstBtnMoreInfo.get(pos).click();
         }
+        return this;
     }
 }
