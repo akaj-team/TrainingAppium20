@@ -40,7 +40,7 @@ public class TweaksPage extends BasePage {
 
     @AndroidFindBy(className = "android.widget.TextView")
     @iOSFindBy(id = "21 Tweaks")
-    private MobileElement textTitle;
+    private MobileElement txtTitle;
 
     @AndroidFindBy(id = "tweak_icon")
     @iOSFindBy(className = "UIAView")
@@ -89,7 +89,7 @@ public class TweaksPage extends BasePage {
     }
 
     public String getTextTitle() {
-        waitForElementDisplay(textTitle);
-        return textTitle.getText();
+        waitForElementDisplay(txtTitle);
+        return txtTitle.getText();
     }
 }
