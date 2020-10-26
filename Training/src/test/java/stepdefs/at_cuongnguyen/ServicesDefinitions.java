@@ -4,17 +4,17 @@ import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import at_cuongnguyen.Services;
+import at_cuongnguyen.Android_Services;
 
 public class ServicesDefinitions extends BaseDefinitions implements En {
-    Services service = new PageFactory<>(Services.class).create();
+    Android_Services service = new PageFactory<>(Android_Services.class).create();
 
     public ServicesDefinitions() {
         Then("^The header bar including Back button on the left$", () -> Assert.assertTrue(service.isImageBtnContain()));
 
         When("^I check the header bar of screen$", () -> Assert.assertTrue(service.open().isPageDisplayed()));
 
-        Then("^The header bar including Videos button on the right$", () -> Assert.assertTrue(service.isBtnvideoContain()));
+        Then("^The header bar including Videos button on the right$", () -> Assert.assertTrue(service.isbtnvideoContain()));
 
         When("^I click on Back button$", () -> {
         });
