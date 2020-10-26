@@ -17,7 +17,7 @@ import at.core.PageFactory;
 
 public class ServingHistoryPage extends BasePage {
     @iOSFindBy(id = "Servings History")
-    @AndroidFindBy(className = "android.widget.TextView")
+    @AndroidFindBy(xpath = "//*[@text='Daily Servings History']")
     private MobileElement screenTitle;
 
     @iOSFindBy(id = "21 Tweaks")
@@ -25,7 +25,7 @@ public class ServingHistoryPage extends BasePage {
     private MobileElement backButton;
 
     @iOSFindBy(id = "Time Scale")
-    @AndroidFindBy(className = "android.widget.TextView")
+    @AndroidFindBy(xpath = "//*[@text='Time Scale']")
     private MobileElement scaleText;
 
     @iOSFindBy(className = "UIAView")

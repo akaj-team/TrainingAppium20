@@ -206,7 +206,6 @@ public abstract class BasePage {
 
     /**
      * Navigate to page
-     * @return
      */
     public abstract BasePage open();
 
