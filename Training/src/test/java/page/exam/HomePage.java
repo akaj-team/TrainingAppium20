@@ -4,6 +4,7 @@ import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
 /**
@@ -13,6 +14,7 @@ import org.openqa.selenium.By;
  */
 public class HomePage extends BasePage {
     @AndroidFindBy(id = "action_bar")
+    @iOSFindBy(className = "UIATabBar")
     private MobileElement actionBar;
 
     @AndroidFindBy(id = "menu_toggle_modes")
