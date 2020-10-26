@@ -35,8 +35,7 @@ public abstract class InfoPage extends HomePage {
     }
 
     public String getTitleOfPage() {
-        String txtTitleOfPage = null;
-        return txtTitleOfPage;
+        return "";
     }
 
     public InfoPage clickTitleOfPage() {
@@ -44,8 +43,7 @@ public abstract class InfoPage extends HomePage {
     }
 
     public String getTitle(int n) {
-        String txtTitle = null;
-        return txtTitle;
+        return "";
     }
 
     public InfoPage clickTitleButton(int n) {
