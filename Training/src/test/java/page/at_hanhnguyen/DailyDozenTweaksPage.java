@@ -124,9 +124,6 @@ public class DailyDozenTweaksPage extends BasePage {
     }
 
     public boolean verifyTheEyeOpen() {
-        if (isForElementPresent(txtMorningWeight) && isForElementPresent(txtEveningWeight)) {
-            return true;
-        }
-        return false;
+        return isForElementPresent(txtMorningWeight) && isForElementPresent(txtEveningWeight);
     }
 }
