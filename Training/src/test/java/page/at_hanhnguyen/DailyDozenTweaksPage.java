@@ -69,7 +69,7 @@ public class DailyDozenTweaksPage extends BasePage {
 
     public boolean verifyAllItemsShowCorrectly(String name) {
         for (MobileElement element : lstTweak) {
-            if (!lbTweakName.getText().equals(name)) {
+            if (!element.getText().equals(name)) {
                 return false;
             }
         }
@@ -78,7 +78,7 @@ public class DailyDozenTweaksPage extends BasePage {
 
     public boolean verifyTitleGroupShowCorrectly(String title) {
         for (MobileElement element : lstTweak) {
-            if (!lbGroupTitle.getText().equals(title)) {
+            if (element.getText().equals(title)) {
                 return false;
             }
         }

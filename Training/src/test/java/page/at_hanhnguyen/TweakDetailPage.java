@@ -14,16 +14,16 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class TweakDetailPage extends BasePage {
-    @AndroidFindBy(id="action_bar")
+    @AndroidFindBy(id = "action_bar")
     private MobileElement actionBar;
 
-    @AndroidFindBy(id="tweak_info_image")
+    @AndroidFindBy(id = "tweak_info_image")
     private MobileElement image;
 
-    @AndroidFindBy(id="tweak_short")
+    @AndroidFindBy(id = "tweak_short")
     private MobileElement titleOfContent;
 
-    @AndroidFindBy(id="tweak_text")
+    @AndroidFindBy(id = "tweak_text")
     private MobileElement contentText;
 
     public TweakDetailPage(MobileDriver driver) {
@@ -40,23 +40,23 @@ public class TweakDetailPage extends BasePage {
         return null;
     }
 
-    public String getTextTitleAtTweakDetail(){
+    public String getTextTitleAtTweakDetail() {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
-    public boolean isImageDisplay(){
+    public boolean isImageDisplay() {
         return image.isDisplayed();
     }
 
-    public String getTextTitleOfContent(){
+    public String getTextTitleOfContent() {
         return titleOfContent.getText();
     }
 
-    public boolean getTextfContent(){
+    public boolean getTextfContent() {
         return contentText.isDisplayed();
     }
 
-    public BasePage clickBackButton(){
+    public BasePage clickBackButton() {
         actionBar.findElement(By.className("android.widget.ImageButton")).click();
         return this;
     }

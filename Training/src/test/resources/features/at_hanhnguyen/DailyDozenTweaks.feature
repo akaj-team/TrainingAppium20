@@ -20,30 +20,30 @@ Feature: Test on Daily Dozen Tweaks screen
     When I check title under Tweak text
     Then The title under the Tweak text is "Weight"
 
-    Scenario: Check showing the eye open
-      When I check  the eye open is shown or not
-      Then The the eye open is shown
+  Scenario: Check showing the eye open
+    When I check  the eye open is shown or not
+    Then The the eye open is shown
 
-    Scenario Outline: Check showing the title at AT EACH MEAL group
-      When I check showing the title at AT EACH MEAL group
-      Then The group title shows as "<titleGroup>"
-      Examples:
-        |titleGroup|
-        |At Each Meal|
-        |Every Day|
-        |Take your daily doses|
-        |Every Night|
+  Scenario Outline: Check showing the title at AT EACH MEAL group
+    When I check showing the title at AT EACH MEAL group
+    Then The group title shows as "<titleGroup>"
+    Examples:
+      | titleGroup            |
+      | At Each Meal          |
+      | Every Day             |
+      | Take your daily doses |
+      | Every Night           |
 
   Scenario Outline: Check showing all items in AT EACH MEAL
-      When I check showing the all items AT EACH MEAL
-      Then All items in AT EACH MEAL are shown correctly with "<itemTitle>"
-      Examples:
-        |itemTitle|
-        |Preload with Water|
-        |Preload with Water|
-        |Preload with Negative Calorie Foods|
-        |Incorporate Vinegar (2 tsp with each meal)|
-        |Enjoy Undistracted Meals|
+    When I check showing the all items AT EACH MEAL
+    Then All items in AT EACH MEAL are shown correctly with "<itemTitle>"
+    Examples:
+      | itemTitle                                  |
+      | Preload with Water                         |
+      | Preload with Water                         |
+      | Preload with Negative Calorie Foods        |
+      | Incorporate Vinegar (2 tsp with each meal) |
+      | Enjoy Undistracted Meals                   |
 
   Scenario: Check action when user tap into calendar
     When I tap into calendar icon
