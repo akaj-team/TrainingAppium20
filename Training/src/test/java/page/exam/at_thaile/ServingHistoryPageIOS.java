@@ -40,6 +40,9 @@ public class ServingHistoryPageIOS extends ServingHistoryPage {
     @iOSFindBy(id = "Settings")
     private MobileElement settingButton;
 
+    @iOSFindBy(className = "UIAView")
+    private MobileElement timeView;
+
     public ServingHistoryPageIOS(MobileDriver driver) {
         super(driver);
     }
@@ -52,7 +55,11 @@ public class ServingHistoryPageIOS extends ServingHistoryPage {
         return super.open();
     }
 
-    public void clickDailyDozenButton(){
+    public String getTextTimeView() {
+        return timeView.getText();
+    }
+
+    public void clickDailyDozenButton() {
         dailyDozenButton.click();
     }
 

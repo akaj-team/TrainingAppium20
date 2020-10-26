@@ -28,18 +28,6 @@ public class ServingHistoryPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Time Scale']")
     private MobileElement scaleText;
 
-    @iOSFindBy(className = "UIAView")
-    private MobileElement timeView;
-
-    @AndroidFindBy(id = "time_range_selector_selected_year")
-    private MobileElement yearSelected;
-
-    @AndroidFindBy(id = "time_range_selector_selected_month")
-    private MobileElement monthSelected;
-
-    @AndroidFindBy(id = "time_scale_spinner")
-    private MobileElement timeDropDownList;
-
     @iOSFindBy(id = "Day")
     @AndroidFindBy(xpath = "//*[@text='Day']")
     private MobileElement dayButton;
