@@ -6,31 +6,16 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 
-public class ServicesPageAndroid extends BasePage {
+public class ServicesPageAndroid extends ServicesPage {
 
     @AndroidFindBy(id = "change_units_button")
     private MobileElement btnChangeUnit;
 
-    @AndroidFindBy(id = "text1")
-    private MobileElement txtListServingSizes;
-
     @AndroidFindBy(id = "food_name")
     private MobileElement txtFoodName;
 
-    public boolean isTypesPresent() {
-        if (txtListServingSizes.isDisplayed()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public boolean isFoodNamePresent(){
-        if(txtFoodName.isDisplayed()){
-            return true;
-        }else {
-            return false;
-        }
+        return txtFoodName.isDisplayed();
     }
 
     public ServicesPageAndroid(MobileDriver driver) {

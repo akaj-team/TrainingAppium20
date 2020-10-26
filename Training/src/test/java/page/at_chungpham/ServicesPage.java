@@ -23,7 +23,7 @@ public class ServicesPage extends BasePage {
     @AndroidFindBy(id = "food_info_videos")
     private MobileElement btnVideo;
 
-    @iOSFindBy(xpath = "//*[@knownSuperClass='UIImageView']")
+    @iOSFindBy(className = "UIAImageView")
     @AndroidFindBy(id = "food_info_image")
     private MobileElement imgFoodImage;
 
@@ -107,11 +107,7 @@ public class ServicesPage extends BasePage {
     }
 
     public boolean isVideoRedirect() {
-        if (txtServingSizesTitle.isDisplayed()) {
-            return false;
-        } else {
-            return true;
-        }
+        return txtServingSizesTitle.isDisplayed();
     }
 
     public String getTxtTypes() {

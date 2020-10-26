@@ -5,7 +5,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
-public class ServicesPageiOS extends BasePage {
+public class ServicesPageiOS extends ServicesPage {
 
     @iOSFindBy(xpath = "//*[@text='Daily Dozen' and @class='UIAButton' and ./parent::*[@class='UIATabBar']]")
     private MobileElement btnMenuDailyDozen;
