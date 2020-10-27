@@ -60,7 +60,6 @@ public class ServicesPage extends BasePage {
     @iOSFindBy(id = "METRIC")
     public MobileElement btnMetric;
 
-
     @iOSFindBy(xpath = "//*[@text='Serving Sizes'")
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
     public MobileElement txtServing;
