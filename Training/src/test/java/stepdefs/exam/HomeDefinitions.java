@@ -29,4 +29,5 @@ public class HomeDefinitions extends BaseDefinitions implements En {
 
         Given("^Home screen is opened$", () -> Assert.assertTrue(homePage.open().isPageDisplayed()));
     }
+
 }
