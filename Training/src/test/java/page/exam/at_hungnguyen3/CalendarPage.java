@@ -10,7 +10,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
@@ -21,6 +20,7 @@ import java.util.Date;
 
 public class CalendarPage extends BasePage {
     JavascriptExecutor jsExecutor;
+    String currentTime = getCurrentTime();
 
     @AndroidFindBy(className = "android.widget.ImageButton")
     @iOSFindBy(className = "UIAButton")
@@ -61,7 +61,7 @@ public class CalendarPage extends BasePage {
         return this;
     }
 
-    public CalendarPage clickBackButton() {
+    public CalendarPage clickBtnBackButton() {
         waitForElementDisplay(btnBack);
         btnBack.click();
         return this;
@@ -108,6 +108,33 @@ public class CalendarPage extends BasePage {
                 .release()
                 .perform();
         return this;
+    }
+
+    public String getTextTitle(){
+        return "";
+    }
+
+    public String getTextTime(){
+        return "";
+    }
+
+    public boolean isCurrentTime(){
+        String[] parts = currentTime.split("(?=-)");
+        String month = parts[1];
+        String year = parts[2];
+        return  ((getTextTime().contains(month)) && (getTextTime().contains(year)));
+    }
+
+    public void isItemCorrect(){
+        clickBackButton();
+        HomePage homePage = new PageFactory<>(HomePage.class).create();
+        homePage.waitForElementDisplay(actionBar);
+        for(int pos = 0; pos < listItem.size(); pos++)
+        String itemListText = listItem.get(pos).getText();
+        listItem.get(pos).click ;
+        scrollToElement(itemToClick);
+        listItem.get(pos).click();
+        Assert.assertEquals(getItemText(),getItemText());
     }
 }
 

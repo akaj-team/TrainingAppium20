@@ -8,8 +8,6 @@ import page.exam.HomePage;
 
 public class CalendarPageAndroid extends CalendarPage{
 
-    String currentTime = getCurrentTime();
-
     @AndroidFindBy(id = "month_name")
     private MobileElement time;
 
@@ -33,37 +31,18 @@ public class CalendarPageAndroid extends CalendarPage{
         return this;
     }
 
-    public String getItemText() {
-        waitForElementDisplay(item);
-        return item.getText();
-    }
-
-    public String getTimeText() {
-        waitForElementDisplay(time);
-        return time.getText();
-    }
-
-    public boolean isCurrentTime() {
-        String[] parts = currentTime.split("(?=-)");
-        String month = parts[1];
-        String year = parts[2];
-        return  ((getTimeText().contains(month)) && (getTimeText().contains(year)));
-    }
-
-    public void isItemCorrect(){
-        clickBackButton();
-        HomePage homePage = new PageFactory<>(HomePage.class).create();
-        homePage.waitForElementDisplay(actionBar);
-        int pos = 0;
-        String itemListText = listItem.get(pos).getText();
-        listItem.get(pos).click ;
-        scrollToElement(itemToClick);
-        listItem.get(pos).click();
-        Assert.assertEquals(getItemText(),getItemText());
-        pos++;
-    }
-
     public CalendarPageAndroid(MobileDriver driver) {
         super(driver);
     }
+
+    @Override
+    public String getTextTitle() {
+        return item.getText();
+    }
+
+    @Override
+    public String getTextTime() {
+        return time.getText();
+    }
+
 }
