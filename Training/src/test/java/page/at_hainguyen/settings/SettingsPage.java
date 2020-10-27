@@ -36,9 +36,9 @@ public class SettingsPage extends BasePage {
     @Override
     public BasePage open() {
         if (!isPageDisplayed()) {
-            HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.open();
-            homePage.moveToDetail();
+//            HomePage homePage = new PageFactory<>(HomePage.class).create();
+//            homePage.open();
+//            homePage.moveToDetail();
 
             getDriver().launchApp();
             waitForElementDisplay(titleLabel);
