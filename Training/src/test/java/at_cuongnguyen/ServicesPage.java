@@ -19,21 +19,12 @@ public class ServicesPage extends BasePage {
     }
 
     @AndroidFindBy(id = "action_bar")
-    @iOSFindBy(className = "UINavigationBar")
+    @iOSFindBy(className = "UIANavigationBar")
     public MobileElement actionBar;
 
     //This element just only iOS containing
     @iOSFindBy(className ="UIAStaticText")
     public MobileElement title;
-
-    //@AndroidFindBy(className = "UIATable")
-    //public MobileElement container;
-
-    //@AndroidFindBy(id = "menu_toggle_modes")
-    //private MobileElement tvMenuToggleModes;
-
-    //@AndroidFindBy(className = "android.widget.ListView")
-    //private MobileElement listMenu;
 
     @iOSFindBy(xpath = "//*[@text='Daily Dozen'")
     @AndroidFindBy(className = "android.widget.ImageButton")
