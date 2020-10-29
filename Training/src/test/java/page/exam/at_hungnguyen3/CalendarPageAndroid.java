@@ -1,10 +1,7 @@
 package page.exam.at_hungnguyen3;
-import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.testng.Assert;
-import page.exam.HomePage;
 
 public class CalendarPageAndroid extends CalendarPage{
 

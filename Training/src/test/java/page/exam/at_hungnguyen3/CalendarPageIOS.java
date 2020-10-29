@@ -1,12 +1,9 @@
 package page.exam.at_hungnguyen3;
 
-import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
-import org.testng.Assert;
-import page.exam.HomePage;
 
 import java.util.List;
 
@@ -60,4 +57,5 @@ public class CalendarPageIOS extends CalendarPage {
     public String getTextTime() {
         return monthList.get(1).getText();
     }
+
 }

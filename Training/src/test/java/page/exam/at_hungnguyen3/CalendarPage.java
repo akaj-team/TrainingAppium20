@@ -56,7 +56,8 @@ public class CalendarPage extends BasePage {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.open().clickCalendarButton();
+            homePage.clickCalendarButton(3);
+            waitForElementDisplay(tvHistory);
         }
         return this;
     }
@@ -118,6 +119,10 @@ public class CalendarPage extends BasePage {
         return "";
     }
 
+    public CalendarPage clickDailyDozenButton(){
+        return this;
+    }
+
     public boolean isCurrentTime(){
         String[] parts = currentTime.split("(?=-)");
         String month = parts[1];
@@ -125,7 +130,7 @@ public class CalendarPage extends BasePage {
         return  ((getTextTime().contains(month)) && (getTextTime().contains(year)));
     }
 
-    public void isItemCorrect(){
+ /*   public void isItemCorrect(){
         clickBackButton();
         HomePage homePage = new PageFactory<>(HomePage.class).create();
         homePage.waitForElementDisplay(actionBar);
@@ -135,6 +140,6 @@ public class CalendarPage extends BasePage {
         scrollToElement(itemToClick);
         listItem.get(pos).click();
         Assert.assertEquals(getItemText(),getItemText());
-    }
+    }*/
 }
 
