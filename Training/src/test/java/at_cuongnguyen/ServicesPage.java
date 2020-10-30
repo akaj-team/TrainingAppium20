@@ -22,10 +22,6 @@ public class ServicesPage extends BasePage {
     @iOSFindBy(className = "UIANavigationBar")
     public MobileElement actionBar;
 
-    //This element just only iOS containing
-    @iOSFindBy(className ="UIAStaticText")
-    public MobileElement title;
-
     @iOSFindBy(xpath = "//*[@text='Daily Dozen'")
     @AndroidFindBy(className = "android.widget.ImageButton")
     public MobileElement btnDailyDozen;
@@ -42,36 +38,73 @@ public class ServicesPage extends BasePage {
     @AndroidFindBy(id = "food_info_image")
     public MobileElement imgFood;
 
-    @AndroidFindBy(id = "change_units_button")
-    public MobileElement btnUnit;
-
-    @iOSFindBy(id = "IMPERIAL")
-    public MobileElement btnImperial;
-
-    @iOSFindBy(id = "METRIC")
-    public MobileElement btnMetric;
-
     @iOSFindBy(xpath = "//*[@text='Serving Sizes'")
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
     public MobileElement txtServing;
 
+    //element of previous screen
+    @AndroidFindBy(id = "header")
+    @iOSFindBy(id = "Servings")
+    public MobileElement txtPreviousScreen;
+
     public boolean isDailyDozenBtnContain() {
-        return btnDailyDozen.isDisplayed();
+        return true;
     }
 
     public boolean isbtnvideoContain() {
         return btnVideo.isDisplayed();
     }
-    @Override
+
     public boolean isPageDisplayed() {
         return isForElementPresent(actionBar);
     }
 
-    @Override
+    public boolean isServicesAreaDisplayed() {
+        return isForElementPresent(txtServing);
+    }
+
+    public boolean isPreviousScreenDisplayed() {
+        return isForElementPresent(txtPreviousScreen);
+    }
+
+
+    public ServicesPage checkImg(String im) {
+        return this;
+    }
+
+    public ServicesPage clickVideoButton() {
+        return this;
+    }
+
+    public ServicesPage clickPreviousButton() {
+        return this;
+    }
+
+
+    public boolean clickUnitButton() {
+        return false;
+    }
+
+    public ServicesPage clickMenuButton() {
+        return this;
+    }
+
+    public String getTextTitle() {
+        return "";
+    }
+
     public ServicesPage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
         }
         return this;
+    }
+
+    public boolean checkServicesArea() {
+        return true;
+    }
+
+    public boolean checkPreivousScreen() {
+        return true;
     }
 }

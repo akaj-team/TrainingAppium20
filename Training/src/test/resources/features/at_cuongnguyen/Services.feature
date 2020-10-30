@@ -15,10 +15,11 @@ Feature: Test on Services screen
 
     Scenario: Check click on Videos button
 
-      When I click on Videos button
+      When I click on Videos on button
       Then Open the url in new tab correctly with param-request
 
     Scenario: Check [Service] area
 
       When I move to [service] area
-      Then I check the [Service type] text is Services
+      Then I check the [Service type] text is "Services"
+      Then I click on Unit button

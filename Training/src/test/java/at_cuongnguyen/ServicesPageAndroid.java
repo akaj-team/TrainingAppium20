@@ -1,6 +1,8 @@
 package at_cuongnguyen;
 
 import io.appium.java_client.MobileDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 
 /**
@@ -9,6 +11,9 @@ import org.openqa.selenium.By;
  * @author at-cuong.nguyen
  */
 public class ServicesPageAndroid extends ServicesPage {
+
+    @AndroidFindBy(id = "change_units_button")
+    public MobileElement btnUnit;
 
     public ServicesPageAndroid(MobileDriver driver) {
         super(driver);
@@ -25,51 +30,63 @@ public class ServicesPageAndroid extends ServicesPage {
         return this;
     }
 
+    @Override
+    public boolean isDailyDozenBtnContain() {
+        return btnDailyDozen.isDisplayed();
+    }
+
+    @Override
     public boolean isbtnvideoContain() {
         return btnVideo.isDisplayed();
     }
 
-    public ServicesPageAndroid clickPreviousButton() {
-        actionBar.findElement(By.className("android.widget.ImageView")).click();
+    @Override
+    public ServicesPage clickPreviousButton() {
+        if (isbtnvideoContain())
+            btnDailyDozen.click();
         return this;
     }
 
-    public ServicesPageAndroid checkImg(String im){
-         imgFood.getText().equals(im);
-         return this;
-    }
-
-    public ServicesPageAndroid clickUnitButton(){
-        btnUnit.click();
+    public ServicesPage checkImg(String im) {
+        imgFood.getText().equals(im);
         return this;
     }
 
-    public boolean isImageBtnContain() {
-        return btnDailyDozen.isDisplayed();
+    @Override
+    public boolean clickUnitButton() {
+        if (btnUnit.isDisplayed())
+            btnUnit.click();
+        return false;
     }
 
-    public ServicesPageAndroid clickVideoButton(int pos){
-        actionBar.findElements(By.id("food_info_videos")).get(pos).click();
+    public ServicesPage clickVideoButton() {
+        btnVideo.click();
         return this;
     }
 
-    public String getTextTitle() {
-        return actionBar.findElement(By.className("android.widget.TextView")).getText();
-    }
-
-    public ServicesPageAndroid clickMenuButton() {
+    @Override
+    public ServicesPage clickMenuButton() {
         btnMenu.click();
         return this;
     }
 
-    //public String getTextTvMenuToggleModes() {return tvMenuToggleModes.getText(); }
+    @Override
+    public String getTextTitle() {
+        return txtServing.findElement(By.id("Serving Sizes")).getText();
+    }
 
-    //public boolean isListMenuDisplay() {return isForElementPresent(listMenu);}
+    @Override
+    public boolean checkPreivousScreen() {
+        if (isPreviousScreenDisplayed())
+            return true;
+        return false;
+    }
 
-    //public String getTextOfNameFood(int pos) {return container.getText();}
+    @Override
+    public boolean checkServicesArea() {
+        if (isServicesAreaDisplayed())
+            return true;
+        return false;
+    }
 
-    //public String clickIcCalendar(int pos) {return container.findElements(By.className("UIAStaticText")).get(pos).getText();}
-
-    //public boolean isContentTvMenuToggleModesContain(String text) {return getTextTvMenuToggleModes().contains(text);}
 }
-
