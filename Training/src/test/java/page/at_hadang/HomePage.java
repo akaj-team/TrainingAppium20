@@ -97,8 +97,4 @@ public class HomePage extends BasePage {
         }
         return this;
     }
-
-    public boolean isHomePageNotDisplayed() {
-        return !tvTitle.isDisplayed();
-    }
 }

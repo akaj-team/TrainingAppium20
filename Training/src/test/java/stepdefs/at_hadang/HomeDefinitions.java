@@ -54,7 +54,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
             homePage.clickMoreInfoButton(name, pos);
         });
         Then("^The Home screen is not displayed$", () -> {
-            Assert.assertTrue(homePage.isHomePageNotDisplayed());
+            Assert.assertFalse(homePage.isPageDisplayed());
         });
         When("^I click on the Tweaks button$", () -> {
             homePage.click21TweaksButton();
