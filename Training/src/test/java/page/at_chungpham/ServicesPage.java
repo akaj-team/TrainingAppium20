@@ -16,7 +16,7 @@ import org.openqa.selenium.By;
 public class ServicesPage extends BasePage {
 
     @iOSFindBy(xpath = "//*[@text='Daily Dozen'")
-    @AndroidFindBy(xpath = "//*[@contentDescription='Navigate up']")
+    @AndroidFindBy(className = "android.widget.ImageButton")
     private MobileElement btnBack;
 
     @iOSFindBy(xpath = "//*[@text='VIDEOS'")
@@ -102,7 +102,7 @@ public class ServicesPage extends BasePage {
         btnChangeToMetric.click();
     }
 
-    public boolean isVideoRedirect() {
+    public boolean verifyFunctionVideoButton() {
         return txtServingSizesTitle.isDisplayed();
     }
 
