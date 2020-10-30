@@ -7,13 +7,15 @@ import org.openqa.selenium.By;
 public class FoodDetailPageAndroid extends FoodDetailPage {
     MobileElement btnBack = actionBar.findElementByClassName("android.widget.ImageButton");
 
+    MobileElement screenName = actionBar.findElement(By.className("android.widget.TextView"));
 
     public FoodDetailPageAndroid(MobileDriver driver) {
         super(driver);
     }
 
+    @Override
     public String getScreenName() {
-        return actionBar.findElement(By.className("android.widget.TextView")).getText();
+        return screenName.getText();
     }
 
     public FoodDetailPageAndroid clickBackButton() {

@@ -15,23 +15,23 @@ public class FoodDetailPage extends BasePage {
 
     @iOSFindBy(id = "VIDEOS")
     @AndroidFindBy(id = "food_info_videos")
-    private MobileElement videosButton;
+    private MobileElement btnVideos;
 
     @iOSFindBy(id = "Serving Sizes")
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
-    private MobileElement servingSizes;
+    private MobileElement tvServingSizes;
 
     @iOSFindBy(id = "Units:")
     @AndroidFindBy(xpath = "//*[@text='Units']")
-    private MobileElement units;
+    private MobileElement tvUnits;
 
     @iOSFindBy(id = "IMPERIAL")
     @AndroidFindBy(id = "change_units_button")
-    private MobileElement imperialButton;
+    private MobileElement btnImperial;
 
     @iOSFindBy(id = "1 tablespoon ground")
     @AndroidFindBy(id = "android:id/text1")
-    private MobileElement subContent;
+    private MobileElement tvSubContent;
 
     @iOSFindBy(id = "Types")
     @AndroidFindBy(xpath = "//*[@text='Types']")
@@ -57,30 +57,34 @@ public class FoodDetailPage extends BasePage {
         return this;
     }
 
+    public String getScreenName(){
+        return "";
+    }
+
     public FoodDetailPage clickVideosButton() {
-        videosButton.click();
+        btnVideos.click();
         return this;
     }
 
     public String getContentServingSize(){
-        return servingSizes.getText();
+        return tvServingSizes.getText();
     }
 
     public String getContentUnit(){
-        return units.getText();
+        return tvUnits.getText();
     }
 
     public FoodDetailPage clickImperialButton() {
-        imperialButton.click();
+        btnImperial.click();
         return this;
     }
 
     public String getTextButtonImperial() {
-        return imperialButton.getText();
+        return btnImperial.getText();
     }
 
     public String getSubContent() {
-        return subContent.getText();
+        return tvSubContent.getText();
     }
 
     public String getContentTypes(){

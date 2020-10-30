@@ -10,12 +10,9 @@ public class FoodDetailDefinitions extends BaseDefinitions implements En {
     FoodDetailPage foodDetailPage = new PageFactory<>(FoodDetailPage.class).create();
 
     public FoodDetailDefinitions() {
-
-        Given("^Flaxseeds Detail screen is opened$", () -> {
-            Assert.assertTrue(foodDetailPage.open().isPageDisplayed());
+        When("^I check screen name of \\[Food Detail\\] screen$", () -> {
         });
         Then("^The screen name is \"([^\"]*)\"$", (String arg0) -> {
-
         });
 
         When("^I click <= button$", () -> {
@@ -28,7 +25,7 @@ public class FoodDetailDefinitions extends BaseDefinitions implements En {
         When("^I click VIDEOS button$", () -> {
             foodDetailPage.clickVideosButton();
         });
-        Then("^Display \\[Information of Flaxseeds\\] webview$", () -> {
+        Then("^Display \\[Information of Food\\] webview$", () -> {
             Assert.assertTrue(foodDetailPage.isPageDisplayed());
         });
 
@@ -77,5 +74,10 @@ public class FoodDetailDefinitions extends BaseDefinitions implements En {
         });
         Then("^The list of \\[Types\\] is displayed correctly$", () -> {
         });
+
+        Given("^Food Detail screen is opened$", () -> {
+
+        });
+
     }
 }

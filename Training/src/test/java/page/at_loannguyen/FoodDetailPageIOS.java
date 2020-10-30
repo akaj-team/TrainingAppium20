@@ -20,7 +20,8 @@ public class FoodDetailPageIOS extends FoodDetailPage {
         super(driver);
     }
 
-    public String getScreenName(){
+    @Override
+    public String getScreenName() {
         return screenName.getText();
     }
 

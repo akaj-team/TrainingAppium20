@@ -1,9 +1,10 @@
-Feature: Test on Flaxseeds Detail screen
+Feature: Test on Food Detail screen
 
   Background:
-    Given Flaxseeds Detail screen is opened
+    Given Food Detail screen is opened
 
   Scenario: Check screen name of this screen
+    When I check screen name of [Food Detail] screen
     Then The screen name is "Flaxseeds"
 
   Scenario: Check click <= button
@@ -12,7 +13,7 @@ Feature: Test on Flaxseeds Detail screen
 
   Scenario: Check click VIDEOS button
     When I click VIDEOS button
-    Then Display [Information of Flaxseeds] webview
+    Then Display [Information of Food] webview
 
   Scenario: Check content of [Serving Sizes]
     Then The content is "Serving Sizes"
