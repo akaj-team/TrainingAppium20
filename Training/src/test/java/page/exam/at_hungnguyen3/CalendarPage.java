@@ -56,7 +56,7 @@ public class CalendarPage extends BasePage {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.open().clickCalendarButton();
+            homePage.open();
         }
         return this;
     }
@@ -125,16 +125,5 @@ public class CalendarPage extends BasePage {
         return  ((getTextTime().contains(month)) && (getTextTime().contains(year)));
     }
 
-    public void isItemCorrect(){
-        clickBackButton();
-        HomePage homePage = new PageFactory<>(HomePage.class).create();
-        homePage.waitForElementDisplay(actionBar);
-        for(int pos = 0; pos < listItem.size(); pos++)
-        String itemListText = listItem.get(pos).getText();
-        listItem.get(pos).click ;
-        scrollToElement(itemToClick);
-        listItem.get(pos).click();
-        Assert.assertEquals(getItemText(),getItemText());
-    }
 }
 
