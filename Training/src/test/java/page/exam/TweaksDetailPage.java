@@ -4,6 +4,7 @@ import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
 public class TweaksDetailPage extends BasePage{
@@ -26,6 +27,7 @@ public class TweaksDetailPage extends BasePage{
     }
 
     @AndroidFindBy(id = "tweak_name")
+    @iOSFindBy(id = "tweak_name")
      private MobileElement listTweak;
 
     @AndroidFindBy(xpath = "//*[@class='android.widget.ImageButton']")
@@ -62,15 +64,16 @@ public class TweaksDetailPage extends BasePage{
         return tweakInfoImage.isDisplayed();
     }
 
-    public boolean verifyHeaderText(){ return lbAboutTweak.isDisplayed(); }
+    public String verifyHeaderText(){ return lbAboutTweak.getText(); }
 
-    public boolean verifyTitleText(){
-        return lbTweakShort.isDisplayed();
+    public String verifyTitleText(){
+        return lbTweakShort.getText();
     }
 
-    public boolean verifyContentText(){
-        return lbTweakText.isDisplayed();
+    public String verifyContentText(){
+        return lbTweakText.getText();
     }
 
 }
+
 
