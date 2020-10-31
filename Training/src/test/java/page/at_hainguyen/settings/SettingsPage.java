@@ -5,14 +5,15 @@ import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import org.openqa.selenium.By;
 import page.exam.HomePage;
 
 public class SettingsPage extends BasePage {
 
-    @iOSFindBy(id = "Settings")
+    @iOSFindBy(accessibility = "Settings")
     private MobileElement titleLabel;
 
-    @iOSFindBy(id = "MEASUREMENT UNITS")
+    @iOSFindBy(accessibility = "MEASUREMENT UNITS")
     private MobileElement titleSection1Label;
 
     @iOSFindBy(id = "concat('Set to always be one unit type or enable the ', \"'\", 'Units:', \"'\", ' toggle button.')")
@@ -30,28 +31,29 @@ public class SettingsPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(titleLabel);
+        System.out.println(isForElementPresent(titleSection1Label));
+        return isForElementPresent(titleSection1Label);
     }
 
     @Override
-    public BasePage open() {
+    public SettingsPage open() {
         if (!isPageDisplayed()) {
-//            HomePage homePage = new PageFactory<>(HomePage.class).create();
-//            homePage.open();
-//            homePage.moveToDetail();
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            homePage.open();
+            homePage.moveToDetail();
 
-            getDriver().launchApp();
-            waitForElementDisplay(titleLabel);
+            //getDriver().launchApp();
+            waitForElementDisplay(titleSection1Label);
         }
         return this;
     }
 
     public String getTitle() {
-        return titleLabel.getText();
+        return titleLabel.findElement(By.id("Settings")).getText();
     }
 
     public String getTitleOfSection1() {
-        return titleSection1Label.getText();
+        return titleSection1Label.findElement(By.id("MEASUREMENT UNITS")).getText();
     }
 
     public String getTitleOfSection2() {
