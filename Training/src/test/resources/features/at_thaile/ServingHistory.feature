@@ -7,6 +7,14 @@ Feature: Test on ServingHistory screen
     When I check title on ServingHistory screen
     Then The title is "Serving History"
 
+  Scenario: Check text of Time Scale
+    When I check text of Time Scale
+    Then The text is "Time Scale"
+
+  Scenario: Check click Back button
+    When I click Back button
+    Then Display Home screen
+
   Scenario: Check click Daily Dozen button
     When I click Daily Dozen button
     Then Display Daily Dozen screen

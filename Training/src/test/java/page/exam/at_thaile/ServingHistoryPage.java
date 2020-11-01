@@ -32,6 +32,10 @@ public class ServingHistoryPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Day']")
     private MobileElement dayButton;
 
+    @iOSFindBy(className = "UIAView")
+    @AndroidFindBy(className = "android.widget.LinearLayout")
+    private MobileElement timeBar;
+
     @iOSFindBy(id = "Month")
     @AndroidFindBy(xpath = "//*[@text='Month']")
     private MobileElement monthButton;
@@ -78,4 +82,10 @@ public class ServingHistoryPage extends BasePage {
     public void clickYearButton() {
         yearButton.click();
     }
+
+    public void clickDayButton() {
+        dayButton.click();
+    }
+
+    public boolean isDisplayTimeBar(){ return  isForElementPresent(timeBar); }
 }
