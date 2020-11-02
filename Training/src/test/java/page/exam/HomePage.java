@@ -53,6 +53,7 @@ public class HomePage extends BasePage {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
+
     public HomePage clickMenuButton() {
         actionBar.findElement(By.className("android.widget.ImageView")).click();
         return this;
