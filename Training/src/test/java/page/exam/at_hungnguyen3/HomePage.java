@@ -40,7 +40,7 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(actionBar);
+        return isForElementPresent(listFoodName.get(2));
     }
 
     @Override
@@ -66,5 +66,13 @@ public class HomePage extends BasePage {
     public HomePage scrollToElement(MobileElement element) {
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
         return this;
+    }
+
+    public String getTextTweaksMenu(){
+        return "";
+    }
+
+    public boolean isTweaksMenuContainsText(String text){
+        return getTextTweaksMenu().contains(text);
     }
 }
