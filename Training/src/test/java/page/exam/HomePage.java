@@ -23,6 +23,9 @@ public class HomePage extends BasePage {
     @AndroidFindBy(className = "android.widget.ListView")
     private MobileElement listMenu;
 
+    @iOSFindBy(id = "ic stat")
+    private MobileElement statButton;
+
     public HomePage(MobileDriver driver) {
         super(driver);
     }
@@ -56,6 +59,8 @@ public class HomePage extends BasePage {
     public String getTextTvMenuToggleModes() {
         return tvMenuToggleModes.getText();
     }
+
+    public void clickStatButton(){ statButton.click(); }
 
     public boolean isListMenuDisplay() {
         return isForElementPresent(listMenu);
