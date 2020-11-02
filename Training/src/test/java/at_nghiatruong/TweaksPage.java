@@ -7,6 +7,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import page.exam.HomePage;
 import java.util.List;
@@ -15,12 +16,9 @@ import java.util.List;
  * @author AT-Nghia Truong on 10/19/20.
  */
 public class TweaksPage extends BasePage {
-
-    public TweaksPage(MobileDriver<WebElement> driver) {
-        super(driver);
-    }
-
-    HomePage homePage = new PageFactory<>(HomePage.class).create();
+    int pos;
+    JavascriptExecutor jsExecutor;
+    TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(accessibility = "21 Tweaks")
@@ -42,16 +40,21 @@ public class TweaksPage extends BasePage {
     @iOSFindBy(id = "21 Tweaks")
     private MobileElement txtTitle;
 
-    @AndroidFindBy(id = "tweak_icon")
-    private MobileElement TweakIcon;
-
     @AndroidFindBy(id = "date_tweaks")
     @iOSFindBy(className = "UIAView")
-    private MobileElement iOSContainer;
     private MobileElement container;
 
+    @AndroidFindBy(xpath = "//*[@text='21 Tweaks']")
+    @iOSFindBy(id = "21 Tweaks")
+    private MobileElement btn21Tweaks;
+
     @AndroidFindBy(className = "android.widget.LinearLayout")
+    @iOSFindBy(id = "UIAView" )
     List<MobileElement> listLayout;
+
+    public TweaksPage(MobileDriver<WebElement> driver) {
+        super(driver);
+    }
 
     @Override
     public boolean isPageDisplayed() {
@@ -62,7 +65,8 @@ public class TweaksPage extends BasePage {
     public TweaksPage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
-            homePage.clickMenuButton();
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            //homePage.open().clickTo21TweaksButton();
         }
         return this;
     }
@@ -71,7 +75,7 @@ public class TweaksPage extends BasePage {
         for (int i = 0; i< listLayout.size(); i++)
            if (listLayout.get(i).findElement(By.className("android.widget.CheckBox")).isEnabled())
                listLayout.get(i).findElement(By.className("android.widget.CheckBox")).click();
-            scrollToElementContainText("Trendelenburg",listLayout.get(20));
+            scrollToElement(checkboxes);
         return this;
     }
 
@@ -86,9 +90,9 @@ public class TweaksPage extends BasePage {
         return this;
     }
 
-    int pos;
     public TweaksPage clickCheckboxInListLayout(){
-        listLayout.get(pos).findElement(By.className("android.widget.CheckBox")).click();
+        waitForElementDisplay(checkboxes);
+        checkboxes.click();
         return this;
     }
 
@@ -100,5 +104,8 @@ public class TweaksPage extends BasePage {
     public void clickOnHistoryButton(){
         waitForElementDisplay(btnHistory);
         btnHistory.click();
+    }
+    public void scrollToElement(MobileElement element) {
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 }
