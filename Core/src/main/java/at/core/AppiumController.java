@@ -109,8 +109,8 @@ class AppiumController {
     private Map<String, String> defaultAndroidParameters() {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "android");
-        parameters.put(MobileCapabilityType.DEVICE_NAME, "Pixel 2 API 28");
-        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "9.0");
+        parameters.put(MobileCapabilityType.DEVICE_NAME, "Pixel 3 API 28");
+        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "9");
         parameters.put(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         parameters.put(AndroidMobileCapabilityType.APP_PACKAGE, "org.nutritionfacts.dailydozen");
         parameters.put(MobileCapabilityType.APP, "org.nutritionfacts.dailydozen.apk");
