@@ -4,7 +4,7 @@ import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import page.exam.HomePage;
+import page.HomePage;
 
 /**
  * for screen
