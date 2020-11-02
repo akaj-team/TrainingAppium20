@@ -102,15 +102,15 @@ class AppiumController {
 
     private synchronized void startDefaultServer() throws MalformedURLException {
         XmlTest xmlTest = new XmlTest();
-        xmlTest.setParameters(defaultAndroidParameters());
+        xmlTest.setParameters(defaultIosParameters());
         start(xmlTest);
     }
 
     private Map<String, String> defaultAndroidParameters() {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "android");
-        parameters.put(MobileCapabilityType.DEVICE_NAME, "Pixel 3 API 28");
-        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "9");
+        parameters.put(MobileCapabilityType.DEVICE_NAME, "AOSP on IA Emulator");
+        parameters.put(MobileCapabilityType.PLATFORM_VERSION, "8.1");
         parameters.put(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
         parameters.put(AndroidMobileCapabilityType.APP_PACKAGE, "org.nutritionfacts.dailydozen");
         parameters.put(MobileCapabilityType.APP, "org.nutritionfacts.dailydozen.apk");
@@ -121,7 +121,7 @@ class AppiumController {
     private Map<String, String> defaultIosParameters() {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "ios");
-        parameters.put(MobileCapabilityType.DEVICE_NAME, "iPhone 11");
+        parameters.put(MobileCapabilityType.DEVICE_NAME, "iPhone 8 Plus");
         parameters.put(MobileCapabilityType.PLATFORM_VERSION, "13.7");
         parameters.put(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
         parameters.put(MobileCapabilityType.APP, "org.nutritionfacts.dailydozen.app");

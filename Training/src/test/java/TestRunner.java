@@ -1,5 +1,9 @@
 import at.core.CucumberRunnerBase;
 import cucumber.api.CucumberOptions;
+import io.appium.java_client.MobileElement;
+import org.openqa.selenium.By;
+
+import java.util.List;
 
 /**
  * @author at-hangtran
