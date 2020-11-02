@@ -10,10 +10,10 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import org.testng.Assert;
-import page.exam.HomePage;
+
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
@@ -56,13 +56,13 @@ public class CalendarPage extends BasePage {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickCalendarButton(3);
+            homePage.clickBtnCalendar(3);
             waitForElementDisplay(tvHistory);
         }
         return this;
     }
 
-    public CalendarPage clickBtnBackButton() {
+    public CalendarPage clickBtnBack() {
         waitForElementDisplay(btnBack);
         btnBack.click();
         return this;
@@ -77,10 +77,6 @@ public class CalendarPage extends BasePage {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMMM-yyyy");
         String strDate = formatter.format(date);
         return strDate;
-    }
-
-    public void scrollToElement(MobileElement element) {
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public CalendarPage swipeToTheLeft(AppiumDriver driver){
@@ -123,6 +119,14 @@ public class CalendarPage extends BasePage {
         return this;
     }
 
+    public CalendarPage clickInfoButton(){
+        return this;
+    }
+
+    public CalendarPage clickSettingsButton(){
+        return this;
+    }
+
     public boolean isCurrentTime(){
         String[] parts = currentTime.split("(?=-)");
         String month = parts[1];
@@ -130,6 +134,10 @@ public class CalendarPage extends BasePage {
         return  ((getTextTime().contains(month)) && (getTextTime().contains(year)));
     }
 
+    public CalendarPage scrollToElement(MobileElement element) {
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+        return this;
+    }
  /*   public void isItemCorrect(){
         clickBackButton();
         HomePage homePage = new PageFactory<>(HomePage.class).create();

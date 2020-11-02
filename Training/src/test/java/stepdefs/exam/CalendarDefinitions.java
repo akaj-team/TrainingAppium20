@@ -29,5 +29,11 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
         Then("^The initial time is current time$", () -> {
             calendarPage.isCurrentTime();
         });
+        When("^I tap on DailyDozen button$", () -> {
+            calendarPage.clickDailyDozenButton();
+        });
+        When("^I tap on Info button$", () -> {
+            calendarPage.clickInfoButton();
+        });
     }
 }

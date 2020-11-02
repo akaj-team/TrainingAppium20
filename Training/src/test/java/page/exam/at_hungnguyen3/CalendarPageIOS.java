@@ -36,6 +36,8 @@ public class CalendarPageIOS extends CalendarPage {
         return this;
     }
 
+
+
     public CalendarPageIOS clickInfoButton(){
         waitForElementDisplay(info);
         info.click();

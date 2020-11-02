@@ -15,6 +15,14 @@ Feature: Test on Calendar screen
     When I check display initial time
     Then The initial time is current time
 
-  Scenario: Check function of
-    When
-    Then
+  Scenario: Check function of DailyDozen button(ios devices)
+    When I tap on DailyDozen button
+    Then Home screen is opened
+
+  Scenario: Check function of Info button(ios devices)
+    When I tap on Info button
+    Then Info screen is opened
+
+  Scenario: Check function of Settings button(ios devices)
+    When I tap on Settings button
+    Then Settings screen is opened

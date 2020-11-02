@@ -1,9 +1,10 @@
 package page.exam.at_hungnguyen3;
+
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-public class CalendarPageAndroid extends CalendarPage{
+public class CalendarPageAndroid extends CalendarPage {
 
     @AndroidFindBy(id = "month_name")
     private MobileElement time;
@@ -16,16 +17,21 @@ public class CalendarPageAndroid extends CalendarPage{
 
     private MobileElement item = actionBar.findElementByClassName("android.widget.TextView");
 
-    public CalendarPageAndroid clickToNextButton(){
+    public CalendarPageAndroid clickToNextButton() {
         waitForElementDisplay(next);
         next.click();
         return this;
     }
 
-    public CalendarPageAndroid clickToPreviousButton(){
+    public CalendarPageAndroid clickToPreviousButton() {
         waitForElementDisplay(previous);
         previous.click();
         return this;
+    }
+
+    @Override
+    public CalendarPage clickDailyDozenButton() {
+        return clickBtnBack();
     }
 
     public CalendarPageAndroid(MobileDriver driver) {
