@@ -67,7 +67,6 @@ public class ServicesPage extends BasePage {
         return isForElementPresent(txtPreviousScreen);
     }
 
-
     public ServicesPage checkImg(String im) {
         return this;
     }
@@ -79,7 +78,6 @@ public class ServicesPage extends BasePage {
     public ServicesPage clickPreviousButton() {
         return this;
     }
-
 
     public boolean clickUnitButton() {
         return false;

@@ -88,5 +88,4 @@ public class ServicesPageAndroid extends ServicesPage {
             return true;
         return false;
     }
-
 }

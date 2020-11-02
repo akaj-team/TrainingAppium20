@@ -47,7 +47,6 @@ public class ServicesPageIOS extends ServicesPage {
         return this;
     }
 
-    //Check title with only "Serving size"
     @Override
     public String getTextTitle() {
         return txtServing.findElement(By.id("Serving Sizes")).getText();
