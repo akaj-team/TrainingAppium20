@@ -18,13 +18,13 @@ public class TweakDetailPage extends BasePage {
     private MobileElement actionBar;
 
     @AndroidFindBy(id = "tweak_info_image")
-    private MobileElement image;
+    private MobileElement imgImage;
 
     @AndroidFindBy(id = "tweak_short")
-    private MobileElement titleOfContent;
+    private MobileElement tvTitleOfContent;
 
     @AndroidFindBy(id = "tweak_text")
-    private MobileElement contentText;
+    private MobileElement tvContentText;
 
     public TweakDetailPage(MobileDriver driver) {
         super(driver);
@@ -45,15 +45,15 @@ public class TweakDetailPage extends BasePage {
     }
 
     public boolean isImageDisplay() {
-        return image.isDisplayed();
+        return imgImage.isDisplayed();
     }
 
     public String getTextTitleOfContent() {
-        return titleOfContent.getText();
+        return tvTitleOfContent.getText();
     }
 
     public boolean getTextfContent() {
-        return contentText.isDisplayed();
+        return tvContentText.isDisplayed();
     }
 
     public BasePage clickBackButton() {

@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static javax.swing.text.html.CSS.getAttribute;
+
 public class DailyDozenTweaksPage extends BasePage {
 
     HomePage homePage = new PageFactory<>(HomePage.class).create();
@@ -100,7 +102,11 @@ public class DailyDozenTweaksPage extends BasePage {
     }
 
     public boolean verifyCheckboxIsChecked() {
-        return lstCheckbox.get(0).isSelected() && lstCheckbox.get(1).isSelected() && lstCheckbox.get(2).isSelected();
+        for (MobileElement element:lstCheckbox){
+            if (element.getAttribute("checked").equals("true")){
+               return true;
+            }
+        } return false;
     }
 
     public String getCurrentDate() {
