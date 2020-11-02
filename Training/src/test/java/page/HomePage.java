@@ -21,8 +21,15 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "menu_toggle_modes")
     private MobileElement tvMenuToggleModes;
 
+    @iOSFindBy(className = "UIATable")
     @AndroidFindBy(className = "android.widget.ListView")
     private MobileElement listMenu;
+
+    @iOSFindBy(id = "Settings")
+    private MobileElement settingButton;
+
+    @iOSFindBy(id = "ic stat")
+    private MobileElement statButton;
 
     public HomePage(MobileDriver driver) {
         super(driver);
@@ -34,9 +41,10 @@ public class HomePage extends BasePage {
     }
 
     @Override
-    public BasePage open() {
+    public HomePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
+            waitForElementDisplay(actionBar);
         }
         return this;
     }
@@ -45,14 +53,21 @@ public class HomePage extends BasePage {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
+
     public HomePage clickMenuButton() {
         actionBar.findElement(By.className("android.widget.ImageView")).click();
         return this;
     }
 
+    public void moveToDetail() {
+        listMenu.findElements(By.id("food_name")).get(6).click();
+    }
+
     public String getTextTvMenuToggleModes() {
         return tvMenuToggleModes.getText();
     }
+
+    public void clickStatButton(){ statButton.click(); }
 
     public boolean isListMenuDisplay() {
         return isForElementPresent(listMenu);
