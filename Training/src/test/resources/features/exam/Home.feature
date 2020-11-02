@@ -11,8 +11,11 @@ Feature: Test on Home screen
     When I check content tweaks button
     Then The content contain "TWEAKS"
 
+  Scenario: Check click Daily Dozen button
+    When I click Daily Dozen button
+    Then Display Daily Dozen screen
+
   Scenario: Check click more options button
     When I click more option button
     Then Display list options menu
-
 
