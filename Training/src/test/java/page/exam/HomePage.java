@@ -37,7 +37,7 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(titleLabel);
+        return isForElementPresent(actionBar);
     }
 
     @Override
@@ -50,11 +50,11 @@ public class HomePage extends BasePage {
     }
 
     public String getTextTitle() {
-        return titleLabel.getText();
+        return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
     public HomePage clickMenuButton() {
-//        actionBar.findElement(By.className("android.widget.ImageView")).click();
+        actionBar.findElement(By.className("android.widget.ImageView")).click();
         return this;
     }
 
