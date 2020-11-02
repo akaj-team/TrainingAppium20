@@ -13,9 +13,10 @@ import org.openqa.selenium.By;
  * @author at-anh.quach
  */
 public class HomePage extends BasePage {
-    @AndroidFindBy(id = "Daily Dozen")
-    @iOSFindBy(id = "Daily Dozen")
-    private MobileElement titleLabel;
+
+    @AndroidFindBy(id = "action_bar")
+    @iOSFindBy(className = "UIATabBar")
+    private MobileElement actionBar;
 
     @AndroidFindBy(id = "menu_toggle_modes")
     private MobileElement tvMenuToggleModes;
@@ -26,6 +27,9 @@ public class HomePage extends BasePage {
 
     @iOSFindBy(id = "Settings")
     private MobileElement settingButton;
+
+    @iOSFindBy(id = "ic stat")
+    private MobileElement statButton;
 
     public HomePage(MobileDriver driver) {
         super(driver);
@@ -40,7 +44,7 @@ public class HomePage extends BasePage {
     public HomePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
-            waitForElementDisplay(titleLabel);
+            waitForElementDisplay(actionBar);
         }
         return this;
     }
@@ -55,12 +59,14 @@ public class HomePage extends BasePage {
     }
 
     public void moveToDetail() {
-        settingButton.click();
+        listMenu.findElements(By.id("food_name")).get(6).click();
     }
 
     public String getTextTvMenuToggleModes() {
         return tvMenuToggleModes.getText();
     }
+
+    public void clickStatButton(){ statButton.click(); }
 
     public boolean isListMenuDisplay() {
         return isForElementPresent(listMenu);
