@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
     private MobileElement actionBar;
 
     @AndroidFindBy(xpath = "//*[@class='androidx.appcompat.widget.LinearLayoutCompat']/preceding-sibling::*")
-    @iOSFindBy(xpath = "//*[@class='UIANavigationBar']/child::*")
+    @iOSFindBy(xpath = "//*[@class='UIANavigationBar']//child::*")
     private MobileElement titleHome;
 
     @AndroidFindBy(id = "food_history")
@@ -27,6 +27,14 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "food_name")
     @iOSFindBy(xpath = "//*[@id='ic calendar']/parent::*/*[@class='UIAStaticText']")
     List<MobileElement> listFoodName;
+
+    @AndroidFindBy(xpath = "//*[@text='Servings']")
+    @iOSFindBy(id = "Servings")
+    MobileElement tvServings;
+
+    @AndroidFindBy(id = "menu_toggle_modes")
+    @iOSFindBy(xpath = "//*[@class='UIATabBar']/child::*[2]")
+    MobileElement tweaksMenu;
 
     public HomePage clickBtnCalendar(int pos) {
         waitForElementDisplay(listCalendar.get(pos));
@@ -44,11 +52,15 @@ public class HomePage extends BasePage {
         return isForElementPresent(titleHome);
     }
 
+    public boolean isTvServingsDisplayed(){
+        waitForElementDisplay(tvServings);
+        return isForElementPresent(tvServings);
+    }
     @Override
     public HomePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
-            waitForElementDisplay(titleHome);
+            waitForElementDisplay(tvServings);
         }
         return this;
     }
@@ -73,14 +85,20 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public String getTextTweaksMenu(){
-        return "";
+    public String getTextTweaksMenu() {
+        waitForElementDisplay(tweaksMenu);
+        return tweaksMenu.getText();
     }
 
     public boolean isTweaksMenuContainsText(String text){
+        waitForElementDisplay(tvServings);
         return getTextTweaksMenu().contains(text);
     }
 
-    public HomePage clickBtnTweaks(){return this;}
+    public HomePage clickBtnTweaks() {
+        waitForElementDisplay(tweaksMenu);
+        tweaksMenu.click();
+        return this;
+    }
 
 }

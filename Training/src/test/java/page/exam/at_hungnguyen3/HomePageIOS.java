@@ -13,8 +13,6 @@ public class HomePageIOS extends HomePage {
 
     List<MobileElement> listTabBar = tabBar.findElements(By.className("UIAButton"));
 
-    MobileElement tweaksMenu = listTabBar.get(2);
-
     @iOSFindBy(id = "More Info")
     List<MobileElement> listMoreInfo;
 
@@ -22,15 +20,4 @@ public class HomePageIOS extends HomePage {
         super(driver);
     }
 
-    @Override
-    public String getTextTweaksMenu() {
-        return tweaksMenu.getText();
-    }
-
-    @Override
-    public HomePage clickBtnTweaks() {
-        waitForElementDisplay(tweaksMenu);
-        tweaksMenu.click();
-        return this;
-    }
 }

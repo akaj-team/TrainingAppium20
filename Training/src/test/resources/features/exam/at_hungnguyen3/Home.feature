@@ -9,7 +9,7 @@ Feature: Test on Home screen
 
   Scenario: Check content tweaks button
     When I check content tweaks button
-    Then The content contain "TWEAKS"
+    Then The content contain "TWEAKS" or "Tweaks"
 
   Scenario: Check function of Calendar Button
     When I click Calendar Button
