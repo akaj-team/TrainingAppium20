@@ -32,25 +32,41 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         Then("^The content contain \"([^\"]*)\"$", (String tweaksText) ->
                 homePage.isTweaksMenuContainsText(tweaksText));
 
-        When("^I click Calendar Button$", () -> homePage.clickBtnCalendar(2));
-
-        Then("^Calendar Page is displayed$", () -> calendarPage.isPageDisplayed());
-
-        When("^I click Info button$", () -> homePage.clickMoreInfo(2));
-
-        Then("^InfoPage is displayed$", () -> infoPage.isPageDisplayed());
-
         When("^I check display of Food Name in the Servings list$", () -> Assert.assertTrue(true));
 
         Then("^Texts of Food Names contains \"([^\"]*)\"$", (String foodName) -> {
+            if (homePage.isPageDisplayed()){
             String actualFoodName = homePage.getTextFoodName(pos);
             actualFoodName.contains(foodName);
-            pos++;
+            pos++;}
         });
 
-        When("^I click Tweaks button$", () -> homePage.clickBtnTweaks());
+        When("^I click Info button$", () -> {
+            homePage.clickMoreInfo(2);
+        });
 
-        Then("^TweaksPage is displayed$", () -> Assert.assertTrue(tweaksPage.isPageDisplayed()));
+        When("^I click Tweaks button$", () -> {
+            homePage.clickBtnTweaks();
+        });
+
+        When("^I click Calendar Button$", () -> {
+            homePage.clickBtnCalendar(2);
+        });
+
+        Then("^Calendar Page is displayed$", () -> {
+            calendarPage.isHistoryDisplay();
+            driver().resetApp();
+        });
+
+        Then("^InfoPage is displayed$", () -> {
+            infoPage.isBtnVideoDisplayed();
+            driver().resetApp();
+        });
+
+        Then("^TweaksPage is displayed$", () -> {
+            tweaksPage.isTweaksNameDisplayed();
+            driver().resetApp();
+        });
 
     }
 }

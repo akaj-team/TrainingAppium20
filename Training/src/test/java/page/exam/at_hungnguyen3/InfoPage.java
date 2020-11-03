@@ -34,6 +34,11 @@ public class InfoPage extends BasePage {
         return isForElementPresent(btnVideo);
     }
 
+    public boolean isBtnVideoDisplayed(){
+        waitForElementDisplay(btnVideo);
+        return isForElementPresent(btnVideo);
+    }
+
     @Override
     public InfoPage open() {
         if (!isPageDisplayed()) {

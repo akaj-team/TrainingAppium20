@@ -17,7 +17,7 @@ public class HomePage extends BasePage {
     private MobileElement actionBar;
 
     @AndroidFindBy(xpath = "//*[@class='androidx.appcompat.widget.LinearLayoutCompat']/preceding-sibling::*")
-    @iOSFindBy(xpath = "//*[@class='UIANavigationBar']/*[@class='UIAStaticText']")
+    @iOSFindBy(xpath = "//*[@class='UIANavigationBar']/child::*")
     private MobileElement titleHome;
 
     @AndroidFindBy(id = "food_history")
@@ -40,6 +40,7 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
+        waitForElementDisplay(titleHome);
         return isForElementPresent(titleHome);
     }
 
@@ -53,6 +54,7 @@ public class HomePage extends BasePage {
     }
 
     public String getTextTitle() {
+        waitForElementDisplay(titleHome);
         return titleHome.getText();
     }
 
@@ -80,4 +82,5 @@ public class HomePage extends BasePage {
     }
 
     public HomePage clickBtnTweaks(){return this;}
+
 }

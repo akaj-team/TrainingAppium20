@@ -69,6 +69,7 @@ public class CalendarPage extends BasePage {
     }
 
     public boolean isHistoryDisplay() {
+        waitForElementDisplay(tvHistory);
         return isForElementPresent(tvHistory);
     }
 

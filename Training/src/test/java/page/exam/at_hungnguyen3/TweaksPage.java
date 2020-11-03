@@ -30,6 +30,11 @@ public class TweaksPage extends BasePage {
             homePage.open().clickBtnTweaks();
             waitForElementDisplay(tweaksName);
         }
-        return null;
+        return this;
+    }
+
+    public boolean isTweaksNameDisplayed(){
+        waitForElementDisplay(tweaksName);
+        return isForElementPresent(tweaksName);
     }
 }
