@@ -3,7 +3,6 @@ package page.exam.at_hungnguyen3;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.testng.Assert;
 
 public class HomePageAndroid extends HomePage {
 
@@ -15,18 +14,16 @@ public class HomePageAndroid extends HomePage {
     }
 
     @Override
-    public HomePage clickMoreInfo(int pos) {
-        waitForElementDisplay(listFoodName.get(pos));
-        scrollToElement(listFoodName.get(pos));
-        listFoodName.get(pos).click();
-        return this;
-    }
-
-    @Override
     public String getTextTweaksMenu() {
         return tweaksMenu.getText();
     }
 
+    @Override
+    public HomePage clickBtnTweaks() {
+        waitForElementDisplay(tweaksMenu);
+        tweaksMenu.click();
+        return this;
+    }
 }
 
 

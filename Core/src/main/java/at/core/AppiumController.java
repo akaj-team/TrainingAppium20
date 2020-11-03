@@ -102,7 +102,7 @@ class AppiumController {
 
     private synchronized void startDefaultServer() throws MalformedURLException {
         XmlTest xmlTest = new XmlTest();
-        xmlTest.setParameters(defaultAndroidParameters());
+        xmlTest.setParameters(defaultIosParameters());
         start(xmlTest);
     }
 
@@ -121,7 +121,7 @@ class AppiumController {
     private Map<String, String> defaultIosParameters() {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "ios");
-        parameters.put(MobileCapabilityType.DEVICE_NAME, "iPhone 11");
+        parameters.put(MobileCapabilityType.DEVICE_NAME, "iPhone 11 Pro Max");
         parameters.put(MobileCapabilityType.PLATFORM_VERSION, "13.7");
         parameters.put(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
         parameters.put(MobileCapabilityType.APP, "org.nutritionfacts.dailydozen.app");

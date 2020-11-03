@@ -23,16 +23,14 @@ public class HomePageIOS extends HomePage {
     }
 
     @Override
-    public HomePage clickMoreInfo(int pos) {
-        waitForElementDisplay(listMoreInfo.get(pos));
-        scrollToElement(listMoreInfo.get(pos));
-        listMoreInfo.get(pos).click();
-        return this;
-    }
-
-    @Override
     public String getTextTweaksMenu() {
         return tweaksMenu.getText();
     }
 
+    @Override
+    public HomePage clickBtnTweaks() {
+        waitForElementDisplay(tweaksMenu);
+        tweaksMenu.click();
+        return this;
+    }
 }

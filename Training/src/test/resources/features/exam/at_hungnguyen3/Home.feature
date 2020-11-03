@@ -19,9 +19,13 @@ Feature: Test on Home screen
     When I click Info button
     Then InfoPage is displayed
 
+  Scenario: Check function of Tweaks button
+    When I click Tweaks button
+    Then TweaksPage is displayed
+
   Scenario Outline: Verify display of items in the Servings list
     When I check display of Food Name in the Servings list
-    Then Texts of Food Names are "<food name>"
+    Then Texts of Food Names contains "<food name>"
 
     Examples:
       | food name              |
@@ -37,5 +41,4 @@ Feature: Test on Home screen
       | Whole Grains           |
       | Beverages              |
       | Exercise               |
-
 

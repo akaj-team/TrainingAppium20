@@ -16,7 +16,7 @@ public class HomePage extends BasePage {
     @iOSFindBy(className = "UIANavigationBar")
     private MobileElement actionBar;
 
-    @AndroidFindBy(xpath = "//*[@id='action_bar']/*[@class='android.widget.TextView']")
+    @AndroidFindBy(xpath = "//*[@class='androidx.appcompat.widget.LinearLayoutCompat']/preceding-sibling::*")
     @iOSFindBy(xpath = "//*[@class='UIANavigationBar']/*[@class='UIAStaticText']")
     private MobileElement titleHome;
 
@@ -25,7 +25,7 @@ public class HomePage extends BasePage {
     List<MobileElement> listCalendar;
 
     @AndroidFindBy(id = "food_name")
-    @iOSFindBy(xpath = "//*[@id='ic calendar']/parent::*//*[@XCElementType='XCUIElementTypeStaticText']")
+    @iOSFindBy(xpath = "//*[@id='ic calendar']/parent::*/*[@class='UIAStaticText']")
     List<MobileElement> listFoodName;
 
     public HomePage clickBtnCalendar(int pos) {
@@ -40,13 +40,14 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(listFoodName.get(2));
+        return isForElementPresent(titleHome);
     }
 
     @Override
     public HomePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
+            waitForElementDisplay(titleHome);
         }
         return this;
     }
@@ -60,6 +61,8 @@ public class HomePage extends BasePage {
     }
 
     public HomePage clickMoreInfo(int pos){
+        waitForElementDisplay(listFoodName.get(pos));
+        listFoodName.get(pos).click();
         return this;
     }
 
@@ -75,4 +78,6 @@ public class HomePage extends BasePage {
     public boolean isTweaksMenuContainsText(String text){
         return getTextTweaksMenu().contains(text);
     }
+
+    public HomePage clickBtnTweaks(){return this;}
 }

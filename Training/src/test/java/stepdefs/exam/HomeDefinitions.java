@@ -8,6 +8,7 @@ import org.testng.Assert;
 import page.exam.at_hungnguyen3.CalendarPage;
 import page.exam.at_hungnguyen3.HomePage;
 import page.exam.at_hungnguyen3.InfoPage;
+import page.exam.at_hungnguyen3.TweaksPage;
 
 import java.util.Calendar;
 
@@ -16,7 +17,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
     HomePage homePage = new PageFactory<>(HomePage.class).create();
     CalendarPage calendarPage = new PageFactory<>(CalendarPage.class).create();
     InfoPage infoPage = new PageFactory<>(InfoPage.class).create();
-
+    TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
 
     public HomeDefinitions() {
         When("^I check title on home screen$", () -> Assert.assertTrue(true));
@@ -41,10 +42,15 @@ public class HomeDefinitions extends BaseDefinitions implements En {
 
         When("^I check display of Food Name in the Servings list$", () -> Assert.assertTrue(true));
 
-        Then("^Texts of Food Names are \"([^\"]*)\"$", (String foodName) -> {
-            Assert.assertEquals(homePage.getTextFoodName(pos), foodName);
+        Then("^Texts of Food Names contains \"([^\"]*)\"$", (String foodName) -> {
+            String actualFoodName = homePage.getTextFoodName(pos);
+            actualFoodName.contains(foodName);
             pos++;
         });
+
+        When("^I click Tweaks button$", () -> homePage.clickBtnTweaks());
+
+        Then("^TweaksPage is displayed$", () -> Assert.assertTrue(tweaksPage.isPageDisplayed()));
 
     }
 }
