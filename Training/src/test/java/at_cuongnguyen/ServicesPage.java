@@ -42,7 +42,6 @@ public class ServicesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
     public MobileElement txtServing;
 
-    //element of previous screen
     @AndroidFindBy(id = "header")
     @iOSFindBy(id = "Servings")
     public MobileElement txtPreviousScreen;
@@ -51,7 +50,7 @@ public class ServicesPage extends BasePage {
         return true;
     }
 
-    public boolean isbtnvideoContain() {
+    public boolean isBtnVideoContain() {
         return btnVideo.isDisplayed();
     }
 
@@ -76,6 +75,7 @@ public class ServicesPage extends BasePage {
     }
 
     public ServicesPage clickPreviousButton() {
+        btnDailyDozen.click();
         return this;
     }
 
@@ -91,6 +91,10 @@ public class ServicesPage extends BasePage {
         return "";
     }
 
+    public String getFoodName() {
+        return "";
+    }
+
     public ServicesPage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
@@ -102,7 +106,7 @@ public class ServicesPage extends BasePage {
         return true;
     }
 
-    public boolean checkPreivousScreen() {
+    public boolean checkPreviousScreen() {
         return true;
     }
 }

@@ -22,6 +22,9 @@ public class ServicesPageIOS extends ServicesPage {
     @iOSFindBy(className = "UIAStaticText")
     public MobileElement title;
 
+    @iOSFindBy(className = "UIAView")
+    public MobileElement viewBackground;
+
     public boolean isPageDisplayed() {
         return isForElementPresent(actionBar);
     }
@@ -53,12 +56,19 @@ public class ServicesPageIOS extends ServicesPage {
     }
 
     @Override
+    public String getFoodName() {
+        viewBackground.findElements(By.className("UIAStaticText"));
+        return viewBackground.getText();
+    }
+
+
+    @Override
     public boolean isDailyDozenBtnContain() {
         return btnDailyDozen.isEnabled();
     }
 
     @Override
-    public boolean isbtnvideoContain() {
+    public boolean isBtnVideoContain() {
         return btnVideo.isDisplayed();
     }
 
@@ -83,13 +93,7 @@ public class ServicesPageIOS extends ServicesPage {
     }
 
     @Override
-    public ServicesPage clickPreviousButton() {
-        btnDailyDozen.click();
-        return this;
-    }
-
-    @Override
-    public boolean checkPreivousScreen() {
+    public boolean checkPreviousScreen() {
         if (isPreviousScreenDisplayed())
             return true;
         return false;

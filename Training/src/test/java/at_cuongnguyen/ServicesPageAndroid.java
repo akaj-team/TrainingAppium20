@@ -36,15 +36,8 @@ public class ServicesPageAndroid extends ServicesPage {
     }
 
     @Override
-    public boolean isbtnvideoContain() {
+    public boolean isBtnVideoContain() {
         return btnVideo.isDisplayed();
-    }
-
-    @Override
-    public ServicesPage clickPreviousButton() {
-        if (isbtnvideoContain())
-            btnDailyDozen.click();
-        return this;
     }
 
     public ServicesPage checkImg(String im) {
@@ -76,7 +69,13 @@ public class ServicesPageAndroid extends ServicesPage {
     }
 
     @Override
-    public boolean checkPreivousScreen() {
+    public String getFoodName() {
+        actionBar.findElements(By.className("android.widget.TextView"));
+        return actionBar.getText();
+    }
+
+    @Override
+    public boolean checkPreviousScreen() {
         if (isPreviousScreenDisplayed())
             return true;
         return false;
