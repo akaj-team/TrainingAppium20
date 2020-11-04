@@ -3,6 +3,9 @@ package page.exam.at_thaile;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.By;
+
+import java.util.List;
 
 /**
  * for screen
@@ -34,5 +37,10 @@ public class ServingHistoryPageAndroid extends ServingHistoryPage {
 
     public void clickTimeDropDownList() {
         timeDropDownList.click();
+    }
+
+    public void getTimeDropDownList() {
+        List<MobileElement> list = getDriver().findElements(By.id("time_scale_spinner"));
+        list.get(1).click();
     }
 }

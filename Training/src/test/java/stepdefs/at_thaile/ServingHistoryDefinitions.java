@@ -6,6 +6,8 @@ import cucumber.api.java8.En;
 import org.testng.Assert;
 import page.exam.HomePage;
 import page.exam.at_thaile.ServingHistoryPage;
+import page.exam.at_thaile.ServingHistoryPageAndroid;
+import page.exam.at_thaile.ServingHistoryPageIOS;
 
 /**
  * for screen
@@ -13,14 +15,16 @@ import page.exam.at_thaile.ServingHistoryPage;
  * @author at-thai.le
  */
 
-public class ServingHistoryDefinitions extends BaseDefinitions implements En{
+public class ServingHistoryDefinitions extends BaseDefinitions implements En {
     ServingHistoryPage servingHistory = new PageFactory<>(ServingHistoryPage.class).create();
     HomePage hp = new PageFactory<>(HomePage.class).create();
+    ServingHistoryPageAndroid servingHistoryPageAndroid = new PageFactory<>(ServingHistoryPageAndroid.class).create();
+    ServingHistoryPageIOS servingHistoryPageIOS = new PageFactory<>(ServingHistoryPageIOS.class).create();
 
-    public ServingHistoryDefinitions(){
+    public ServingHistoryDefinitions() {
 
         When("^I check title on ServingHistory screen$", () -> Assert.assertTrue(true));
-        Then("^The title is \"Serving History\"$",
+        Then("^The title is \"([^\"]*)\"$",
                 (String text) -> Assert.assertEquals(servingHistory.getTextScreenTitle(), text));
 
         When("^I click Month button$", () -> servingHistory.clickMonthButton());
@@ -33,10 +37,21 @@ public class ServingHistoryDefinitions extends BaseDefinitions implements En{
         Then("^Day button is active$", () -> Assert.assertTrue(servingHistory.isDisplayTimeBar()));
 
         When("^I check text of Time Scale$", () -> Assert.assertTrue(true));
-        Then("^The text is \"([^\"]*)\"$", (String text) -> Assert.assertEquals(servingHistory.getTextTimeScale(), text));
+        Then("^The text is \"([^\"]*)\"$",
+                (String text) -> Assert.assertEquals(servingHistory.getTextTimeScale(), text));
 
         When("^I click Back button$", () -> servingHistory.clickBackButton());
         Then("^Display Home screen$", () -> Assert.assertTrue(hp.open().isPageDisplayed()));
+
+        When("^I click Setting button$", () -> servingHistoryPageIOS.clickSettingButton());
+        Then("^Display Setting screen$", () -> Assert.assertFalse(servingHistory.open().isPageDisplayed()));
+
+        When("^I click TimeDropDownList$", () -> servingHistoryPageAndroid.clickTimeDropDownList());
+        Then("^Click on Month option$", () -> servingHistoryPageAndroid.getTimeDropDownList());
+
+        Given("^ServingHistory screen is opened$", () -> {
+            Assert.assertTrue(servingHistory.open().isPageDisplayed());
+        });
 
     }
 }

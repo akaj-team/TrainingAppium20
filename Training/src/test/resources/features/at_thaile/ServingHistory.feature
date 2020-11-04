@@ -46,3 +46,7 @@ Feature: Test on ServingHistory screen
   Scenario: Check click Info button
     When I click Info button
     Then Display Info screen
+
+  Scenario: Check the click DropDownList
+    When I click TimeDropDownList
+    Then Click on Month option

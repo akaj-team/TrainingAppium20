@@ -1,4 +1,4 @@
-package page.exam;
+package page.exam.at_thaile;
 
 import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
@@ -10,8 +10,9 @@ import org.openqa.selenium.By;
 /**
  * for screen
  *
- * @author at-anh.quach
+ * @author at-thaile
  */
+
 public class HomePage extends BasePage {
 
     @AndroidFindBy(id = "action_bar")
@@ -32,9 +33,17 @@ public class HomePage extends BasePage {
     @AndroidFindBy(className = "android.widget.TextView")
     private MobileElement btnStat;
 
+    @iOSFindBy(id = "More Info")
+    @AndroidFindBy(id = "food_name")
+    private MobileElement btnMoreDetails;
+
     @iOSFindBy(id = "ic calendar")
     @AndroidFindBy(id = "food_history")
     private MobileElement btnCalendar;
+
+    @iOSFindBy(className = "UIAButton")
+    @AndroidFindBy(className = "android.widget.CheckBox")
+    private MobileElement chk;
 
     public HomePage(MobileDriver driver) {
         super(driver);
@@ -58,12 +67,14 @@ public class HomePage extends BasePage {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
+    public HomePage clickFoodName(int n){
+        return this;
+    }
+
     public HomePage clickMenuButton() {
         actionBar.findElement(By.className("android.widget.ImageView")).click();
         return this;
     }
-
-    public boolean isDisplaySupplyPopup;
 
     public void moveToDetail() {
         listMenu.findElements(By.id("food_name")).get(6).click();
@@ -71,6 +82,10 @@ public class HomePage extends BasePage {
 
     public String getTextTvMenuToggleModes() {
         return tvMenuToggleModes.getText();
+    }
+
+    public void clickStatButton() {
+        btnStat.click();
     }
 
     public boolean isListMenuDisplay() {
@@ -81,6 +96,15 @@ public class HomePage extends BasePage {
         return getTextTvMenuToggleModes().contains(text);
     }
 
-    protected void clickFoodName(int n) {
+    public void clickMoreInfoButton() {
+        btnMoreDetails.click();
+    }
+
+    public void clickCalendarButton() {
+        btnCalendar.click();
+    }
+
+    public void clickCheckbox() {
+        chk.click();
     }
 }

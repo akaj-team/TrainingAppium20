@@ -1,7 +1,6 @@
 package page.exam.at_thaile;
 
 import at.base.BasePage;
-import cucumber.api.java.en.And;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -18,15 +17,15 @@ import at.core.PageFactory;
 public class ServingHistoryPage extends BasePage {
     @iOSFindBy(id = "Servings History")
     @AndroidFindBy(xpath = "//*[@text='Daily Servings History']")
-    private MobileElement screenTitle;
+    private MobileElement tvTitle;
 
     @iOSFindBy(id = "21 Tweaks")
     @AndroidFindBy(className = "android.widget.ImageButton")
-    private MobileElement backButton;
+    private MobileElement btnBack;
 
     @iOSFindBy(id = "Time Scale")
     @AndroidFindBy(xpath = "//*[@text='Time Scale']")
-    private MobileElement scaleText;
+    private MobileElement tvScale;
 
     @iOSFindBy(id = "Day")
     @AndroidFindBy(xpath = "//*[@text='Day']")
@@ -50,29 +49,33 @@ public class ServingHistoryPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(screenTitle);
+        return isForElementPresent(tvTitle);
     }
 
     @Override
     public BasePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
+            HomePage hp = new PageFactory<>(HomePage.class).create();
+            hp.open();
+//            hp.clickStatButton();
+            waitForElementDisplay(tvTitle);
         }
         return this;
     }
 
     @Override
     public BasePage clickBackButton() {
-        backButton.click();
+        btnBack.click();
         return super.clickBackButton();
     }
 
     public String getTextScreenTitle() {
-        return screenTitle.getText();
+        return tvTitle.getText();
     }
 
-    public String getTextTimeScale(){
-        return scaleText.getText();
+    public String getTextTimeScale() {
+        return tvScale.getText();
     }
 
     public void clickMonthButton() {
@@ -87,5 +90,7 @@ public class ServingHistoryPage extends BasePage {
         dayButton.click();
     }
 
-    public boolean isDisplayTimeBar(){ return  isForElementPresent(timeBar); }
+    public boolean isDisplayTimeBar() {
+        return isForElementPresent(timeBar);
+    }
 }

@@ -34,4 +34,6 @@ public class InfoPageAndroid extends InfoPage {
         driver.pressKey(new KeyEvent(AndroidKey.BACK));
         return this;
     }
+
+
 }
