@@ -24,14 +24,11 @@ public class DailyDozenTweaksPage extends BasePage {
     @AndroidFindBy(id = "date_weights")
     private MobileElement datWeight;
 
-    @AndroidFindBy(className = "android.widget.LinearLayout")
-    private List<MobileElement> lstTweak;
-
     @AndroidFindBy(id = "tweak_name")
-    private MobileElement lbTweakName;
+    private List<MobileElement> lstTweakName;
 
     @AndroidFindBy(id = "tweak_group_title")
-    private MobileElement lbGroupTitle;
+    private List<MobileElement> lstGroupTitle;
 
     @AndroidFindBy(xpath = "//*[@text='History']")
     private MobileElement lnHistory;
@@ -60,7 +57,7 @@ public class DailyDozenTweaksPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(headerTweak.findElement(By.id("header"))) && headerTweak.findElement(By.id("header")).getText().equals("Tweaks") ;
+        return isForElementPresent(headerTweak.findElement(By.id("header")));
     }
 
     @Override
@@ -81,7 +78,7 @@ public class DailyDozenTweaksPage extends BasePage {
     }
 
     public boolean verifyAllItemsShowCorrectly(String name) {
-        for (MobileElement element : lstTweak) {
+        for (MobileElement element : lstTweakName) {
             if (!element.getText().equals(name)) {
                 return false;
             }
@@ -90,7 +87,7 @@ public class DailyDozenTweaksPage extends BasePage {
     }
 
     public boolean verifyTitleGroupShowCorrectly(String title) {
-        for (MobileElement element : lstTweak) {
+        for (MobileElement element : lstGroupTitle) {
             if (element.getText().equals(title)) {
                 return false;
             }
@@ -106,18 +103,20 @@ public class DailyDozenTweaksPage extends BasePage {
         lstcalendarIcon.get(0).click();
     }
 
-    public void clickIntoFirstCheckbox() {
-        if (!lstCheckbox.get(0).isSelected()) {
-            lstCheckbox.get(0).click();
+    public void clickIntoAllCheckbox() {
+        for (MobileElement element:lstCheckbox){
+            if (element.getAttribute("checked").equals("false")){
+                element.click();
+            }
         }
     }
 
     public boolean verifyCheckboxIsChecked() {
         for (MobileElement element:lstCheckbox){
-            if (element.getAttribute("checked").equals("true")){
-               return true;
+            if (!element.getAttribute("checked").equals("true")){
+               return false;
             }
-        } return false;
+        } return true;
     }
 
     public String getCurrentDate() {
@@ -142,5 +141,13 @@ public class DailyDozenTweaksPage extends BasePage {
 
     public boolean verifyTheEyeOpen() {
         return isForElementPresent(txtMorningWeight) && isForElementPresent(txtEveningWeight);
+    }
+
+    public void clickIntoItem(String itemName){
+        for (MobileElement element: lstTweakName){
+            if (element.getText().equals(itemName)){
+                element.click();break;
+            }
+        }
     }
 }

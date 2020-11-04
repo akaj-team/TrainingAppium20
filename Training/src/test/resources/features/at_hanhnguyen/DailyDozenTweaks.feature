@@ -50,7 +50,7 @@ Feature: Test on Daily Dozen Tweaks screen
     Then Showing the calendar with title is "History"
 
   Scenario: Check showing the item detail when user tap into item
-    When I tap into first item
+    When I tap into "Preload with Water" item
     Then Showing the item detail page with title is "About Tweak"
     And Showing the image on this page
     And showing the title of content is "Preload with Water"
