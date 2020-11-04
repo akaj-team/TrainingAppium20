@@ -48,6 +48,7 @@ public class CalendarPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
+        waitForElementDisplay(tvHistory);
         return isForElementPresent(tvHistory);
     }
 
@@ -66,11 +67,6 @@ public class CalendarPage extends BasePage {
         waitForElementDisplay(btnBack);
         btnBack.click();
         return this;
-    }
-
-    public boolean isHistoryDisplay() {
-        waitForElementDisplay(tvHistory);
-        return isForElementPresent(tvHistory);
     }
 
     public String getCurrentTime() {

@@ -22,12 +22,14 @@ public class HomeDefinitions extends BaseDefinitions implements En {
     public HomeDefinitions() {
         When("^I check title on home screen$", () -> Assert.assertTrue(true));
 
-        Then("^The title is \"([^\"]*)\"$", (String titleText) ->
-                Assert.assertEquals(homePage.getTextTitle(), titleText));
+        Then("^The title is \"([^\"]*)\"$", (String titleText) -> {
+            homePage.isPageDisplayed();
+            Assert.assertEquals(homePage.getTextTitle(),titleText);
+        });
 
         When("^I check content tweaks button$", () -> Assert.assertTrue(true));
 
-        Given("^Home screen is opened$", () -> homePage.isTvServingsDisplayed());
+        Given("^Home screen is opened$", () -> homePage.open().isPageDisplayed());
 
         When("^I check display of Food Name in the Servings list$", () -> Assert.assertTrue(true));
 
@@ -52,7 +54,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         });
 
         Then("^Calendar Page is displayed$", () -> {
-            calendarPage.isHistoryDisplay();
+            calendarPage.isPageDisplayed();
             driver().resetApp();
         });
 
@@ -67,7 +69,8 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         });
 
         Then("^The content contain \"([^\"]*)\" or \"([^\"]*)\"$", (String text1, String text2) -> {
-            Assert.assertTrue(homePage.isTweaksMenuContainsText(text1) || homePage.isTweaksMenuContainsText(text2) );
+            homePage.isPageDisplayed();
+            Assert.assertTrue(homePage.isTweaksMenuContainsText(text1) || homePage.isTweaksMenuContainsText(text2));
         });
 
     }

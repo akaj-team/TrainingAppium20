@@ -16,10 +16,6 @@ public class HomePage extends BasePage {
     @iOSFindBy(className = "UIANavigationBar")
     private MobileElement actionBar;
 
-    @AndroidFindBy(xpath = "//*[@class='androidx.appcompat.widget.LinearLayoutCompat']/preceding-sibling::*")
-    @iOSFindBy(xpath = "//*[@class='UIANavigationBar']//child::*")
-    private MobileElement titleHome;
-
     @AndroidFindBy(id = "food_history")
     @iOSFindBy(id = "ic calendar")
     List<MobileElement> listCalendar;
@@ -31,10 +27,6 @@ public class HomePage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Servings']")
     @iOSFindBy(id = "Servings")
     MobileElement tvServings;
-
-    @AndroidFindBy(id = "menu_toggle_modes")
-    @iOSFindBy(xpath = "//*[@class='UIATabBar']/child::*[2]")
-    MobileElement tweaksMenu;
 
     public HomePage clickBtnCalendar(int pos) {
         waitForElementDisplay(listCalendar.get(pos));
@@ -48,14 +40,10 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        waitForElementDisplay(titleHome);
-        return isForElementPresent(titleHome);
-    }
-
-    public boolean isTvServingsDisplayed(){
         waitForElementDisplay(tvServings);
         return isForElementPresent(tvServings);
     }
+
     @Override
     public HomePage open() {
         if (!isPageDisplayed()) {
@@ -66,8 +54,7 @@ public class HomePage extends BasePage {
     }
 
     public String getTextTitle() {
-        waitForElementDisplay(titleHome);
-        return titleHome.getText();
+       return "";
     }
 
     public String getTextFoodName(int pos) {
@@ -86,18 +73,14 @@ public class HomePage extends BasePage {
     }
 
     public String getTextTweaksMenu() {
-        waitForElementDisplay(tweaksMenu);
-        return tweaksMenu.getText();
+        return "";
     }
 
     public boolean isTweaksMenuContainsText(String text){
-        waitForElementDisplay(tvServings);
-        return getTextTweaksMenu().contains(text);
+        return false;
     }
 
     public HomePage clickBtnTweaks() {
-        waitForElementDisplay(tweaksMenu);
-        tweaksMenu.click();
         return this;
     }
 

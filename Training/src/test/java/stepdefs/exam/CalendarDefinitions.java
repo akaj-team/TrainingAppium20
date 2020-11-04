@@ -21,7 +21,7 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
 
         When("^I check display of Calendar screen$", () -> Assert.assertTrue(true));
 
-        Then("^Calendar is displayed$", () -> Assert.assertTrue(calendarPage.isHistoryDisplay()));
+        Then("^Calendar is displayed$", () -> Assert.assertTrue(calendarPage.isPageDisplayed()));
 
         Then("^The initial time is current time$", () -> calendarPage.isCurrentTime());
 
