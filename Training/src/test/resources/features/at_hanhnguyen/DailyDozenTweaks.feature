@@ -47,7 +47,7 @@ Feature: Test on Daily Dozen Tweaks screen
 
   Scenario: Check action when user tap into calendar
     When I tap into calendar icon
-    Then Showing the calendar
+    Then Showing the calendar with title is "History"
 
   Scenario: Check showing the item detail when user tap into item
     When I tap into first item

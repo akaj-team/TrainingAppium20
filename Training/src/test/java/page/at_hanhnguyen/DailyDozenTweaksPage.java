@@ -20,26 +20,37 @@ public class DailyDozenTweaksPage extends BasePage {
     HomePage homePage = new PageFactory<>(HomePage.class).create();
     @AndroidFindBy(id = "header_tweaks")
     private MobileElement headerTweak;
+
     @AndroidFindBy(id = "date_weights")
     private MobileElement datWeight;
+
     @AndroidFindBy(className = "android.widget.LinearLayout")
     private List<MobileElement> lstTweak;
+
     @AndroidFindBy(id = "tweak_name")
     private MobileElement lbTweakName;
+
     @AndroidFindBy(id = "tweak_group_title")
     private MobileElement lbGroupTitle;
+
     @AndroidFindBy(xpath = "//*[@text='History']")
     private MobileElement lnHistory;
+
     @AndroidFindBy(id = "tweak_history")
     private List<MobileElement> lstcalendarIcon;
+
     @AndroidFindBy(className = "android.widget.CheckBox")
     private List<MobileElement> lstCheckbox;
+
     @AndroidFindBy(className = "android.widget.CheckedTextView")
     private List<MobileElement> lstDate;
+
     @AndroidFindBy(id = "date_pager_indicato")
     private MobileElement viewGroupDate;
+
     @AndroidFindBy(id = "morning_weight")
     private MobileElement txtMorningWeight;
+
     @AndroidFindBy(id = "evening_weigh")
     private MobileElement txtEveningWeight;
 
@@ -75,7 +86,7 @@ public class DailyDozenTweaksPage extends BasePage {
                 return false;
             }
         }
-        return true;
+        return true ;
     }
 
     public boolean verifyTitleGroupShowCorrectly(String title) {
