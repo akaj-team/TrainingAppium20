@@ -1,4 +1,9 @@
 package page.exam.at_hungnguyen3;
 
-public class InfoPageAndroid {
+import io.appium.java_client.MobileDriver;
+
+public class InfoPageAndroid extends InfoPage{
+    public InfoPageAndroid(MobileDriver driver) {
+        super(driver);
+    }
 }

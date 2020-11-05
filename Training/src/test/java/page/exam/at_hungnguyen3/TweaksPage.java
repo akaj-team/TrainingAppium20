@@ -34,7 +34,7 @@ public class TweaksPage extends BasePage {
     }
 
     public boolean isTweaksNameDisplayed(){
-        waitForElementDisplay(tweaksName);
+        waitForElementDisplay(tweaksName,5000);
         return isForElementPresent(tweaksName);
     }
 }
