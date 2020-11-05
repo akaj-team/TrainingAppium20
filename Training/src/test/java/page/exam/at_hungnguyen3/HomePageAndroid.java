@@ -3,8 +3,6 @@ package page.exam.at_hungnguyen3;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.iOSFindBy;
-import org.openqa.selenium.By;
 
 import java.util.List;
 
@@ -27,6 +25,10 @@ public class HomePageAndroid extends HomePage {
 
     @AndroidFindBy(xpath = "//*[@text='About']")
     MobileElement tvAbout;
+
+    @AndroidFindBy(id = "")
+    List<MobileElement> listCheckBox;
+
 
     @Override
     public String getTextTitle() {

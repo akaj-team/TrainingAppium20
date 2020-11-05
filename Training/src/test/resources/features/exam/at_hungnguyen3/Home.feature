@@ -11,13 +11,13 @@ Feature: Test on Home screen
     When I check content tweaks button
     Then The content contain "TWEAKS" or "Tweaks"
 
-  Scenario: Check function of Calendar Button
-    When I click Calendar Button
-    Then CalendarPage is displayed
-
   Scenario: Check function of Info button
     When I click Info button
     Then InfoPage is displayed
+
+  Scenario: Check function of Calendar Button
+    When I click Calendar Button
+    Then CalendarPage is displayed
 
   Scenario: Check function of about button
     When I click About button
@@ -26,6 +26,10 @@ Feature: Test on Home screen
   Scenario: Check function of Tweaks button
     When I click Tweaks button
     Then TweaksPage is displayed
+
+  Scenario: Check function of Checkbox
+    When I click all first checkboxes
+    Then All check boxed is checked
 
   Scenario Outline: Verify display of items in the Servings list
     When I check display of Food Name in the Servings list

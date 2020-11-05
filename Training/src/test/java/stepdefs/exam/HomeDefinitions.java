@@ -38,23 +38,17 @@ public class HomeDefinitions extends BaseDefinitions implements En {
             }
         });
 
-        When("^I click Info button$", () -> homePage.clickMoreInfo(2));
+        When("^I click Info button$", () -> homePage.clickMoreInfo(0));
 
         When("^I click Tweaks button$", () -> homePage.clickBtnTweaks());
 
-        When("^I click Calendar Button$", () -> homePage.clickBtnCalendar(3));
+        When("^I click Calendar Button$", () -> homePage.clickBtnCalendar(0));
 
-        Then("^CalendarPage is displayed$", () -> {
-            calendarPage.isHistoryDisplayed();
-        });
+        Then("^InfoPage is displayed$", () -> infoPage.isBtnVideoDisplayed());
 
-        Then("^InfoPage is displayed$", () -> {
-            infoPage.isBtnVideoDisplayed();
-        });
+        Then("^TweaksPage is displayed$", () -> tweaksPage.isTweaksNameDisplayed());
 
-        Then("^TweaksPage is displayed$", () -> {
-            tweaksPage.isTweaksNameDisplayed();
-        });
+        Then("^CalendarPage is displayed$", () -> calendarPage.isHistoryDisplayed());
 
         Then("^The content contain \"([^\"]*)\" or \"([^\"]*)\"$", (String text1, String text2) -> {
             Assert.assertTrue(homePage.isTweaksMenuContainsText(text1) || homePage.isTweaksMenuContainsText(text2));
@@ -62,5 +56,9 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         When("^I click About button$", () -> homePage.clickBtnAbout());
 
         Then("^About Menu is displayed$", () -> homePage.isAboutMenuDisplayed());
+
+        When("^I click all first checkboxes$", () -> {
+
+        });
     }
 }

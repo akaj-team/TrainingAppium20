@@ -43,8 +43,7 @@ public class CalendarPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        waitForElementDisplay(tvSomeServings,5000);
-        return isForElementPresent(tvSomeServings);
+        return false;
     }
 
     public boolean isHistoryDisplayed(){
@@ -58,7 +57,7 @@ public class CalendarPage extends BasePage {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
             homePage.clickBtnCalendar(1);
-            waitForElementDisplay(tvSomeServings,5000);
+            waitForElementDisplay(tvHistory,5000);
         }
         return this;
     }
