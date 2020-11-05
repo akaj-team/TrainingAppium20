@@ -7,6 +7,8 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 
+import java.util.List;
+
 /**
  * for screen
  *
@@ -23,7 +25,7 @@ public class HomePage extends BasePage {
     private MobileElement tvMenuToggleModes;
 
     @iOSFindBy(className = "UIATable")
-    @AndroidFindBy(className = "android.widget.ListView")
+    @AndroidFindBy(className = "android.view.View")
     public MobileElement listMenu;
 
     @iOSFindBy(id = "Settings")
@@ -44,6 +46,9 @@ public class HomePage extends BasePage {
     @iOSFindBy(className = "UIAButton")
     @AndroidFindBy(className = "android.widget.CheckBox")
     private MobileElement chk;
+
+    @AndroidFindBy(className = "android.widget.LinearLayout")
+    private MobileElement btnFood;
 
     public HomePage(MobileDriver driver) {
         super(driver);
@@ -104,7 +109,13 @@ public class HomePage extends BasePage {
         btnCalendar.click();
     }
 
-    public void clickCheckbox() {
+    public List<MobileElement> getFood() {
+        List<MobileElement> elements = listMenu.findElements(By.className(android.widget.LinearLayout[1]));
+        return elements;
+    }
+    public void clickCheckBox(){
+        getFood().get(0).findElements(By.className(android.widget.CheckBox[1]));
         chk.click();
     }
+
 }
