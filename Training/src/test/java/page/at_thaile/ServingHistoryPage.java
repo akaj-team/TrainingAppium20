@@ -1,13 +1,10 @@
-package page.exam.at_thaile;
+package page.at_thaile;
 
 import at.base.BasePage;
-import cucumber.api.java.en.And;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import page.exam.HomePage;
-import at.core.PageFactory;
 
 /**
  * for screen
@@ -71,7 +68,7 @@ public class ServingHistoryPage extends BasePage {
         return screenTitle.getText();
     }
 
-    public String getTextTimeScale(){
+    public String getTextTimeScale() {
         return scaleText.getText();
     }
 
@@ -87,5 +84,7 @@ public class ServingHistoryPage extends BasePage {
         dayButton.click();
     }
 
-    public boolean isDisplayTimeBar(){ return  isForElementPresent(timeBar); }
+    public boolean isDisplayTimeBar() {
+        return isForElementPresent(timeBar);
+    }
 }

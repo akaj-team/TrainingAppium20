@@ -4,8 +4,8 @@ import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import page.exam.HomePage;
-import page.exam.at_thaile.ServingHistoryPage;
+import page.at_hadang.HomePage;
+import page.at_thaile.ServingHistoryPage;
 
 /**
  * for screen
@@ -13,11 +13,11 @@ import page.exam.at_thaile.ServingHistoryPage;
  * @author at-thai.le
  */
 
-public class ServingHistoryDefinitions extends BaseDefinitions implements En{
+public class ServingHistoryDefinitions extends BaseDefinitions implements En {
     ServingHistoryPage servingHistory = new PageFactory<>(ServingHistoryPage.class).create();
     HomePage hp = new PageFactory<>(HomePage.class).create();
 
-    public ServingHistoryDefinitions(){
+    public ServingHistoryDefinitions() {
 
         When("^I check title on ServingHistory screen$", () -> Assert.assertTrue(true));
         Then("^The title is \"Serving History\"$",

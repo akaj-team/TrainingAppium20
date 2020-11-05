@@ -6,8 +6,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import page.HomePage;
-import org.openqa.selenium.By;
+import page.at_hadang.HomePage;
 
 
 /**

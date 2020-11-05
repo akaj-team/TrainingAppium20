@@ -1,14 +1,13 @@
 package page.at_hoatran;
 
-import at.core.PageFactory;
+import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
-import page.exam.HomePage;
 
-public abstract class InfoPage extends HomePage {
+public abstract class InfoPage extends BasePage {
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIATabBar")
@@ -22,7 +21,7 @@ public abstract class InfoPage extends HomePage {
     @iOSFindBy(id = "Latest Videos")
     private MobileElement btnLatestVideo;
 
-    @AndroidFindBy(id="url_bar")
+    @AndroidFindBy(id = "url_bar")
     private MobileElement urlBar;
 
     public InfoPage(MobileDriver driver) {
@@ -50,7 +49,7 @@ public abstract class InfoPage extends HomePage {
         return this;
     }
 
-    public boolean isAboutThisAppDisplayed(){
+    public boolean isAboutThisAppDisplayed() {
         return false;
     }
 }
