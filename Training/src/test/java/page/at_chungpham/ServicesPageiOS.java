@@ -35,9 +35,10 @@ public class ServicesPageiOS extends ServicesPage {
         btnMenuInfo.click();
     }
 
-    public void setBtnMenuSettings() {
+    public void clickBtnMenuSettings() {
         btnMenuSettings.click();
     }
+
 
     @Override
     public boolean isPageDisplayed() {
