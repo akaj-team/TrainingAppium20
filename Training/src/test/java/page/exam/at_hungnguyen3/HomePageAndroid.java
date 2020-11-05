@@ -71,7 +71,7 @@ public class HomePageAndroid extends HomePage {
 
     @Override
     public boolean isAboutMenuDisplayed() {
-        waitForElementDisplay(tvAbout,5000);
+        waitForElementDisplay(tvAbout, 5000);
         return isForElementPresent(tvAbout);
     }
 
