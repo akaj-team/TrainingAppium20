@@ -25,9 +25,7 @@ class DailyDozenTweaksDefinitions extends BaseDefinitions implements En {
                 Assert.assertEquals(dailyDozenTweaksPage.verifyTweakText(),expectedText));
         When("^I check default tab on Tweak screen$", () -> Assert.assertTrue(true));
 
-        Then("^The default tab is today$", () -> {
-            Assert.assertTrue(dailyDozenTweaksPage.getCurrentDate());
-        });
+        Then("^The default tab is today$", () -> Assert.assertTrue(dailyDozenTweaksPage.getCurrentDate()));
 
         When("^I tap into calendar icon$", () -> dailyDozenTweaksPage.clickIntoCalendarIcon());
 
