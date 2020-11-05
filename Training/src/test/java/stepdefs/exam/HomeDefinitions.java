@@ -22,10 +22,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
     public HomeDefinitions() {
         When("^I check title on home screen$", () -> Assert.assertTrue(true));
 
-        Then("^The title is \"([^\"]*)\"$", (String titleText) -> {
-            homePage.isPageDisplayed();
-            Assert.assertEquals(homePage.getTextTitle(),titleText);
-        });
+        Then("^The title is \"([^\"]*)\"$", (String titleText) -> Assert.assertEquals(homePage.getTextTitle(), titleText));
 
         When("^I check content tweaks button$", () -> Assert.assertTrue(true));
 
@@ -41,20 +38,14 @@ public class HomeDefinitions extends BaseDefinitions implements En {
             }
         });
 
-        When("^I click Info button$", () -> {
-            homePage.clickMoreInfo(2);
-        });
+        When("^I click Info button$", () -> homePage.clickMoreInfo(2));
 
-        When("^I click Tweaks button$", () -> {
-            homePage.clickBtnTweaks();
-        });
+        When("^I click Tweaks button$", () -> homePage.clickBtnTweaks());
 
-        When("^I click Calendar Button$", () -> {
-            homePage.clickBtnCalendar(2);
-        });
+        When("^I click Calendar Button$", () -> homePage.clickBtnCalendar(3));
 
-        Then("^Calendar Page is displayed$", () -> {
-            calendarPage.isPageDisplayed();
+        Then("^CalendarPage is displayed$", () -> {
+            calendarPage.isHistoryDisplayed();
             driver().resetApp();
         });
 
@@ -69,9 +60,10 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         });
 
         Then("^The content contain \"([^\"]*)\" or \"([^\"]*)\"$", (String text1, String text2) -> {
-            homePage.isPageDisplayed();
             Assert.assertTrue(homePage.isTweaksMenuContainsText(text1) || homePage.isTweaksMenuContainsText(text2));
         });
+        When("^I click About button$", () -> homePage.clickBtnAbout());
 
+        Then("^About Menu is displayed$", () -> homePage.isAboutMenuDisplayed());
     }
 }

@@ -6,6 +6,9 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class CalendarPageAndroid extends CalendarPage {
 
+    @AndroidFindBy(id = "action_bar")
+    private MobileElement actionBar;
+
     @AndroidFindBy(id = "month_name")
     private MobileElement time;
 
@@ -15,15 +18,15 @@ public class CalendarPageAndroid extends CalendarPage {
     @AndroidFindBy(id = "next")
     private MobileElement next;
 
-    private MobileElement item = actionBar.findElementByClassName("android.widget.TextView");
+    MobileElement item = actionBar.findElementByClassName("android.widget.TextView");
 
-    public CalendarPageAndroid clickToNextButton() {
+    public CalendarPage clickToNextButton() {
         waitForElementDisplay(next);
         next.click();
         return this;
     }
 
-    public CalendarPageAndroid clickToPreviousButton() {
+    public CalendarPage clickToPreviousButton() {
         waitForElementDisplay(previous);
         previous.click();
         return this;
@@ -47,5 +50,6 @@ public class CalendarPageAndroid extends CalendarPage {
     public String getTextTime() {
         return time.getText();
     }
+
 
 }

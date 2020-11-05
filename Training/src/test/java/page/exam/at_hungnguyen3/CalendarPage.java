@@ -10,7 +10,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 
@@ -25,10 +24,6 @@ public class CalendarPage extends BasePage {
     @AndroidFindBy(className = "android.widget.ImageButton")
     @iOSFindBy(className = "UIAButton")
     private MobileElement btnBack;
-
-    @AndroidFindBy(id = "action_bar")
-    @iOSFindBy(className = "UIANavigationBar")
-    protected MobileElement actionBar;
 
     @AndroidFindBy(xpath = "//*[@text='History']")
     @iOSFindBy(id = "History")
@@ -48,7 +43,12 @@ public class CalendarPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        waitForElementDisplay(tvHistory);
+        waitForElementDisplay(tvSomeServings,5000);
+        return isForElementPresent(tvSomeServings);
+    }
+
+    public boolean isHistoryDisplayed(){
+        waitForElementDisplay(tvHistory,5000);
         return isForElementPresent(tvHistory);
     }
 
@@ -57,8 +57,8 @@ public class CalendarPage extends BasePage {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickBtnCalendar(3);
-            waitForElementDisplay(tvHistory);
+            homePage.clickBtnCalendar(1);
+            waitForElementDisplay(tvSomeServings,5000);
         }
         return this;
     }

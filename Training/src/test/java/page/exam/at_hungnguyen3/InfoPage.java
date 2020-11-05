@@ -35,7 +35,7 @@ public class InfoPage extends BasePage {
     }
 
     public boolean isBtnVideoDisplayed(){
-        waitForElementDisplay(btnVideo);
+        waitForElementDisplay(btnVideo,5000);
         return isForElementPresent(btnVideo);
     }
 

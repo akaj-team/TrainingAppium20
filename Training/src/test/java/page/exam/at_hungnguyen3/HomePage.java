@@ -21,7 +21,7 @@ public class HomePage extends BasePage {
     List<MobileElement> listCalendar;
 
     @AndroidFindBy(id = "food_name")
-    @iOSFindBy(xpath = "//*[@id='ic calendar']/parent::*/*[@class='UIAStaticText']")
+    @iOSFindBy(xpath = "//*[@id='ic calendar']/preceding-sibling::*[1]")
     List<MobileElement> listFoodName;
 
     @AndroidFindBy(xpath = "//*[@text='Servings']")
@@ -62,8 +62,6 @@ public class HomePage extends BasePage {
     }
 
     public HomePage clickMoreInfo(int pos){
-        waitForElementDisplay(listFoodName.get(pos));
-        listFoodName.get(pos).click();
         return this;
     }
 
@@ -82,6 +80,14 @@ public class HomePage extends BasePage {
 
     public HomePage clickBtnTweaks() {
         return this;
+    }
+
+    public HomePage clickBtnAbout(){
+        return this;
+    }
+
+    public boolean isAboutMenuDisplayed(){
+        return false;
     }
 
 }

@@ -13,11 +13,15 @@ Feature: Test on Home screen
 
   Scenario: Check function of Calendar Button
     When I click Calendar Button
-    Then Calendar Page is displayed
+    Then CalendarPage is displayed
 
   Scenario: Check function of Info button
     When I click Info button
     Then InfoPage is displayed
+
+  Scenario: Check function of about button
+    When I click About button
+    Then About Menu is displayed
 
   Scenario: Check function of Tweaks button
     When I click Tweaks button

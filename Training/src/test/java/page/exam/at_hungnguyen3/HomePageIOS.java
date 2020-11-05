@@ -12,15 +12,24 @@ public class HomePageIOS extends HomePage {
 
     MobileElement tabBar = (MobileElement) getDriver().findElementByClassName("UIATabBar");
 
-    List<MobileElement> listTabBar = tabBar.findElements(By.className("UIAButton"));
+    @iOSFindBy(className = "UIAButton")
+    List<MobileElement> listTabBar;
 
     @iOSFindBy(className = "UIANavigationBar")
     MobileElement actionBar;
 
     MobileElement tweaksMenu = listTabBar.get(1);
 
+    MobileElement btnAbout = listTabBar.get(2);
+
     @iOSFindBy(id = "More Info")
     List<MobileElement> listMoreInfo;
+
+    @iOSFindBy(className = "UIAStaticText")
+    List<MobileElement> listAboutMenu;
+
+    @iOSFindBy(xpath = "//*[@text='About']")
+    MobileElement tvAbout;
 
     public HomePageIOS(MobileDriver driver) {
         super(driver);
@@ -48,4 +57,25 @@ public class HomePageIOS extends HomePage {
         waitForElementDisplay(listTabBar.get(1));
         return getTextTweaksMenu().contains(text);
     }
+
+    @Override
+    public HomePage clickMoreInfo(int pos) {
+        waitForElementDisplay(listMoreInfo.get(pos));
+        listMoreInfo.get(pos).click();
+        return this;
+    }
+
+    @Override
+    public HomePage clickBtnAbout() {
+        waitForElementDisplay(btnAbout, 5000);
+        btnAbout.click();
+        return this;
+    }
+
+    @Override
+    public boolean isAboutMenuDisplayed() {
+        waitForElementDisplay(tvAbout, 5000);
+        return isForElementPresent(tvAbout);
+    }
 }
+
