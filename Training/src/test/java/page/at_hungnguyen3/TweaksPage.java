@@ -1,4 +1,4 @@
-package page.exam.at_hungnguyen3;
+package page.at_hungnguyen3;
 
 import at.base.BasePage;
 import at.core.PageFactory;
@@ -26,7 +26,7 @@ public class TweaksPage extends BasePage {
     public TweaksPage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
-            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            page.at_hungnguyen3.HomePage homePage = new PageFactory<>(page.at_hungnguyen3.HomePage.class).create();
             homePage.open().clickBtnTweaks();
             waitForElementDisplay(tweaksName);
         }

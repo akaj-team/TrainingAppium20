@@ -1,17 +1,17 @@
-package page.exam.at_hungnguyen3;
-
+package page.at_hungnguyen3;
 import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 import java.util.List;
 
 public class HomePage extends BasePage {
+
     JavascriptExecutor jsExecutor;
+
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIANavigationBar")
     private MobileElement actionBar;
@@ -34,7 +34,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage(MobileDriver driver) {
+    public HomePage (MobileDriver driver) {
         super(driver);
     }
 
@@ -48,20 +48,20 @@ public class HomePage extends BasePage {
     public HomePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
-            waitForElementDisplay(tvServings);
+            waitForElementDisplay(tvServings,5000);
         }
         return this;
     }
 
     public String getTextTitle() {
-       return "";
+        return "";
     }
 
     public String getTextFoodName(int pos) {
         return listFoodName.get(pos).getText();
     }
 
-    public HomePage clickMoreInfo(int pos){
+    public HomePage clickMoreInfo(int pos) {
         return this;
     }
 
@@ -74,7 +74,7 @@ public class HomePage extends BasePage {
         return "";
     }
 
-    public boolean isTweaksMenuContainsText(String text){
+    public boolean isTweaksMenuContainsText(String text) {
         return false;
     }
 
@@ -82,11 +82,11 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage clickBtnAbout(){
+    public HomePage clickBtnAbout() {
         return this;
     }
 
-    public boolean isAboutMenuDisplayed(){
+    public boolean isAboutMenuDisplayed() {
         return false;
     }
 

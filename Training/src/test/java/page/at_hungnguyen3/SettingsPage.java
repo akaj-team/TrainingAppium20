@@ -1,4 +1,4 @@
-package page.exam.at_hungnguyen3;
+package page.at_hungnguyen3;
 
 import at.base.BasePage;
 import at.core.PageFactory;
@@ -38,8 +38,6 @@ public class SettingsPage extends BasePage {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
            homePage.open();
-           homePage.open();
-
             waitForElementDisplay(titleLabel);
         }
         return this;

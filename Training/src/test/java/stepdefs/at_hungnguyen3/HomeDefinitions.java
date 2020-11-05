@@ -1,16 +1,13 @@
-package stepdefs.exam;
+package stepdefs.at_hungnguyen3;
 
 import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
-import cucumber.api.java8.Pa;
 import org.testng.Assert;
-import page.exam.at_hungnguyen3.CalendarPage;
-import page.exam.at_hungnguyen3.HomePage;
-import page.exam.at_hungnguyen3.InfoPage;
-import page.exam.at_hungnguyen3.TweaksPage;
-
-import java.util.Calendar;
+import page.at_hungnguyen3.CalendarPage;
+import page.at_hungnguyen3.HomePage;
+import page.at_hungnguyen3.InfoPage;
+import page.at_hungnguyen3.TweaksPage;
 
 public class HomeDefinitions extends BaseDefinitions implements En {
     int pos = 0;
@@ -20,13 +17,12 @@ public class HomeDefinitions extends BaseDefinitions implements En {
     TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
 
     public HomeDefinitions() {
+
         When("^I check title on home screen$", () -> Assert.assertTrue(true));
 
         Then("^The title is \"([^\"]*)\"$", (String titleText) -> Assert.assertEquals(homePage.getTextTitle(), titleText));
 
         When("^I check content tweaks button$", () -> Assert.assertTrue(true));
-
-        Given("^Home screen is opened$", () -> homePage.open().isPageDisplayed());
 
         When("^I check display of Food Name in the Servings list$", () -> Assert.assertTrue(true));
 
@@ -48,17 +44,16 @@ public class HomeDefinitions extends BaseDefinitions implements En {
 
         Then("^TweaksPage is displayed$", () -> tweaksPage.isTweaksNameDisplayed());
 
-        Then("^CalendarPage is displayed$", () -> calendarPage.isHistoryDisplayed());
+        Then("^CalendarPage is displayed$", () -> calendarPage.isPageDisplayed());
 
-        Then("^The content contain \"([^\"]*)\" or \"([^\"]*)\"$", (String text1, String text2) -> {
-            Assert.assertTrue(homePage.isTweaksMenuContainsText(text1) || homePage.isTweaksMenuContainsText(text2));
-        });
+        Then("^The content contain \"([^\"]*)\" or \"([^\"]*)\"$", (String text1, String text2) ->
+                Assert.assertTrue(homePage.isTweaksMenuContainsText(text1) || homePage.isTweaksMenuContainsText(text2)));
+
         When("^I click About button$", () -> homePage.clickBtnAbout());
 
         Then("^About Menu is displayed$", () -> homePage.isAboutMenuDisplayed());
 
-        When("^I click all first checkboxes$", () -> {
-
-        });
+        Given("^HomePage is opened$", () -> homePage.open().isPageDisplayed());
     }
+
 }

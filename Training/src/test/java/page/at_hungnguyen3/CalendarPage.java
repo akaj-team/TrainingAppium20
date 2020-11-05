@@ -12,7 +12,6 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import page.at_hadang.HomePage;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -45,11 +44,12 @@ public class CalendarPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return false;
+        waitForElementDisplay(tvHistory);
+        return isForElementPresent(tvHistory);
     }
 
-    public boolean isHistoryDisplayed(){
-        waitForElementDisplay(tvHistory,5000);
+    public boolean isHistoryDisplayed() {
+        waitForElementDisplay(tvHistory, 5000);
         return isForElementPresent(tvHistory);
     }
 
@@ -59,7 +59,7 @@ public class CalendarPage extends BasePage {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
             homePage.clickBtnCalendar(1);
-            waitForElementDisplay(tvHistory,5000);
+            waitForElementDisplay(tvHistory, 5000);
         }
         return this;
     }
@@ -77,7 +77,7 @@ public class CalendarPage extends BasePage {
         return strDate;
     }
 
-    public CalendarPage swipeToTheLeft(AppiumDriver driver){
+    public CalendarPage swipeToTheLeft(AppiumDriver driver) {
         Dimension dimension = driver.manage().window().getSize();
         int startY = (dimension.height / 2);
         int startX = (int) (dimension.width * 0.05);
@@ -113,19 +113,19 @@ public class CalendarPage extends BasePage {
         return "";
     }
 
-    public CalendarPage clickDailyDozenButton(){
+    public CalendarPage clickDailyDozenButton() {
         return this;
     }
 
-    public CalendarPage clickInfoButton(){
+    public CalendarPage clickInfoButton() {
         return this;
     }
 
-    public CalendarPage clickSettingsButton(){
+    public CalendarPage clickSettingsButton() {
         return this;
     }
 
-    public boolean isCurrentTime(){
+    public boolean isCurrentTime() {
         String[] parts = currentTime.split("(?=-)");
         String month = parts[1];
         String year = parts[2];

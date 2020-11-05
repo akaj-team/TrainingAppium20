@@ -1,7 +1,7 @@
 Feature: Test on Home screen
 
   Background:
-    Given Home screen is opened
+    Given HomePage is opened
 
   Scenario: Check title home screen
     When I check title on home screen
@@ -26,10 +26,6 @@ Feature: Test on Home screen
   Scenario: Check function of Tweaks button
     When I click Tweaks button
     Then TweaksPage is displayed
-
-  Scenario: Check function of Checkbox
-    When I click all first checkboxes
-    Then All check boxed is checked
 
   Scenario Outline: Verify display of items in the Servings list
     When I check display of Food Name in the Servings list

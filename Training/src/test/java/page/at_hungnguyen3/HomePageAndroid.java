@@ -1,9 +1,8 @@
-package page.exam.at_hungnguyen3;
+package page.at_hungnguyen3;
 
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-
 import java.util.List;
 
 public class HomePageAndroid extends HomePage {
@@ -25,10 +24,6 @@ public class HomePageAndroid extends HomePage {
 
     @AndroidFindBy(xpath = "//*[@text='About']")
     MobileElement tvAbout;
-
-    @AndroidFindBy(id = "")
-    List<MobileElement> listCheckBox;
-
 
     @Override
     public String getTextTitle() {
