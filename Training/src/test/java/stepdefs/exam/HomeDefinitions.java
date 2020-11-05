@@ -46,17 +46,14 @@ public class HomeDefinitions extends BaseDefinitions implements En {
 
         Then("^CalendarPage is displayed$", () -> {
             calendarPage.isHistoryDisplayed();
-            driver().resetApp();
         });
 
         Then("^InfoPage is displayed$", () -> {
             infoPage.isBtnVideoDisplayed();
-            driver().resetApp();
         });
 
         Then("^TweaksPage is displayed$", () -> {
             tweaksPage.isTweaksNameDisplayed();
-            driver().resetApp();
         });
 
         Then("^The content contain \"([^\"]*)\" or \"([^\"]*)\"$", (String text1, String text2) -> {
