@@ -39,6 +39,7 @@ public class HomePage extends BasePage {
     }
 
     public String getTextTitle() {
+
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
