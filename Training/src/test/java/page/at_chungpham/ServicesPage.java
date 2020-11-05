@@ -121,4 +121,6 @@ public class ServicesPage extends BasePage {
     public String getTextBtnMetric() {
         return btnChangeToImperial.getText();
     }
+
+    public String getTextVideoButton(){ return btnFoodVideo.getText(); }
 }
