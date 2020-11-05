@@ -25,8 +25,9 @@ class DailyDozenTweaksDefinitions extends BaseDefinitions implements En {
                 Assert.assertEquals(dailyDozenTweaksPage.verifyTweakText(),expectedText));
         When("^I check default tab on Tweak screen$", () -> Assert.assertTrue(true));
 
-        Then("^The default tab is today as \"([^\"]*)\"$", (String currentDate) ->
-                Assert.assertEquals(dailyDozenTweaksPage.getCurrentDate(),currentDate));
+        Then("^The default tab is today$", () -> {
+            Assert.assertTrue(dailyDozenTweaksPage.getCurrentDate());
+        });
 
         When("^I tap into calendar icon$", () -> dailyDozenTweaksPage.clickIntoCalendarIcon());
 
@@ -69,5 +70,6 @@ class DailyDozenTweaksDefinitions extends BaseDefinitions implements En {
         When("^I tap into checkbox on each item$", () -> dailyDozenTweaksPage.clickIntoAllCheckbox());
 
         Then("^all check box on row was checked$", () -> Assert.assertTrue(dailyDozenTweaksPage.verifyCheckboxIsChecked()));
+
     }
 }

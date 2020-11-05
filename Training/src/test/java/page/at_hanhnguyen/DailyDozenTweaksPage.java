@@ -119,11 +119,14 @@ public class DailyDozenTweaksPage extends BasePage {
         } return true;
     }
 
-    public String getCurrentDate() {
+    public boolean getCurrentDate() {
         Date todaysDate = new Date();
         DateFormat formatDate = new SimpleDateFormat("E, MMM dd");
         String formatDateString = formatDate.format(todaysDate);
-        return formatDateString;
+        if (viewGroupDate.findElement(By.className("android.widget.TextView")).getText().equals(formatDateString)){
+            return true;
+        }
+        return false;
     }
 
     public void selectDate(String date) {

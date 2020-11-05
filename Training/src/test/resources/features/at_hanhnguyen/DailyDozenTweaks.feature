@@ -9,7 +9,7 @@ Feature: Test on Daily Dozen Tweaks screen
 
   Scenario: Check showing the default tap is today
     When I check default tab on Tweak screen
-    Then The default tab is today as "Thu, Oct 22"
+    Then The default tab is today
 
   Scenario: Check showing the tab when user select date on calendar popup
     When I tap into calendar icon
