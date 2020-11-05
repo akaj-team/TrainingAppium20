@@ -9,7 +9,7 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import page.at_thaile.ServingHistoryPage;
 
 /**
- * for Home screen
+ * for Servings History screen
  *
  * @author at-ha.dang
  */

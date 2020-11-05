@@ -1,4 +1,4 @@
-package page.exam.at_hungnguyen3;
+package page.at_hungnguyen3;
 
 import at.base.BasePage;
 import at.core.PageFactory;
@@ -13,7 +13,7 @@ import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
-import page.exam.HomePage;
+import page.HomePage;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;

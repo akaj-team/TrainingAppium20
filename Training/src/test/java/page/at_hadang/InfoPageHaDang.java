@@ -8,7 +8,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 
 /**
- * for Home screen
+ * for Info screen
  *
  * @author at-ha.dang
  */

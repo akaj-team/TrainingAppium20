@@ -6,7 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
-import page.exam.HomePage;
+import page.HomePage;
 
 public abstract class InfoPage extends HomePage {
 

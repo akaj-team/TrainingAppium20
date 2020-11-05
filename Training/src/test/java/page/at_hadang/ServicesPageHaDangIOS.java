@@ -3,7 +3,7 @@ package page.at_hadang;
 import io.appium.java_client.MobileDriver;
 
 /**
- * for Home screen
+ * for Services screen
  *
  * @author at-ha.dang
  */

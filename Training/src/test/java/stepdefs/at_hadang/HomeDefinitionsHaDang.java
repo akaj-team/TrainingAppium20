@@ -6,6 +6,12 @@ import cucumber.api.java8.En;
 import org.testng.Assert;
 import page.at_hadang.*;
 
+/**
+ * for Home screen
+ *
+ * @author at-ha.dang
+ */
+
 public class HomeDefinitionsHaDang extends BaseDefinitions implements En {
     HomePageHaDang homePageHaDang = new PageFactory<>(HomePageHaDang.class).create();
     CalendarPageHaDang calendarPageHaDang = new PageFactory<>(CalendarPageHaDang.class).create();
