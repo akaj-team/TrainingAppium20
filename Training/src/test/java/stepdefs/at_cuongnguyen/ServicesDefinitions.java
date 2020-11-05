@@ -1,23 +1,24 @@
 package stepdefs.at_cuongnguyen;
 
+import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import at_cuongnguyen.ServicesPage;
 import cucumber.api.java8.En;
 import org.testng.Assert;
 import page.at_hadang.HomePage;
 
-public class ServicesDefinitions implements En {
+public class ServicesDefinitions extends BaseDefinitions implements En {
     ServicesPage servicePage = new PageFactory<>(ServicesPage.class).create();
     HomePage homePage = new PageFactory<>(HomePage.class).create();
     String name = "";
 
     public ServicesDefinitions() {
 
-        Given("^Services screen is opened$", () -> Assert.assertTrue(servicePage.isPageDisplayed()));
-
-        Then("^The header bar including Back button on the left$", () -> Assert.assertTrue(servicePage.isDailyDozenBtnContain()));
+        Given("^Services screen is opened$", (String name, Integer n) -> Assert.assertTrue(servicePage.open(name, n).isPageDisplayed()));
 
         When("^I check the header bar of screen$", () -> Assert.assertTrue(servicePage.open().isPageDisplayed()));
+
+        Then("^The header bar including Back button on the left$", () -> Assert.assertTrue(servicePage.isDailyDozenBtnContain()));
 
         Then("^The header bar including Videos button on the right$", () -> Assert.assertTrue(servicePage.isBtnVideoContain()));
 
@@ -48,11 +49,11 @@ public class ServicesDefinitions implements En {
 
         Then("^I check the Food name item of (\\d+) position$", (Integer n) -> name = homePage.getTextOfFoodName(n));
 
-        Then("^I move to \\[Services\\] screen at (\\d+)$", (Integer n) -> {
-            homePage.clickMoreInfoButton(n);
+        Then("^I move to \\[Services\\] screen having \"([^\"]*)\" at (\\d+)$", (String name, Integer n) -> {
+            homePage.clickMoreInfoButton(name, n);
         });
 
-        And("^I check the food name Services screen is the correctly$", () -> Assert.assertEquals(servicePage.getFoodName(), name));
-
+        And("^I check the \"([^\"]*)\" on Services screen is correct", (String foodname)
+                -> Assert.assertEquals(servicePage.getFoodName(), foodname));
     }
 }

@@ -1,10 +1,12 @@
 package at_cuongnguyen;
 
 import at.base.BasePage;
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import page.at_hadang.HomePage;
 
 /**
  * for screen
@@ -58,6 +60,11 @@ public class ServicesPage extends BasePage {
         return isForElementPresent(actionBar);
     }
 
+    @Override
+    public BasePage open() {
+        return null;
+    }
+
     public boolean isServicesAreaDisplayed() {
         return isForElementPresent(txtServing);
     }
@@ -95,9 +102,12 @@ public class ServicesPage extends BasePage {
         return "";
     }
 
-    public ServicesPage open() {
+    public ServicesPage open(String name, int pos) {
         if (!isPageDisplayed()) {
-            getDriver().launchApp();
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            homePage.open();
+            waitForElementDisplay(this.actionBar);
+            homePage.clickMoreInfoButton(name,pos);
         }
         return this;
     }

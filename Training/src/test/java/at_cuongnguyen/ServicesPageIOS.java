@@ -1,12 +1,15 @@
 package at_cuongnguyen;
 
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
+import page.at_hadang.HomePage;
 
 /**
  * for screen
+ *
  *
  * @author at-cuong.nguyen
  */
@@ -22,8 +25,9 @@ public class ServicesPageIOS extends ServicesPage {
     @iOSFindBy(className = "UIAStaticText")
     public MobileElement title;
 
-    @iOSFindBy(className = "UIAView")
+    @iOSFindBy(xpath = "//*[@knownSuperClass='UINavigationTransitionView']")
     public MobileElement viewBackground;
+
 
     public boolean isPageDisplayed() {
         return isForElementPresent(actionBar);
@@ -34,13 +38,14 @@ public class ServicesPageIOS extends ServicesPage {
     }
 
     @Override
-    public ServicesPage open() {
+    public ServicesPage open(String name, int pos) {
         if (!isPageDisplayed()) {
-            getDriver().launchApp();
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            homePage.open();
+            homePage.clickMoreInfoButton(name, pos);
         }
         return this;
     }
-
     public boolean checkTitle(String til) {
         return title.getText().equals(til);
     }
@@ -57,10 +62,8 @@ public class ServicesPageIOS extends ServicesPage {
 
     @Override
     public String getFoodName() {
-        viewBackground.findElements(By.className("UIAStaticText"));
-        return viewBackground.getText();
+       return viewBackground.findElement(By.className("UIAStaticText")).getText();
     }
-
 
     @Override
     public boolean isDailyDozenBtnContain() {

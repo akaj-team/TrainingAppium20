@@ -3,7 +3,7 @@ Feature: Test on Services screen
   Background:
     Given Services screen is opened
 
-  Scenario : Check header bar of Services screen
+  Scenario: Check header bar of Services screen
     When I check the header bar of screen
     Then The header bar including Back button on the left
     Then The header bar including Videos button on the right
@@ -24,8 +24,8 @@ Feature: Test on Services screen
   Scenario Outline: Check [Food name] title
     When I move back to [Home Page] screen
     Then I check the Food name item of <pos> position
-    Then I move to [Services] screen at <pos>
-    And I check the food name Services screen is the correctly
+    Then I move to [Services] screen having "<foodname>" at <pos>
+    And I check the "<foodname>" on Services screen is correct
 
     Examples:
       | pos | foodname               |
