@@ -1,5 +1,4 @@
-package page.exam.at_hungnguyen3;
-
+package page.at_hungnguyen3;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -50,6 +49,5 @@ public class CalendarPageAndroid extends CalendarPage {
     public String getTextTime() {
         return time.getText();
     }
-
 
 }
