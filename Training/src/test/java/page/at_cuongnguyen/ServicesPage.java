@@ -1,4 +1,4 @@
-package at_cuongnguyen;
+package page.at_cuongnguyen;
 
 import at.base.BasePage;
 import io.appium.java_client.MobileDriver;

@@ -1,4 +1,4 @@
-package page;
+package page.at_baothong;
 
 import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
