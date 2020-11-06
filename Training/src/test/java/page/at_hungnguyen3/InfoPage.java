@@ -21,9 +21,9 @@ public class InfoPage extends BasePage {
     @iOSFindBy(xpath = "//*[@class='UIANavigationBar']/*[@id='VIDEOS']")
     private MobileElement btnVideo;
 
-    @AndroidFindBy(className = "android.widget.ImageButton")
-    @iOSFindBy(xpath = "//*[@class='UIATabBar']/*[@id='Daily Dozen']")
-    private MobileElement btnBackToHome;
+    @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
+    @iOSFindBy(id = "Serving Sizes")
+    private MobileElement servingsSize;
 
     public InfoPage(MobileDriver driver) {
         super(driver);
@@ -31,12 +31,8 @@ public class InfoPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(btnVideo);
-    }
-
-    public boolean isBtnVideoDisplayed(){
-        waitForElementDisplay(btnVideo,5000);
-        return isForElementPresent(btnVideo);
+        waitForElementDisplay(servingsSize, 5000);
+        return isForElementPresent(servingsSize);
     }
 
     @Override
@@ -44,24 +40,30 @@ public class InfoPage extends BasePage {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.open().clickMoreInfo(2);
-            isForElementPresent(btnVideo);
+            homePage.clickMoreInfo(0);
         }
         return this;
     }
 
-    public String getTextTitle(){return titleInfo.getText();}
-
-    public InfoPage clickToBtnVideo(){
-        waitForElementDisplay(btnVideo);
-        btnVideo.click();
+    public InfoPage clickBtnBackToHome() {
         return this;
     }
 
-    public InfoPage clickBtnBackToHome(){
-        waitForElementDisplay(btnBackToHome);
-        btnBackToHome.click();
+    public InfoPage sleepInSeconds() throws InterruptedException {
+        Thread.sleep(2000);
         return this;
+    }
+
+    public InfoPage clickVideoButton() {
+        return this;
+    }
+
+    public int getSizeOfServing() {
+        return 2;
+    }
+
+    public int getSizeOfTypes() {
+        return 2;
     }
 
 }

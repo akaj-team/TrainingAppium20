@@ -38,7 +38,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
 
         When("^I click Calendar Button$", () -> homePage.clickBtnCalendar(0));
 
-        Then("^InfoPage is displayed$", () -> infoPage.isBtnVideoDisplayed());
+        Then("^InfoPage is displayed$", () -> infoPage.isPageDisplayed());
 
         Then("^TweaksPage is displayed$", () -> tweaksPage.isTweaksNameDisplayed());
 
@@ -55,13 +55,14 @@ public class HomeDefinitions extends BaseDefinitions implements En {
 
         When("^I click on the More Info button of VitaminB(\\d+) item$", (Integer arg0) -> homePage.clickMoreInfo(11));
 
-        Then("^The HomePage is not displayed$", () -> Assert.assertFalse(homePage.isPageDisplayed()));
-
         When("^I click Chart button$", () -> homePage.clickBtnChart());
 
         Then("^Servings History Page is Displayed$", () -> servingsHistoryPage.open().isPageDisplayed());
 
-
+        Then("^The HomePage is not displayed$", () -> {
+            infoPage.sleepInSeconds();
+            Assert.assertFalse(homePage.isPageDisplayed());
+        });
     }
 
 }
