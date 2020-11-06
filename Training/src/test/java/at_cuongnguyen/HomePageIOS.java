@@ -30,8 +30,8 @@ public class HomePageIOS extends at_cuongnguyen.HomePage {
     }
 
     @Override
-    public String getTextOfFoodName(int pos) {
-        return container.findElements(By.className("UIAStaticText")).get(pos).getText();
+    public boolean isTextOfFoodNameContain(String name, int pos)  {
+        return container.findElements(By.className("UIAStaticText")).get(pos).getText().contains(name);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class HomePageIOS extends at_cuongnguyen.HomePage {
     }
 
     @Override
-    public at_cuongnguyen.HomePage clickSettingButton(){
+    public HomePage clickSettingButton(){
         btnSetting.click();
         return this;
     }

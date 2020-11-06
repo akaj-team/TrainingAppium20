@@ -4,7 +4,6 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
-import page.at_hadang.HomePage;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ import java.util.List;
  * @author at-ha.dang
  */
 
-public class HomePageAndroid extends page.at_hadang.HomePage {
+public class HomePageAndroid extends HomePage {
     @AndroidFindBy(className = "android.widget.ScrollView")
     private MobileElement container;
 
@@ -29,12 +28,12 @@ public class HomePageAndroid extends page.at_hadang.HomePage {
     }
 
     @Override
-    public String getTextOfFoodName(int pos) {
-        return container.findElements(By.id("food_name")).get(pos).getText();
+    public boolean isTextOfFoodNameContain(String name, int pos)  {
+        return container.findElements(By.id("food_name")).get(pos).getText().contains(name);
     }
 
     @Override
-    public page.at_hadang.HomePage clickChartButton() {
+    public HomePage clickChartButton() {
         waitForElementDisplay(subHeader);
         List<MobileElement> el = subHeader.findElements(By.className("android.widget.TextView"));
         el.get(el.size() - 1).click();
@@ -43,10 +42,8 @@ public class HomePageAndroid extends page.at_hadang.HomePage {
 
     @Override
     public HomePage clickMoreInfoButton(String name, int pos) {
-        for(MobileElement mobileElement : lstBtnMoreInfo){
-
-        }
-        lstBtnMoreInfo.get(pos).click();
+        for(MobileElement mobileElement : lstBtnMoreInfo)
+            lstBtnMoreInfo.get(pos).click();
         return this;
     }
 }

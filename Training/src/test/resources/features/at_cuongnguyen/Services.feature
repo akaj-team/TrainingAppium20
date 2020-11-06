@@ -24,11 +24,11 @@ Feature: Test on Services screen
   Scenario Outline: Check [Food name] title
     When I move back to [Home Page] screen
     Then I check the Food name item of <pos> position
-    Then I move to [Services] screen having "<foodname>" at <pos>
-    And I check the "<foodname>" on Services screen is correct
+    Then I move to [Services] screen having "<foodName>" at <pos>
+    And I check the "<foodName>" on Services screen is correct
 
     Examples:
-      | pos | foodname               |
+      | pos | foodName               |
       | 0   | Beans                  |
       | 1   | Berries                |
       | 2   | Other Fruits           |

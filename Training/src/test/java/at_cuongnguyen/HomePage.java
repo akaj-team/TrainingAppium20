@@ -83,11 +83,11 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public String getTextOfFoodName(int pos) {
-        return "";
+    public boolean isTextOfFoodNameContain(String name, int pos)  {
+        return true;
     }
 
-    public HomePage clickMoreInfoButton(String foodname, int pos) {
+    public HomePage clickMoreInfoButton(String foodName, int pos) {
         return this;
     }
 
