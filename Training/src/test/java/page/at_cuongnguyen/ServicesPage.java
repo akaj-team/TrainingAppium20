@@ -1,4 +1,4 @@
-package at_cuongnguyen;
+package page.at_cuongnguyen;
 
 import at.base.BasePage;
 import at.core.PageFactory;
