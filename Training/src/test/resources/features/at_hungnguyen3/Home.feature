@@ -46,3 +46,10 @@ Feature: Test on Home screen
       | Beverages              |
       | Exercise               |
 
+  Scenario: Check function of More Info button of Vitamin B12 item
+    When I click on the More Info button of VitaminB12 item
+    Then The HomePage is not displayed
+
+  Scenario: Check function of the Chart button
+    When I click Chart button
+    Then Servings History Page is Displayed

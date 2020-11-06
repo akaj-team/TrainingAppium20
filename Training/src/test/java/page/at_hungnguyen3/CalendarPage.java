@@ -48,11 +48,6 @@ public class CalendarPage extends BasePage {
         return isForElementPresent(tvHistory);
     }
 
-    public boolean isHistoryDisplayed() {
-        waitForElementDisplay(tvHistory, 5000);
-        return isForElementPresent(tvHistory);
-    }
-
     @Override
     public CalendarPage open() {
         if (!isPageDisplayed()) {

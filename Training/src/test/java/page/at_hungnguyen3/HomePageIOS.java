@@ -11,11 +11,20 @@ public class HomePageIOS extends HomePage {
 
     MobileElement tabBar = (MobileElement) getDriver().findElementByClassName("UIATabBar");
 
+    @iOSFindBy(className = "UIATable")
+    private MobileElement container;
+
     @iOSFindBy(className = "UIAButton")
     List<MobileElement> listTabBar;
 
+    @iOSFindBy(xpath = "//*[@id='ic calendar']/parent::*//*[@class='UIAStaticText']")
+    List<MobileElement> listFoodName;
+
     @iOSFindBy(className = "UIANavigationBar")
     MobileElement actionBar;
+
+    @iOSFindBy(id = "ic stat")
+    MobileElement btnChart;
 
     MobileElement tweaksMenu = listTabBar.get(1);
 
@@ -60,14 +69,15 @@ public class HomePageIOS extends HomePage {
     @Override
     public HomePage clickMoreInfo(int pos) {
         waitForElementDisplay(listMoreInfo.get(pos));
+        scrollToElement(listMoreInfo.get(pos));
         listMoreInfo.get(pos).click();
         return this;
     }
 
     @Override
     public HomePage clickBtnAbout() {
-        waitForElementDisplay(btnAbout, 5000);
-        btnAbout.click();
+        waitForElementDisplay(listTabBar.get(2), 5000);
+        listTabBar.get(2).click();
         return this;
     }
 
@@ -76,5 +86,19 @@ public class HomePageIOS extends HomePage {
         waitForElementDisplay(tvAbout, 5000);
         return isForElementPresent(tvAbout);
     }
+
+    @Override
+    public String getTextFoodName(int pos) {
+        waitForElementDisplay(container.findElements(By.className("UIAStaticText")).get(pos));
+        return container.findElements(By.className("UIAStaticText")).get(pos).getText();
+    }
+
+    @Override
+    public HomePage clickBtnChart() {
+        waitForElementDisplay(btnChart);
+        btnChart.click();
+        return this;
+    }
 }
+
 

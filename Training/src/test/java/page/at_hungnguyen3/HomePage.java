@@ -20,10 +20,6 @@ public class HomePage extends BasePage {
     @iOSFindBy(id = "ic calendar")
     List<MobileElement> listCalendar;
 
-    @AndroidFindBy(id = "food_name")
-    @iOSFindBy(xpath = "//*[@id='ic calendar']/preceding-sibling::*[1]")
-    List<MobileElement> listFoodName;
-
     @AndroidFindBy(xpath = "//*[@text='Servings']")
     @iOSFindBy(id = "Servings")
     MobileElement tvServings;
@@ -58,7 +54,7 @@ public class HomePage extends BasePage {
     }
 
     public String getTextFoodName(int pos) {
-        return listFoodName.get(pos).getText();
+        return "";
     }
 
     public HomePage clickMoreInfo(int pos) {
@@ -88,6 +84,10 @@ public class HomePage extends BasePage {
 
     public boolean isAboutMenuDisplayed() {
         return false;
+    }
+
+    public HomePage clickBtnChart(){
+        return this;
     }
 
 }

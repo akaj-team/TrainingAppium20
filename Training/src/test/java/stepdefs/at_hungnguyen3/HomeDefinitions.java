@@ -4,10 +4,7 @@ import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import page.at_hungnguyen3.CalendarPage;
-import page.at_hungnguyen3.HomePage;
-import page.at_hungnguyen3.InfoPage;
-import page.at_hungnguyen3.TweaksPage;
+import page.at_hungnguyen3.*;
 
 public class HomeDefinitions extends BaseDefinitions implements En {
     int pos = 0;
@@ -15,6 +12,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
     CalendarPage calendarPage = new PageFactory<>(CalendarPage.class).create();
     InfoPage infoPage = new PageFactory<>(InfoPage.class).create();
     TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
+    ServingsHistoryPage servingsHistoryPage = new PageFactory<>(ServingsHistoryPage.class).create();
 
     public HomeDefinitions() {
 
@@ -54,6 +52,16 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         Then("^About Menu is displayed$", () -> homePage.isAboutMenuDisplayed());
 
         Given("^HomePage is opened$", () -> homePage.open().isPageDisplayed());
+
+        When("^I click on the More Info button of VitaminB(\\d+) item$", (Integer arg0) -> homePage.clickMoreInfo(11));
+
+        Then("^The HomePage is not displayed$", () -> Assert.assertFalse(homePage.isPageDisplayed()));
+
+        When("^I click Chart button$", () -> homePage.clickBtnChart());
+
+        Then("^Servings History Page is Displayed$", () -> servingsHistoryPage.open().isPageDisplayed());
+
+
     }
 
 }

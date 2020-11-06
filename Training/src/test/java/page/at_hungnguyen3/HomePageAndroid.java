@@ -2,7 +2,12 @@ package page.at_hungnguyen3;
 
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.By;
+
 import java.util.List;
 
 public class HomePageAndroid extends HomePage {
@@ -24,6 +29,11 @@ public class HomePageAndroid extends HomePage {
 
     @AndroidFindBy(xpath = "//*[@text='About']")
     MobileElement tvAbout;
+
+    @AndroidFindBy(id = "sub_header")
+    private MobileElement subHeader;
+
+    List<MobileElement> listSubHeader = subHeader.findElements(By.className("android.widget.TextView"));
 
     @Override
     public String getTextTitle() {
@@ -55,6 +65,7 @@ public class HomePageAndroid extends HomePage {
     @Override
     public HomePage clickMoreInfo(int pos) {
         waitForElementDisplay(listFoodName.get(pos));
+        scrollToElement(listFoodName.get(pos));
         listFoodName.get(pos).click();
         return this;
     }
@@ -72,6 +83,24 @@ public class HomePageAndroid extends HomePage {
         return isForElementPresent(tvAbout);
     }
 
+    @Override
+    public String getTextFoodName(int pos) {
+        waitForElementDisplay(listFoodName.get(pos));
+        return listFoodName.get(pos).getText();
+    }
+
+    @Override
+    public HomePage clickBtnChart() {
+        waitForElementDisplay(listSubHeader.get(0));
+        listSubHeader.get(listSubHeader.size()-1).click();
+        return this;
+    }
+
+    public HomePage backKeyDevice() {
+        AndroidDriver driver = (AndroidDriver) getDriver();
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        return this;
+    }
 }
 
 

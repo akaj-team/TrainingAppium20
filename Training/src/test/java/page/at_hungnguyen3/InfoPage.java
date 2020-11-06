@@ -43,7 +43,7 @@ public class InfoPage extends BasePage {
     public InfoPage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
-            page.at_hungnguyen3.HomePage homePage = new PageFactory<>(page.at_hungnguyen3.HomePage.class).create();
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
             homePage.open().clickMoreInfo(2);
             isForElementPresent(btnVideo);
         }

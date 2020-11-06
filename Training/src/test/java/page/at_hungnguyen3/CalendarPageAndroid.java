@@ -1,7 +1,11 @@
 package page.at_hungnguyen3;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import page.at_hoatran.InfoPageAndroid;
 
 public class CalendarPageAndroid extends CalendarPage {
 
@@ -48,6 +52,12 @@ public class CalendarPageAndroid extends CalendarPage {
     @Override
     public String getTextTime() {
         return time.getText();
+    }
+
+    public CalendarPage backKeyDevice() {
+        AndroidDriver driver = (AndroidDriver) getDriver();
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        return this;
     }
 
 }
