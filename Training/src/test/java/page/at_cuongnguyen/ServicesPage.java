@@ -1,10 +1,12 @@
 package page.at_cuongnguyen;
 
 import at.base.BasePage;
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import page.at_hadang.HomePage;
 
 /**
  * for screen
@@ -42,7 +44,6 @@ public class ServicesPage extends BasePage {
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
     public MobileElement txtServing;
 
-    //element of previous screen
     @AndroidFindBy(id = "header")
     @iOSFindBy(id = "Servings")
     public MobileElement txtPreviousScreen;
@@ -51,12 +52,17 @@ public class ServicesPage extends BasePage {
         return true;
     }
 
-    public boolean isbtnvideoContain() {
+    public boolean isBtnVideoContain() {
         return btnVideo.isDisplayed();
     }
 
     public boolean isPageDisplayed() {
         return isForElementPresent(actionBar);
+    }
+
+    @Override
+    public BasePage open() {
+        return null;
     }
 
     public boolean isServicesAreaDisplayed() {
@@ -76,6 +82,7 @@ public class ServicesPage extends BasePage {
     }
 
     public ServicesPage clickPreviousButton() {
+        btnDailyDozen.click();
         return this;
     }
 
@@ -91,9 +98,16 @@ public class ServicesPage extends BasePage {
         return "";
     }
 
-    public ServicesPage open() {
+    public String getFoodName() {
+        return "";
+    }
+
+    public ServicesPage open(String name, int pos) {
         if (!isPageDisplayed()) {
-            getDriver().launchApp();
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            homePage.open();
+            waitForElementDisplay(this.actionBar);
+            homePage.clickMoreInfoButton(name,pos);
         }
         return this;
     }
@@ -102,7 +116,7 @@ public class ServicesPage extends BasePage {
         return true;
     }
 
-    public boolean checkPreivousScreen() {
+    public boolean checkPreviousScreen() {
         return true;
     }
 }

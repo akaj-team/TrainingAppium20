@@ -1,9 +1,11 @@
 package page.at_cuongnguyen;
 
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
+import page.at_hadang.HomePage;
 
 /**
  * for screen
@@ -23,28 +25,23 @@ public class ServicesPageAndroid extends ServicesPage {
         return isForElementPresent(actionBar);
     }
 
-    public ServicesPageAndroid open() {
+    @Override
+    public ServicesPage open(String name, int pos) {
         if (!isPageDisplayed()) {
-            getDriver().launchApp();
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            homePage.open();
+            homePage.clickMoreInfoButton(name,pos);
         }
         return this;
     }
-
     @Override
     public boolean isDailyDozenBtnContain() {
         return btnDailyDozen.isDisplayed();
     }
 
     @Override
-    public boolean isbtnvideoContain() {
+    public boolean isBtnVideoContain() {
         return btnVideo.isDisplayed();
-    }
-
-    @Override
-    public ServicesPage clickPreviousButton() {
-        if (isbtnvideoContain())
-            btnDailyDozen.click();
-        return this;
     }
 
     public ServicesPage checkImg(String im) {
@@ -76,7 +73,12 @@ public class ServicesPageAndroid extends ServicesPage {
     }
 
     @Override
-    public boolean checkPreivousScreen() {
+    public String getFoodName() {
+      return actionBar.findElements(By.className("android.widget.TextView")).get(1).getText();
+    }
+
+    @Override
+    public boolean checkPreviousScreen() {
         if (isPreviousScreenDisplayed())
             return true;
         return false;
