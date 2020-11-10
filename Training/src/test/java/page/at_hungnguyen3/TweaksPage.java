@@ -48,7 +48,7 @@ public class TweaksPage extends BasePage {
         return this;
     }
 
-    public String getTextTitle(){
+    public String getTextTitle() throws InterruptedException {
         return "";
     }
 

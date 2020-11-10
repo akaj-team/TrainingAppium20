@@ -18,7 +18,6 @@ public class HomePageAndroid extends HomePage {
     @AndroidFindBy(id = "food_name")
     List<MobileElement> listFoodName;
 
-
     @AndroidFindBy(id = "food_icon")
     List<MobileElement> listMoreInfo;
 

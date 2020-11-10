@@ -7,8 +7,11 @@ import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TweaksPageAndroid extends TweaksPage{
 
@@ -53,4 +56,5 @@ public class TweaksPageAndroid extends TweaksPage{
         waitForElementDisplay(listAbout.get(0),5000);
         return isForElementPresent(listAbout.get(0));
     }
+
 }

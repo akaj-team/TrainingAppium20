@@ -14,13 +14,11 @@ public class TweaksDefinitions implements En {
 
         Given("^Tweaks is opened$", () -> tweaksPage.open().isPageDisplayed());
 
-        Then("^Title contains \"([^\"]*)\"$", (String titleText) ->
-                Assert.assertTrue(tweaksPage.getTextTitle().contains(titleText)));
-
         When("^I click About Menu button$", () -> tweaksPage.clickBtnAbout());
 
         Then("^Menu About is displayed$", () -> tweaksPage.isAboutMenuDisplayed());
 
-
+        Then("^Title contains \"([^\"]*)\"$", (String textTitle) ->
+                Assert.assertTrue(tweaksPage.getTextTitle().contains(textTitle)));
     }
 }

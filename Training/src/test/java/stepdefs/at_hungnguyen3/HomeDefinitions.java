@@ -10,7 +10,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
     int pos = 0;
     HomePage homePage = new PageFactory<>(HomePage.class).create();
     CalendarPage calendarPage = new PageFactory<>(CalendarPage.class).create();
-    InfoPage infoPage = new PageFactory<>(InfoPage.class).create();
+    FoodDetailsPage foodDetailsPage = new PageFactory<>(FoodDetailsPage.class).create();
     TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
     ServingsHistoryPage servingsHistoryPage = new PageFactory<>(ServingsHistoryPage.class).create();
 
@@ -38,7 +38,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
 
         When("^I click Calendar Button$", () -> homePage.clickBtnCalendar(0));
 
-        Then("^InfoPage is displayed$", () -> infoPage.isPageDisplayed());
+        Then("^InfoPage is displayed$", () -> foodDetailsPage.isPageDisplayed());
 
         Then("^TweaksPage is displayed$", () -> tweaksPage.isTweaksNameDisplayed());
 
@@ -60,7 +60,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         Then("^Servings History Page is Displayed$", () -> servingsHistoryPage.open().isPageDisplayed());
 
         Then("^The HomePage is not displayed$", () -> {
-            infoPage.sleepInSeconds();
+            foodDetailsPage.sleepInSeconds();
             Assert.assertFalse(homePage.isPageDisplayed());
             driver().resetApp();
         });
