@@ -12,7 +12,7 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
     public CalendarDefinitions() {
 
         Given("^Calendar screen is opened$", () -> {
-            Assert.assertTrue(calendarPage.open().isHistoryDisplayed());
+            Assert.assertTrue(calendarPage.open().isPageDisplayed());
         });
         When("^I tap on back button$", () -> {
             calendarPage.clickBackButton();
@@ -22,10 +22,10 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
         When("^I check display initial time$", () -> {
         });
         When("^I check display of Calendar screen$", () -> {
-            Assert.assertTrue(calendarPage.isHistoryDisplayed());
+            Assert.assertTrue(calendarPage.isPageDisplayed());
         });
         Then("^Calendar is displayed$", () -> {
-            calendarPage.isHistoryDisplayed();
+            calendarPage.isPageDisplayed();
         });
         When("^I tap on info button$", () -> {
         });

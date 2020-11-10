@@ -18,6 +18,10 @@ public class HomePageAndroid extends HomePage {
     @AndroidFindBy(id = "food_name")
     List<MobileElement> listFoodName;
 
+
+    @AndroidFindBy(id = "food_icon")
+    List<MobileElement> listMoreInfo;
+
     @AndroidFindBy(id = "menu_toggle_modes")
     MobileElement tweaksMenu;
 
@@ -64,9 +68,8 @@ public class HomePageAndroid extends HomePage {
 
     @Override
     public HomePage clickMoreInfo(int pos) {
-        waitForElementDisplay(listFoodName.get(pos));
-        scrollToElement(listFoodName.get(pos));
-        listFoodName.get(pos).click();
+        waitForElementDisplay(listMoreInfo.get(pos),5000);
+        listMoreInfo.get(pos).click();
         return this;
     }
 

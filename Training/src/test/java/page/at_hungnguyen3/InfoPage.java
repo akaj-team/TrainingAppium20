@@ -37,7 +37,7 @@ public class InfoPage extends BasePage {
 
     @Override
     public InfoPage open() {
-        if (!isPageDisplayed()) {
+        if(!isPageDisplayed()){
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
             homePage.clickMoreInfo(0);

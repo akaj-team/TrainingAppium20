@@ -62,6 +62,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         Then("^The HomePage is not displayed$", () -> {
             infoPage.sleepInSeconds();
             Assert.assertFalse(homePage.isPageDisplayed());
+            driver().resetApp();
         });
     }
 
