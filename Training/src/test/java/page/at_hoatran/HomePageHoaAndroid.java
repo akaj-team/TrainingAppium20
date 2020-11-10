@@ -1,18 +1,11 @@
 package page.at_hoatran;
 
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * for screen
@@ -77,10 +70,6 @@ public class HomePageHoaAndroid extends HomePageHoa {
             return lstDay.findElement(By.xpath("//*[@clickable='false']")).getText();
         }
     */
-    @Override
-    public String getTextHeader() {
-        return txtHeader.getText();
-    }
 
     /*
         @Override
@@ -95,6 +84,11 @@ public class HomePageHoaAndroid extends HomePageHoa {
         MobileElement items = listFood.findElements(By.id("food_icon")).get(n);
         isForElementPresent(items);
         return true;
+    }
+
+    @Override
+    public List<MobileElement> getListFoodName() {
+        return listFood.findElements(By.id("food_name"));
     }
 
     @Override

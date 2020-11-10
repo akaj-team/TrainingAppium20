@@ -6,6 +6,8 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
+import java.util.List;
+
 /**
  * for screen
  *
@@ -53,13 +55,8 @@ public class HomePageHoaIOS extends HomePageHoa {
     }
 
     @Override
-    public String getTextHeader() {
-        return txtHeader.getText();
-    }
-
-    @Override
-    public boolean isTextFoodContain(int n, String text) {
-        return listFood.findElements(By.className("UIAStaticText")).get(n).getText().contains(text);
+    public List<MobileElement> getListFoodName() {
+        return listFood.findElements(By.className("UIAStaticText"));
     }
 
     @Override

@@ -5,7 +5,6 @@ import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
 import page.at_hoatran.HomePageHoa;
-import test.v6.A;
 
 import java.util.concurrent.TimeUnit;
 
@@ -39,8 +38,9 @@ public class HomeDefinitionsHoa extends BaseDefinitions implements En {
         When("^I check display of items in the Servings list$", () -> {
             Assert.assertTrue(true);
         });
+
         Then("^I see \"([^\"]*)\" item at the (\\d+) position on list$", (String name, Integer pos) -> {
-            Assert.assertTrue(homePageHoa.isTextFoodContain(pos, name));
+            Assert.assertTrue(homePageHoa.getTextOfFood(pos).contains(name));
         });
 
         When("^I click on the Calendar button of (\\d+) item$", (Integer pos) -> {

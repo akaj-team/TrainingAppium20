@@ -5,8 +5,8 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import page.exam.HomePage;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,7 +53,11 @@ public class HomePageHoa extends BasePage {
     }
 
     public String getTextHeader() {
-        return "";
+        return txtHeader.getText();
+    }
+
+    public List<MobileElement> getListFoodName() {
+        return new ArrayList<>();
     }
 
     public boolean isImageOfFoodDisplayed(int n) {
@@ -62,6 +66,39 @@ public class HomePageHoa extends BasePage {
 
     public boolean isTextFoodContain(int n, String text) {
         return false;
+    }
+
+    public String getTextOfFood(int pos) {
+        List<MobileElement> list = getListFoodName();
+        System.out.println("list.size:" + list.size());
+        if (pos > list.size()) {
+            int pos1 = pos - list.size();
+            int pos2 = pos1;
+            String name = list.get(list.size() - 1).getText();
+            System.out.println("name:" + name);
+            while (pos2 > 0) {
+                scrollToView();
+                list = getListFoodName();
+                pos2 = pos2 - (list.size() - posFoodNameOnList(name, list));
+                System.out.println("pos:" + pos2);
+                if (pos2 > 0) {
+                    pos1 = pos2;
+                    name = list.get(list.size() - 1).getText();
+                }
+            }
+            return list.get(pos1 + posFoodNameOnList(name, list)).getText();
+        }
+        System.out.println(list.get(pos).getText());
+        return list.get(pos).getText();
+    }
+
+    private int posFoodNameOnList(String name, List<MobileElement> list) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getText().equals(name)) {
+                return i;
+            }
+        }
+        return 0;
     }
 
     public HomePageHoa clickCalendarButton(int n) {
