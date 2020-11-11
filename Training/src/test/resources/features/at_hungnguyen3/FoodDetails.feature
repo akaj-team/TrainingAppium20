@@ -1,7 +1,7 @@
 Feature: Test on Info screen
 
   Background:
-    Given InfoPage is opened
+    Given FoodDetailPage is opened
 
   Scenario: Check Function of BackToHome button
     When I click BackToHome button

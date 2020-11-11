@@ -11,8 +11,6 @@ public class FoodDetailsDefinitions implements En {
 
     public FoodDetailsDefinitions() {
 
-        Given("^InfoPage is opened$", () -> foodDetailsPage.open().isPageDisplayed());
-
         When("^I click BackToHome button$", () -> foodDetailsPage.clickBtnBackToHome());
 
         When("^I click Videos button$", () -> foodDetailsPage.clickVideoButton());
@@ -24,6 +22,8 @@ public class FoodDetailsDefinitions implements En {
         When("^Check Size of Servings$", () -> Assert.assertTrue(true));
 
         When("^Check Size of Type$", () -> Assert.assertTrue(true));
+
+        Given("^FoodDetailPage is opened$", () -> foodDetailsPage.open().isPageDisplayed());
 
     }
 }

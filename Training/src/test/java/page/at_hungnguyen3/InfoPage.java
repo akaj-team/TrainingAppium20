@@ -5,7 +5,6 @@ import io.appium.java_client.MobileDriver;
 
 public class InfoPage extends BasePage {
 
-
     public InfoPage(MobileDriver driver) {
         super(driver);
     }
@@ -20,23 +19,23 @@ public class InfoPage extends BasePage {
         return this;
     }
 
-    public String getTextInfo (int pos) {
+    public String getTextInfo(int pos) {
         return "";
     }
 
-    public InfoPage clickAbout () {
+    public InfoPage clickAbout() {
         return this;
     }
 
-    public boolean isAboutPageDisplayed () {
+    public boolean isAboutPageDisplayed() {
         return false;
     }
 
-    public InfoPage pressBackKeyDevice(){
+    public InfoPage pressBackKeyDevice() {
         return this;
     }
 
-    public InfoPage clickDonate () {
+    public InfoPage clickDonate() {
         return this;
     }
 

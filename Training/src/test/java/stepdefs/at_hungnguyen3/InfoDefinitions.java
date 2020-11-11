@@ -35,5 +35,7 @@ public class InfoDefinitions implements En {
             infoPage.clickBackButton();
         });
 
+        Given("^InfoPage is opened$", () -> infoPage.open().isPageDisplayed());
+
     }
 }

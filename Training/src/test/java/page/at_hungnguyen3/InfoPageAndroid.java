@@ -33,7 +33,7 @@ public class InfoPageAndroid extends InfoPage {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
             TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
-            tweaksPage.clickBtnAbout();
+            tweaksPage.open().clickBtnAbout();
             waitForElementDisplay(listInfo.get(0));
         }
         return this;
