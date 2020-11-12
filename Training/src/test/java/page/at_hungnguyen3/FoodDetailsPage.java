@@ -31,7 +31,7 @@ public class FoodDetailsPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        waitForElementDisplay(servingsSize, 5000);
+        waitForElementDisplay(servingsSize, 3);
         return isForElementPresent(servingsSize);
     }
 
@@ -40,7 +40,8 @@ public class FoodDetailsPage extends BasePage {
         if(!isPageDisplayed()){
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickMoreInfo(0);
+            homePage.clickFoodDetails(2);
+            waitForElementDisplay(btnVideo);
         }
         return this;
     }
@@ -64,6 +65,10 @@ public class FoodDetailsPage extends BasePage {
 
     public int getSizeOfTypes() {
         return 2;
+    }
+
+    public String getTextTitle() {
+        return "";
     }
 
 }

@@ -6,7 +6,6 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import org.openqa.selenium.By;
 
 import java.util.List;
 
@@ -36,8 +35,6 @@ public class HomePageAndroid extends HomePage {
     @AndroidFindBy(id = "sub_header")
     private MobileElement subHeader;
 
-    List<MobileElement> listSubHeader = subHeader.findElements(By.className("android.widget.TextView"));
-
     @Override
     public String getTextTitle() {
         return titleHome.getText();
@@ -66,9 +63,9 @@ public class HomePageAndroid extends HomePage {
     }
 
     @Override
-    public HomePage clickMoreInfo(int pos) {
-        waitForElementDisplay(listMoreInfo.get(pos),5000);
-        listMoreInfo.get(pos).click();
+    public HomePage clickFoodDetails(int pos) {
+        waitForElementDisplay(listFoodName.get(pos),5);
+        listFoodName.get(pos).click();
         return this;
     }
 
@@ -93,8 +90,8 @@ public class HomePageAndroid extends HomePage {
 
     @Override
     public HomePage clickBtnChart() {
-        waitForElementDisplay(listSubHeader.get(0));
-        listSubHeader.get(listSubHeader.size()-1).click();
+        waitForElementDisplay(subHeader,2);
+        subHeader.click();
         return this;
     }
 

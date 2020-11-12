@@ -17,11 +17,6 @@ public class ServingsHistoryPage extends BasePage {
 
     @Override
     public ServingsHistoryPage open() {
-        if (!isPageDisplayed()) {
-            getDriver().launchApp();
-            HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.open().clickBtnChart();
-        }
         return this;
     }
 

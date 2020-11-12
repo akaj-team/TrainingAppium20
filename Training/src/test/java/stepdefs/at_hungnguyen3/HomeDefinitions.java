@@ -32,7 +32,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
             }
         });
 
-        When("^I click Info button$", () -> homePage.clickMoreInfo(0));
+        When("^I click Info button$", () -> homePage.clickFoodDetails(0));
 
         When("^I click Tweaks button$", () -> homePage.clickBtnTweaks());
 
@@ -53,7 +53,7 @@ public class HomeDefinitions extends BaseDefinitions implements En {
 
         Given("^HomePage is opened$", () -> homePage.open().isPageDisplayed());
 
-        When("^I click on the More Info button of VitaminB(\\d+) item$", (Integer arg0) -> homePage.clickMoreInfo(11));
+        When("^I click on the More Info button of VitaminB(\\d+) item$", (Integer arg0) -> homePage.clickFoodDetails(11));
 
         When("^I click Chart button$", () -> homePage.clickBtnChart());
 

@@ -67,7 +67,7 @@ public class HomePageIOS extends HomePage {
     }
 
     @Override
-    public HomePage clickMoreInfo(int pos) {
+    public HomePage clickFoodDetails(int pos) {
         waitForElementDisplay(listMoreInfo.get(pos));
         scrollToElement(listMoreInfo.get(pos));
         listMoreInfo.get(pos).click();
@@ -95,7 +95,7 @@ public class HomePageIOS extends HomePage {
 
     @Override
     public HomePage clickBtnChart() {
-        waitForElementDisplay(btnChart);
+        waitForElementDisplay(btnChart,2);
         btnChart.click();
         return this;
     }

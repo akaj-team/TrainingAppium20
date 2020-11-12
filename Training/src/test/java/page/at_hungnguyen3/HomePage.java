@@ -57,7 +57,7 @@ public class HomePage extends BasePage {
         return "";
     }
 
-    public HomePage clickMoreInfo(int pos) {
+    public HomePage clickFoodDetails(int pos) {
         return this;
     }
 

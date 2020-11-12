@@ -25,5 +25,7 @@ public class FoodDetailsDefinitions implements En {
 
         Given("^FoodDetailPage is opened$", () -> foodDetailsPage.open().isPageDisplayed());
 
+
+
     }
 }

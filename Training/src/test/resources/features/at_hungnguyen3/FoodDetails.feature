@@ -3,6 +3,9 @@ Feature: Test on Info screen
   Background:
     Given FoodDetailPage is opened
 
+  Scenario: Check title of FoodDetailPage
+    Then Title is correct
+
   Scenario: Check Function of BackToHome button
     When I click BackToHome button
     Then HomePage is opened
