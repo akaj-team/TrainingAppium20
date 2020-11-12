@@ -19,4 +19,17 @@ public class ServingsHistoryPageIOS extends ServingsHistoryPage{
         waitForElementDisplay(actionBar.findElement(By.className("UIAStaticText")),5000);
         return isForElementPresent(actionBar.findElement(By.className("UIAStaticText")));
     }
+
+    @Override
+    public String getTextTitle() {
+        waitForElementDisplay(actionBar.findElement(By.id("Servings History")));
+        return actionBar.findElement(By.id("Servings History")).getText();
+    }
+
+    @Override
+    public ServingsHistoryPage clickBackButton() {
+        waitForElementDisplay(actionBar.findElement(By.id("Daily Dozen")));
+        actionBar.findElement(By.id("Daily Dozen")).click();
+        return this;
+    }
 }

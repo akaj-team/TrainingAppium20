@@ -25,4 +25,20 @@ public class ServingsHistoryPage extends BasePage {
         return this;
     }
 
+    public String getTextTitle() {
+        return "";
+    }
+
+    public ServingsHistoryPage clickBackButton() {
+        return this;
+    }
+
+    public ServingsHistoryPage clickTimeSpinner() {
+        return this;
+    }
+
+    public boolean isListTimeSpinnerDisplayed () {
+        return false;
+    }
+
 }
