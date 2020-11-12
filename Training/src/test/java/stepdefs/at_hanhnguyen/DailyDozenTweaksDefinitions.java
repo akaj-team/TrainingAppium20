@@ -5,6 +5,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java8.En;
 import at.base.BaseDefinitions;
 import org.testng.Assert;
+import page.at_hanhnguyen.DailyDozenTweaksAndroidPage;
 import page.at_hanhnguyen.DailyDozenTweaksPage;
 import page.at_hanhnguyen.TweakDetailPage;
 
@@ -14,6 +15,7 @@ import page.at_hanhnguyen.TweakDetailPage;
 class DailyDozenTweaksDefinitions extends BaseDefinitions implements En {
     DailyDozenTweaksPage dailyDozenTweaksPage= new PageFactory<>(DailyDozenTweaksPage.class).create();
     TweakDetailPage tweakDetailPage= new PageFactory<>(TweakDetailPage.class).create();
+    DailyDozenTweaksAndroidPage dailyDozenTweaksAndroidPage=new PageFactory<>(DailyDozenTweaksAndroidPage.class).create();
 
     public DailyDozenTweaksDefinitions() {
         Given("^Tweaks screen is opened$", () ->
@@ -22,7 +24,7 @@ class DailyDozenTweaksDefinitions extends BaseDefinitions implements En {
         When("^I check title on Daily Dozen Tweaks screen$", () -> Assert.assertTrue(true));
 
         Then("^The title is \"([^\"]*)\" which was shown$", (String expectedText) ->
-                Assert.assertEquals(dailyDozenTweaksPage.verifyTweakText(),expectedText));
+                Assert.assertEquals(dailyDozenTweaksAndroidPage.verifyTweakText(),expectedText));
         When("^I check default tab on Tweak screen$", () -> Assert.assertTrue(true));
 
         Then("^The default tab is today$", () -> Assert.assertTrue(dailyDozenTweaksPage.getCurrentDate()));
@@ -36,10 +38,10 @@ class DailyDozenTweaksDefinitions extends BaseDefinitions implements En {
         When("^I check title under Tweak text$", () -> Assert.assertTrue(true));
 
         Then("^The title under the Tweak text is \"([^\"]*)\"$", (String expectedText) ->
-                Assert.assertEquals(dailyDozenTweaksPage.verifyWeightText(),expectedText));
+                Assert.assertEquals(dailyDozenTweaksAndroidPage.verifyWeightText(),expectedText));
         When("^I check  the eye open is shown or not$", () -> Assert.assertTrue(true));
 
-        Then("^The the eye open is shown$", () -> Assert.assertTrue(dailyDozenTweaksPage.verifyTheEyeOpen()));
+        Then("^The the eye open is shown$", () -> Assert.assertTrue(dailyDozenTweaksAndroidPage.verifyTheEyeOpen()));
 
         When("^I check showing the title at AT EACH MEAL group$", () -> Assert.assertTrue(true));
 

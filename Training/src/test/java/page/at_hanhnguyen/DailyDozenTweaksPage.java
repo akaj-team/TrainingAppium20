@@ -5,8 +5,9 @@ import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
-import page.exam.HomePage;
+//import page.exam.HomePage;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -18,26 +19,18 @@ import static javax.swing.text.html.CSS.getAttribute;
 public class DailyDozenTweaksPage extends BasePage {
 
     HomePage homePage = new PageFactory<>(HomePage.class).create();
-    @AndroidFindBy(id = "header_tweaks")
-    private MobileElement headerTweak;
-
-    @AndroidFindBy(id = "date_weights")
-    private MobileElement datWeight;
-
-    @AndroidFindBy(id = "tweak_name")
-    private List<MobileElement> lstTweakName;
-
-    @AndroidFindBy(id = "tweak_group_title")
-    private List<MobileElement> lstGroupTitle;
 
     @AndroidFindBy(xpath = "//*[@text='History']")
+    @iOSFindBy (id = "History")
     private MobileElement lnHistory;
 
     @AndroidFindBy(id = "tweak_history")
+    @iOSFindBy(id = "ic calendar")
     private List<MobileElement> lstcalendarIcon;
 
     @AndroidFindBy(className = "android.widget.CheckBox")
-    private List<MobileElement> lstCheckbox;
+    @iOSFindBy()
+    public List<MobileElement> lstCheckbox;
 
     @AndroidFindBy(className = "android.widget.CheckedTextView")
     private List<MobileElement> lstDate;
@@ -45,54 +38,32 @@ public class DailyDozenTweaksPage extends BasePage {
     @AndroidFindBy(id = "date_pager_indicato")
     private MobileElement viewGroupDate;
 
-    @AndroidFindBy(id = "morning_weight")
-    private MobileElement txtMorningWeight;
-
-    @AndroidFindBy(id = "evening_weigh")
-    private MobileElement txtEveningWeight;
 
     public DailyDozenTweaksPage(MobileDriver driver) {
         super(driver);
     }
 
-    @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(headerTweak.findElement(By.id("header")));
+        return false;
     }
 
     @Override
     public BasePage open() {
         if (!isPageDisplayed()) {
             homePage.open();
-            homePage.clickRightHeader();
+            homePage.click21TweaksButton();
         }
         return this;
     }
 
-    public String verifyWeightText() {
-        return datWeight.findElement(By.id("header")).getText();
-    }
-
-    public String verifyTweakText() {
-        return headerTweak.findElement(By.id("header")).getText();
-    }
-
-    public boolean verifyAllItemsShowCorrectly(String name) {
-        for (MobileElement element : lstTweakName) {
-            if (!element.getText().equals(name)) {
-                return false;
-            }
-        }
-        return true ;
-    }
-
     public boolean verifyTitleGroupShowCorrectly(String title) {
-        for (MobileElement element : lstGroupTitle) {
-            if (element.getText().equals(title)) {
-                return false;
-            }
-        }
-        return true;
+        return false;
+    }
+
+    public boolean verifyAllItemsShowCorrectly(String name) { return false ; }
+
+    public DailyDozenTweaksPage clickIntoItem(String itemName){
+        return this;
     }
 
     public String verifyCalendarPopUpTitle() {
@@ -103,20 +74,10 @@ public class DailyDozenTweaksPage extends BasePage {
         lstcalendarIcon.get(0).click();
     }
 
-    public void clickIntoAllCheckbox() {
-        for (MobileElement element:lstCheckbox){
-            if (element.getAttribute("checked").equals("false")){
-                element.click();
-            }
-        }
-    }
+    public DailyDozenTweaksPage clickIntoAllCheckbox() { return this;}
 
     public boolean verifyCheckboxIsChecked() {
-        for (MobileElement element:lstCheckbox){
-            if (!element.getAttribute("checked").equals("true")){
-               return false;
-            }
-        } return true;
+        return false;
     }
 
     public boolean getCurrentDate() {
@@ -140,17 +101,5 @@ public class DailyDozenTweaksPage extends BasePage {
 
     public String verifyDateAfterSelectDate() {
         return viewGroupDate.findElement(By.className("android.widget.TextView")).getText();
-    }
-
-    public boolean verifyTheEyeOpen() {
-        return isForElementPresent(txtMorningWeight) && isForElementPresent(txtEveningWeight);
-    }
-
-    public void clickIntoItem(String itemName){
-        for (MobileElement element: lstTweakName){
-            if (element.getText().equals(itemName)){
-                element.click();break;
-            }
-        }
     }
 }

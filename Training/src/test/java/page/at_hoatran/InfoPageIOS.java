@@ -1,5 +1,6 @@
 package page.at_hoatran;
 
+import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
@@ -11,6 +12,11 @@ public class InfoPageIOS extends InfoPage {
 
     public InfoPageIOS(MobileDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public BasePage open() {
+        return null;
     }
 
     @Override

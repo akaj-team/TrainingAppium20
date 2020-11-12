@@ -6,7 +6,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
-import page.exam.HomePage;
+import page.at_hadang.HomePage;
 
 public class SettingsPage extends BasePage {
 
@@ -40,8 +40,6 @@ public class SettingsPage extends BasePage {
         if (!isPageDisplayed()) {
             HomePage homePage = new PageFactory<>(HomePage.class).create();
             homePage.open();
-            homePage.moveToDetail();
-
             //getDriver().launchApp();
             waitForElementDisplay(titleSection1Label);
         }
