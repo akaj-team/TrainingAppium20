@@ -12,20 +12,28 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
+import org.testng.Assert;
+import sun.jvm.hotspot.ui.tree.SimpleTreeNode;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
 public class CalendarPage extends BasePage {
-    @AndroidFindBy(id = "action_bar")
-    @iOSFindBy(className = "UIANavigationBar")
-    protected MobileElement actionBar;
+
+    int pos = 0;
+
     JavascriptExecutor jsExecutor;
     String currentTime = getCurrentTime();
+
+    @AndroidFindBy(id = "action_bar")
+    @iOSFindBy(className = "UIANavigationBar")
+    private MobileElement actionBar;
+
     @AndroidFindBy(className = "android.widget.ImageButton")
     @iOSFindBy(className = "UIAButton")
     private MobileElement btnBack;
+
     @AndroidFindBy(xpath = "//*[@text='History']")
     @iOSFindBy(id = "History")
     private MobileElement tvHistory;
@@ -131,16 +139,20 @@ public class CalendarPage extends BasePage {
         jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
         return this;
     }
- /*   public void isItemCorrect(){
-        clickBackButton();
+
+    public String getTextHistory(){
+        waitForElementDisplay(tvHistory);
+        return tvHistory.getText();
+    }
+
+    public void isItemCorrect(){
+        clickBtnBack();
         HomePage homePage = new PageFactory<>(HomePage.class).create();
-        homePage.waitForElementDisplay(actionBar);
-        for(int pos = 0; pos < listItem.size(); pos++)
-        String itemListText = listItem.get(pos).getText();
-        listItem.get(pos).click ;
-        scrollToElement(itemToClick);
-        listItem.get(pos).click();
-        Assert.assertEquals(getItemText(),getItemText());
-    }*/
+        homePage.isPageDisplayed();
+        String foodName = homePage.getTextFoodName(pos);
+        homePage.clickBtnCalendar(pos);
+        Assert.assertEquals(foodName,this.getTextTitle());
+        pos++;
+    }
 }
 
