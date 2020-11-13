@@ -1,7 +1,10 @@
-package page.at_hoatran;
+package page.at_hoatran.home;
 
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 
@@ -87,6 +90,13 @@ public class HomePageHoaAndroid extends HomePageHoa {
     }
 
     @Override
+    public HomePageHoa backKeyDevice() {
+        AndroidDriver driver = (AndroidDriver) getDriver();
+        driver.pressKey(new KeyEvent(AndroidKey.BACK));
+        return this;
+    }
+
+    @Override
     public List<MobileElement> getListFoodName() {
         return listFood.findElements(By.id("food_name"));
     }
@@ -106,8 +116,7 @@ public class HomePageHoaAndroid extends HomePageHoa {
 
     @Override
     public HomePageHoa clickCalendarButton(int n) {
-        MobileElement items = listFood.findElements(By.id("food_history")).get(n);
-        items.click();
+        listFood.findElements(By.id("food_history")).get(n).click();
         return this;
     }
 
@@ -118,7 +127,8 @@ public class HomePageHoaAndroid extends HomePageHoa {
 
     @Override
     public HomePageHoa clickSupplementItem() {
-        listFood.findElements(By.id("food_name")).get(13).click();
+        List<MobileElement> list = listFood.findElements(By.id("food_name"));
+        list.get(list.size() - 1).click();
         return this;
     }
 
@@ -131,14 +141,6 @@ public class HomePageHoaAndroid extends HomePageHoa {
     @Override
     public String getTitleServingsSizeScreen(String text) {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
-    }
-
-    @Override
-    public boolean isNotHomepageDisplayed() {
-        if (getTitle() == "Daily Dozen")
-            return false;
-        else
-            return true;
     }
 
     @Override
@@ -159,6 +161,4 @@ public class HomePageHoaAndroid extends HomePageHoa {
         listFood.findElements(By.id("food_check_boxes_container")).get(n).click();
         return this;
     }
-
-
 }

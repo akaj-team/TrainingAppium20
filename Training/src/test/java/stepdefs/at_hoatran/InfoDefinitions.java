@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import org.testng.Assert;
-import page.at_hoatran.InfoPage;
+import page.at_hoatran.info.InfoPage;
 
 public class InfoDefinitions extends BaseDefinitions implements En {
     InfoPage infoPage = new PageFactory<>(InfoPage.class).create();

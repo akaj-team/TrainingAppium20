@@ -4,7 +4,11 @@ import at.base.BaseDefinitions;
 import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
-import page.at_hoatran.HomePageHoa;
+import page.at_hoatran.detailfood.DetailFoodPage;
+import page.at_hoatran.history.HistoryPageHoa;
+import page.at_hoatran.home.HomePageHoa;
+import page.at_hoatran.info.InfoPage;
+import page.at_hoatran.tweaks.TweaksPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +19,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class HomeDefinitionsHoa extends BaseDefinitions implements En {
     HomePageHoa homePageHoa = new PageFactory<>(HomePageHoa.class).create();
+    TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
+    InfoPage infoPage = new PageFactory<>(InfoPage.class).create();
+    DetailFoodPage detailFoodPage = new PageFactory<>(DetailFoodPage.class).create();
+    HistoryPageHoa historyPageHoa = new PageFactory<>(HistoryPageHoa.class).create();
     int num = 0;
 
     public HomeDefinitionsHoa() {
@@ -47,17 +55,20 @@ public class HomeDefinitionsHoa extends BaseDefinitions implements En {
             driver().manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
             homePageHoa.clickCalendarButton(pos);
         });
+
         Then("^Move to History screen of \"([^\"]*)\" item successfully$", (String name) -> {
-            driver().manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-            Assert.assertEquals(homePageHoa.getTitleHistoryScreen(), name);
+            Assert.assertEquals(historyPageHoa.waitForPageDisplayed().getTitle(), name);
+            historyPageHoa.clickBackButton();
         });
 
         When("^I click on the More Info button at the (\\d+) position$", (Integer pos) -> {
-            homePageHoa.clickMoreInfoButton(pos);
             driver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+            homePageHoa.clickMoreInfoButton(pos);
         });
+
         Then("^Move to Servings Size screen of \"([^\"]*)\" item successfully$", (String name) -> {
-            Assert.assertEquals(homePageHoa.getTitleServingsSizeScreen(name), name);
+            Assert.assertEquals(detailFoodPage.getTitle(), name);
+            detailFoodPage.clickBackButton();
         });
 
         When("^I click on the More Info button of Vitamin B12 item$", () -> {
@@ -65,21 +76,23 @@ public class HomeDefinitionsHoa extends BaseDefinitions implements En {
         });
 
         Then("^The Home screen is not displayed$", () -> {
-            Assert.assertEquals(true, homePageHoa.isNotHomepageDisplayed());
+            Assert.assertFalse(homePageHoa.isPageDisplayed());
+            homePageHoa.backKeyDevice();
         });
 
         When("^I click on the Tweaks button$", () -> {
             homePageHoa.clickTweaksButton();
         });
+
         Then("^Move to Tweaks screen successfully$", () -> {
-            Assert.assertEquals(homePageHoa.isTweaksScreenDisplayed(), true);
+            Assert.assertTrue(homePageHoa.isPageDisplayed());
         });
 
         When("^I click on the InfoMenu button$", () -> {
             homePageHoa.clickInfoMenuButton();
         });
         Then("^Move to Info screen successfully$", () -> {
-            Assert.assertEquals(homePageHoa.isInfoScreenDisplayed(), true);
+            Assert.assertTrue(infoPage.isPageDisplayed());
         });
 
         When("^I click on the Chart button$", () -> {

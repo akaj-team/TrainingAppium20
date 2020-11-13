@@ -1,10 +1,9 @@
-package page.at_hoatran;
+package page.at_hoatran.home;
 
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
-import org.testng.Assert;
 
 import java.util.List;
 
@@ -26,9 +25,6 @@ public class HomePageHoaIOS extends HomePageHoa {
 
     @iOSFindBy(id = "suplement")
     private MobileElement suplement;
-
-    @iOSFindBy(id = "21 Tweaks")
-    private MobileElement btnTweaks;
 
     @iOSFindBy(id = "Info")
     private MobileElement btnInfo;
@@ -71,11 +67,6 @@ public class HomePageHoaIOS extends HomePageHoa {
     }
 
     @Override
-    public HomePageHoa clickSupplementItem() {
-        return this;
-    }
-
-    @Override
     public HomePageHoa selectCheckBox(int n) {
         return this;
     }
@@ -97,22 +88,14 @@ public class HomePageHoaIOS extends HomePageHoa {
     }
 
     @Override
-    public boolean isNotHomepageDisplayed() {
-        if (getTitle() == "Daily Dozen")
-            return false;
-        else
-            return true;
+    public HomePageHoa backKeyDevice() {
+        getDriver().launchApp();
+        return this;
     }
 
     @Override
     public String getTitleInfoMenuScreen() {
         return "";
-    }
-
-    @Override
-    public HomePageHoa clickTweaksButton() {
-        btnTweaks.click();
-        return this;
     }
 
     @Override

@@ -17,19 +17,19 @@ Feature: Test on Home screen
 
     Examples:
       | pos | name                   |
-      | 0   | Beans                  |
-      | 1   | Berries                |
-      | 2   | Other Fruits           |
-      | 3   | Cruciferous Vegetables |
-      | 4   | Greens                 |
-      | 5   | Other Vegetables       |
-      | 6   | Flaxseeds              |
-      | 7   | Nuts and Seeds         |
-      | 8   | Herbs and Spices       |
-      | 9   | Whole Grains           |
-      | 10  | Beverages              |
-      | 11  | Exercise               |
-      | 12  | Vitamin B12            |
+      | 1   | Beans                  |
+      | 2   | Berries                |
+      | 3   | Other Fruits           |
+      | 4   | Cruciferous Vegetables |
+      | 5   | Greens                 |
+      | 6   | Other Vegetables       |
+      | 7   | Flaxseeds              |
+      | 8   | Nuts and Seeds         |
+      | 9   | Herbs and Spices       |
+      | 10  | Whole Grains           |
+      | 11  | Beverages              |
+      | 12  | Exercise               |
+      | 13  | Vitamin B12            |
 
   Scenario Outline: Check function of the Calendar button
     When I click on the Calendar button of <pos> item
@@ -42,14 +42,6 @@ Feature: Test on Home screen
       | 2   | Other Fruits           |
       | 3   | Cruciferous Vegetables |
       | 4   | Greens                 |
-      | 5   | Other Vegetables       |
-      | 6   | Flaxseeds              |
-      | 7   | Nuts and Seeds         |
-      | 8   | Herbs and Spices       |
-      | 9   | Whole Grains           |
-      | 10  | Beverages              |
-      | 11  | Exercise               |
-      | 12  | Vitamin B12            |
 
   Scenario Outline: Check function of the More Info button in the Servings list
     When I click on the More Info button at the <pos> position
@@ -62,13 +54,6 @@ Feature: Test on Home screen
       | 2   | Other Fruits           |
       | 3   | Cruciferous Vegetables |
       | 4   | Greens                 |
-      | 5   | Other Vegetables       |
-      | 6   | Flaxseeds              |
-      | 7   | Nuts and Seeds         |
-      | 8   | Herbs and Spices       |
-      | 9   | Whole Grains           |
-      | 10  | Beverages              |
-      | 11  | Exercise               |
 
   Scenario: Check function of More Info button of Vitamin B12 item
     When I click on the More Info button of Vitamin B12 item

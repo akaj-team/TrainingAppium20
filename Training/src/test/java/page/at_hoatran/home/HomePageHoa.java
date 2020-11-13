@@ -1,4 +1,4 @@
-package page.at_hoatran;
+package page.at_hoatran.home;
 
 import at.base.BasePage;
 import io.appium.java_client.MobileDriver;
@@ -30,6 +30,13 @@ public class HomePageHoa extends BasePage {
     @AndroidFindBy(id = "food_history")
     @iOSFindBy(id = "ic calendar")
     private List<MobileElement> lstCalendar;
+
+    @iOSFindBy(id = "21 Tweaks")
+    @AndroidFindBy(id = "menu_toggle_modes")
+    private MobileElement btnTweaks;
+
+    private int listSize = getListFoodName().size();
+    private int lastPos = 0;
 
     public HomePageHoa(MobileDriver driver) {
         super(driver);
@@ -69,27 +76,18 @@ public class HomePageHoa extends BasePage {
     }
 
     public String getTextOfFood(int pos) {
-        List<MobileElement> list = getListFoodName();
-        System.out.println("list.size:" + list.size());
-        if (pos > list.size()) {
-            int pos1 = pos - list.size();
-            int pos2 = pos1;
-            String name = list.get(list.size() - 1).getText();
-            System.out.println("name:" + name);
-            while (pos2 > 0) {
-                scrollToView();
-                list = getListFoodName();
-                pos2 = pos2 - (list.size() - posFoodNameOnList(name, list));
-                System.out.println("pos:" + pos2);
-                if (pos2 > 0) {
-                    pos1 = pos2;
-                    name = list.get(list.size() - 1).getText();
-                }
-            }
-            return list.get(pos1 + posFoodNameOnList(name, list)).getText();
+        if (pos == listSize + 1) {
+            String name = getListFoodName().get(listSize - 1).getText();
+            scrollToView();
+            lastPos = posFoodNameOnList(name, getListFoodName());
         }
-        System.out.println(list.get(pos).getText());
-        return list.get(pos).getText();
+
+        if (pos > listSize) {
+            int distance = pos - listSize;
+            return getListFoodName().get(lastPos + distance).getText();
+        }
+
+        return getListFoodName().get(pos - 1).getText();
     }
 
     private int posFoodNameOnList(String name, List<MobileElement> list) {
@@ -110,6 +108,11 @@ public class HomePageHoa extends BasePage {
     }
 
     public HomePageHoa clickSupplementItem() {
+        getListFoodName().get(getListFoodName().size() - 1).click();
+        return this;
+    }
+
+    public HomePageHoa backKeyDevice() {
         return this;
     }
 
@@ -133,15 +136,12 @@ public class HomePageHoa extends BasePage {
         return this;
     }
 
-    public boolean isNotHomepageDisplayed() {
-        return false;
-    }
-
     public String getTitleInfoMenuScreen() {
         return "";
     }
 
     public HomePageHoa clickTweaksButton() {
+        btnTweaks.click();
         return this;
     }
 

@@ -1,6 +1,5 @@
-package page.at_hoatran;
+package page.at_hoatran.info;
 
-import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
