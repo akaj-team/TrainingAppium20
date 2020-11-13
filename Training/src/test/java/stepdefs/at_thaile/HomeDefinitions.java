@@ -5,12 +5,14 @@ import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
 import page.exam.at_thaile.HomePage;
+import page.exam.at_thaile.HomePageAndroid;
 import page.exam.at_thaile.HomePageIOS;
 import page.exam.at_thaile.ServingHistoryPage;
 
 public class HomeDefinitions extends BaseDefinitions implements En {
     HomePage hp = new PageFactory<>(HomePage.class).create();
     ServingHistoryPage servingHistory = new PageFactory<>(ServingHistoryPage.class).create();
+    HomePageAndroid homePageAndroid = new PageFactory<>(page.exam.at_thaile.HomePageAndroid.class).create();
     HomePageIOS homePageIOS = new PageFactory<>(HomePageIOS.class).create();
 
     public HomeDefinitions() {
@@ -34,6 +36,10 @@ public class HomeDefinitions extends BaseDefinitions implements En {
         Then("^Beans calendar screen is display$", () -> Assert.assertFalse(hp.open().isPageDisplayed()));
 
         Given("^HomePage screen is opened$", () -> Assert.assertTrue(hp.open().isPageDisplayed()));
+
+        When("^I click on Beans Checkbox$", () -> homePageAndroid.clickCheckBox());
+        Then("^Beans checkbox is ticked$", () -> );
+
 
     }
 }

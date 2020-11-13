@@ -43,10 +43,6 @@ public class HomePage extends BasePage {
     @AndroidFindBy(id = "food_history")
     private MobileElement btnCalendar;
 
-    @iOSFindBy(className = "UIAButton")
-    @AndroidFindBy(className = "android.widget.CheckBox")
-    private MobileElement chk;
-
     @AndroidFindBy(className = "android.widget.LinearLayout")
     private MobileElement btnFood;
 
@@ -72,7 +68,7 @@ public class HomePage extends BasePage {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
-    public HomePage clickFoodName(int n){
+    public HomePage clickFoodName(int n) {
         return this;
     }
 
@@ -107,15 +103,6 @@ public class HomePage extends BasePage {
 
     public void clickCalendarButton() {
         btnCalendar.click();
-    }
-
-    public List<MobileElement> getFood() {
-        List<MobileElement> elements = listMenu.findElements(By.className(android.widget.LinearLayout[1]));
-        return elements;
-    }
-    public void clickCheckBox(){
-        getFood().get(0).findElements(By.className(android.widget.CheckBox[1]));
-        chk.click();
     }
 
 }

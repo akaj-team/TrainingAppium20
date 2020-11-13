@@ -19,6 +19,9 @@ public class HomePageIOS extends page.exam.HomePage {
     @iOSFindBy(id = "Supplements")
     private MobileElement btnSupply;
 
+    @iOSFindBy(className = "UIAButton")
+    private MobileElement chk;
+
     @iOSFindBy(className = "UIAStaticText")
     private MobileElement supplyPopUp;
 
@@ -38,7 +41,6 @@ public class HomePageIOS extends page.exam.HomePage {
         return isForElementPresent(supplyPopUp);
     }
 
-    @Override
     public void clickFoodName(int n) {
         listMenu.findElements(By.id("More Info")).get(n-1).click();
         super.clickFoodName(n);
