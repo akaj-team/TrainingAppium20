@@ -16,6 +16,7 @@ Feature: Test on Food Detail screen
     Then Display [Information of Food] webview
 
   Scenario: Check content of [Serving Sizes]
+    When I check content is "Serving Sizes"
     Then The content is "Serving Sizes"
 
   Scenario: Check display of Units label
@@ -33,9 +34,11 @@ Feature: Test on Food Detail screen
     Then METRIC button change to IMPERIAL button
 
   Scenario: Check sub content of [Serving Sizes]
+    When I check sub content of [Serving Sizes]
     Then The sub content of [Serving Sizes] is "1 tablespoon ground"
 
   Scenario: Check content of [Types]
+    When I check content 1
     Then The content 1 is "Types"
 
   Scenario: Check list of [Types]

@@ -1,6 +1,7 @@
 package page.at_loannguyen;
 
 import at.base.BasePage;
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -46,19 +47,26 @@ public class FoodDetailPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return false;
+        return isForElementPresent(btnVideos);
     }
 
     @Override
     public FoodDetailPage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            homePage.clickItemsList(6);
+            waitForElementDisplay(btnVideos);
         }
         return this;
     }
 
     public String getScreenName(){
         return "";
+    }
+
+    public FoodDetailPage tapBackButton(){
+        return this;
     }
 
     public FoodDetailPage clickVideosButton() {

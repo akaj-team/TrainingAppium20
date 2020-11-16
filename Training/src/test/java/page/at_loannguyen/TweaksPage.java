@@ -12,7 +12,7 @@ public class TweaksPage extends BasePage {
         super(driver);
     }
 
-    @AndroidFindBy(id = "menu_toggle_modes")
+    @AndroidFindBy(id = "tweak_group_title")
     private MobileElement tvTextDailyDozen;
 
     @Override

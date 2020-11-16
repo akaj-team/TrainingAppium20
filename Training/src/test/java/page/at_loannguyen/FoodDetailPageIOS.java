@@ -25,9 +25,10 @@ public class FoodDetailPageIOS extends FoodDetailPage {
         return screenName.getText();
     }
 
-    public FoodDetailPageIOS clickBackButton () {
-         btnBack.click();
-         return this;
+    @Override
+    public FoodDetailPage tapBackButton() {
+        btnBack.click();
+        return this;
     }
 
     public FoodDetailPageIOS getTypeBrownFlaxseeds(){

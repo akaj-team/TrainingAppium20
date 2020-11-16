@@ -23,7 +23,7 @@ Feature: Test on Home screen
     When I click [Calendar] button
     Then [Calendar] screen is displayed correctly
 
-  Scenario Outline: Verify display of items on the Servings list
+  Scenario Outline: Check display of items on the Servings list
     When I check display of items in the Servings list
     Then I see "<name>" item at the position on list
 
@@ -43,5 +43,6 @@ Feature: Test on Home screen
       | Exercise               |
       | Vitamin B12            |
 
-
-
+  Scenario: Check click items on Servings list
+    When I click items on Servings list
+    Then [Food Detail] screen is displayed correctly

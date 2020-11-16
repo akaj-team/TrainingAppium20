@@ -31,7 +31,7 @@ Feature: Test on Home screen
       | 11  | Exercise               |
       | 12  | Vitamin B12            |
 
-  Scenario Outline: Check function of the Calendar button
+  Scenario Outline: Check function of thex Calendar button
     When I click on the Calendar button of each item
     Then Move to History screen of "<name>" item successfully
 
