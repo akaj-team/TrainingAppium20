@@ -14,6 +14,11 @@ public class ServicesPageAndroid extends ServicesPage {
     @AndroidFindBy(id = "food_name")
     private MobileElement txtFoodName;
 
+    @AndroidFindBy(id = "food_videos")
+    private MobileElement btnFoodVideo;
+
+    public boolean isFoodVideoButtonPresent(){ return btnFoodVideo.isDisplayed();}
+
     public boolean isFoodNamePresent(){
         return txtFoodName.isDisplayed();
     }
