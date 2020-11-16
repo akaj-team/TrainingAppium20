@@ -5,21 +5,27 @@ import at.core.PageFactory;
 import cucumber.api.java8.En;
 import org.testng.Assert;
 import page.at_loannguyen.FoodDetailPage;
+import page.at_loannguyen.FoodDetailPageAndroid;
+import page.at_loannguyen.HomePage;
 
 public class FoodDetailDefinitions extends BaseDefinitions implements En {
     FoodDetailPage foodDetailPage = new PageFactory<>(FoodDetailPage.class).create();
+    FoodDetailPageAndroid foodDetailPageAndroid = new PageFactory<>(FoodDetailPageAndroid.class).create();
+    HomePage homePage = new PageFactory<>(HomePage.class).create();
 
     public FoodDetailDefinitions() {
         When("^I check screen name of \\[Food Detail\\] screen$", () -> {
+            Assert.assertTrue(true);
         });
         Then("^The screen name is \"([^\"]*)\"$", (String arg0) -> {
+            Assert.assertEquals(foodDetailPage.getScreenName(),arg0);
         });
 
         When("^I click <= button$", () -> {
             foodDetailPage.clickBackButton();
         });
         Then("^Display Home screen$", () -> {
-            Assert.assertTrue(foodDetailPage.isPageDisplayed());
+            Assert.assertTrue(homePage.isPageDisplayed());
         });
 
         When("^I click VIDEOS button$", () -> {
@@ -30,6 +36,7 @@ public class FoodDetailDefinitions extends BaseDefinitions implements En {
         });
 
         Then("^The content is \"([^\"]*)\"$", (String arg0) -> {
+
         });
 
         Then("^Button is IMPERIAL$", () -> {
@@ -69,14 +76,14 @@ public class FoodDetailDefinitions extends BaseDefinitions implements En {
         });
         Then("^The content of units is \"([^\"]*)\"$", (String arg0) -> {
         });
-        
+
         When("^I check list of \\[Types\\]$", () -> {
         });
         Then("^The list of \\[Types\\] is displayed correctly$", () -> {
         });
 
         Given("^Food Detail screen is opened$", () -> {
-
+            Assert.assertTrue(true);
         });
 
     }
