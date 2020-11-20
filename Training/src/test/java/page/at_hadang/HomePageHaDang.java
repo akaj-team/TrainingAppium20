@@ -31,7 +31,7 @@ public class HomePageHaDang extends BasePage {
     private MobileElement btn21Tweaks;
 
     @AndroidFindBy(id = "food_history")
-    @iOSFindBy(id = "ic calendar")
+    @iOSFindBy(xpath = "//*[@id='ic calendar']")
     private List<MobileElement> lstBtnCalendar;
 
     public HomePageHaDang(MobileDriver driver) {
@@ -88,9 +88,7 @@ public class HomePageHaDang extends BasePage {
     }
 
     public HomePageHaDang clickCalendarButton() {
-        for (MobileElement mobileElement : lstBtnCalendar) {
-            mobileElement.click();
-        }
+        lstBtnCalendar.forEach(mobileElement -> mobileElement.click());
         return this;
     }
 }

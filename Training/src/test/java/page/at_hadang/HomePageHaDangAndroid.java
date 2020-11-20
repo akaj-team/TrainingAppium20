@@ -38,6 +38,8 @@ public class HomePageHaDangAndroid extends HomePageHaDang{
         return container.findElements(By.id("food_name")).get(pos).getText();
     }
 
+
+
     @Override
     public HomePageHaDang clickInfoMenuButton() {
         actionBar.findElement(By.className("android.widget.ImageView")).click();

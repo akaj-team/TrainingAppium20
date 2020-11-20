@@ -20,10 +20,10 @@ public class HomePageHaDangIOS extends HomePageHaDang{
     @iOSFindBy(id = "Info")
     private MobileElement btnInfoMenu;
 
-    @iOSFindBy(id = "ic stat")
+    @iOSFindBy(xpath = "//*[@id='ic stat']")
     private MobileElement btnChart;
 
-    @iOSFindBy(id = "More Info")
+    @iOSFindBy(xpath = "//*[@id='More Info']")
     private List<MobileElement> lstBtnMoreInfo;
 
     public HomePageHaDangIOS(MobileDriver driver) {

@@ -40,9 +40,9 @@ public class HomeDefinitionsHaDang extends BaseDefinitions implements En {
             Assert.assertTrue(true);
         });
         Then("^I see \"([^\"]*)\" item at the (\\d+) position on list at_hadang$", (String name, Integer pos) -> {
-            homePageHaDang.getTextOfFoodName(pos).contains(name);
+            Assert.assertTrue(homePageHaDang.getTextOfFoodName(pos).contains(name));
         });
-        When("^I click on the Calendar button of each item at_hadang$", () -> {
+        When("^I click on the Calendar button of food item at_hadang$", () -> {
             homePageHaDang.clickCalendarButton();
         });
         Then("^Move to Calendar screen of \"([^\"]*)\" item successfully at_hadang$", (String name) -> {

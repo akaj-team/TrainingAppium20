@@ -17,6 +17,6 @@ public class TweaksPageHaDangIOS extends TweaksPageHaDang{
 
     @Override
     public String getTextTitle() {
-        return actionBar.findElement(By.id("21 Tweaks")).getText();
+        return actionBar.findElement(By.className("UIAStaticText")).getText();
     }
 }
