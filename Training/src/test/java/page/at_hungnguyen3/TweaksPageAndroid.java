@@ -30,8 +30,7 @@ public class TweaksPageAndroid extends TweaksPage{
 
     @Override
     public String getTextTitle() {
-        waitForElementDisplay(listActionBar.get(0),5000);
-        return listActionBar.get(0).getText();
+        return actionBar.findElement(By.className("android.widget.TextView")).getText();
     }
 
     @Override
