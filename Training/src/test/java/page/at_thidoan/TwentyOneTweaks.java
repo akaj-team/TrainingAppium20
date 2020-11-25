@@ -38,6 +38,9 @@ public class TwentyOneTweaks extends BasePage {
     @iOSFindBy(className = "UIAStaticText")
     private List<MobileElement> listTxtCalendar;
 
+    @AndroidFindBy(id = "content")
+    private MobileElement viewCalendar;
+
 
     public TwentyOneTweaks(MobileDriver driver) {
         super(driver);
@@ -74,7 +77,7 @@ public class TwentyOneTweaks extends BasePage {
 
     ;
 
-    public void UncheckAllCheckBoxes() {
+    public void uncheckAllCheckBoxes() {
         for (MobileElement mobileElement : listCheckBox) {
             if (mobileElement.isSelected()) {
                 mobileElement.click();
@@ -102,6 +105,11 @@ public class TwentyOneTweaks extends BasePage {
         return true;
     }
 
+    public TwentyOneTweaks clickBtnMenuToggleMode() {
+        btnMenuToggleMode.click();
+        return this;
+    }
+
     public TwentyOneTweaks clickBtnMoreInfo() {
         btnMoreInfo.click();
         return this;
@@ -113,9 +121,10 @@ public class TwentyOneTweaks extends BasePage {
     }
 
     public boolean isCalendarOfPreloadWaterDisplayed() {
+        waitForElementDisplay(viewCalendar);
         for (MobileElement mobileElement : listTxtCalendar) {
-            waitForElementDisplay(mobileElement);
-            if (mobileElement.getText().equals("Preload Water")) ;
+            System.out.println(mobileElement.getText());
+            if (mobileElement.getText().contains("Preload Water")) ;
             return true;
         }
         return false;
@@ -124,8 +133,7 @@ public class TwentyOneTweaks extends BasePage {
 
     public boolean isDetailPreloadWaterDisplayed() {
         for (MobileElement mobileElement : listTxtDetail) {
-            waitForElementDisplay(mobileElement);
-            if (mobileElement.getText().equals("Preload with Water")) ;
+            if (mobileElement.getText().contains("Preload with Water")) ;
             return true;
         }
         return false;
