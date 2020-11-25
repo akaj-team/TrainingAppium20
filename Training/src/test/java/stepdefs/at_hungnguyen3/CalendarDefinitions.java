@@ -27,16 +27,7 @@ public class CalendarDefinitions extends BaseDefinitions implements En {
         Then("^Calendar is displayed$", () -> {
             calendarPage.isPageDisplayed();
         });
-        When("^I tap on info button$", () -> {
-        });
-        When("^I tap on settings button$", () -> {
-        });
-        When("^I tap on daily dozen button$", () -> {
-        });
-        When("^I tap on next button$", () -> {
-        });
-        When("^I tap on next previous button$", () -> {
-        });
+
         Then("^The initial time is current time$", () ->
                 calendarPage.isCurrentTime());
 
