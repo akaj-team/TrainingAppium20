@@ -40,5 +40,6 @@ public class InfoDefinitions extends BaseDefinitions implements En {
         Then("^About this app screen is displayed correctly$", () -> {
             Assert.assertTrue(infoPage.isAboutThisAppDisplayed());
         });
+
     }
 }

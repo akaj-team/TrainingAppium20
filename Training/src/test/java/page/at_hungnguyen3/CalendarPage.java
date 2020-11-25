@@ -12,21 +12,28 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
-import page.at_hadang.HomePage;
+import org.testng.Assert;
+import sun.jvm.hotspot.ui.tree.SimpleTreeNode;
 
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 
 public class CalendarPage extends BasePage {
-    @AndroidFindBy(id = "action_bar")
-    @iOSFindBy(className = "UIANavigationBar")
-    protected MobileElement actionBar;
+
+    int pos = 0;
+
     JavascriptExecutor jsExecutor;
     String currentTime = getCurrentTime();
+
+    @AndroidFindBy(id = "action_bar")
+    @iOSFindBy(className = "UIANavigationBar")
+    private MobileElement actionBar;
+
     @AndroidFindBy(className = "android.widget.ImageButton")
     @iOSFindBy(className = "UIAButton")
     private MobileElement btnBack;
+
     @AndroidFindBy(xpath = "//*[@text='History']")
     @iOSFindBy(id = "History")
     private MobileElement tvHistory;
@@ -45,6 +52,7 @@ public class CalendarPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
+        waitForElementDisplay(tvHistory);
         return isForElementPresent(tvHistory);
     }
 
@@ -53,19 +61,16 @@ public class CalendarPage extends BasePage {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.open();
+            homePage.clickBtnCalendar(1);
+            waitForElementDisplay(tvHistory, 5000);
         }
         return this;
     }
 
-    public CalendarPage clickBtnBackButton() {
+    public CalendarPage clickBtnBack() {
         waitForElementDisplay(btnBack);
         btnBack.click();
         return this;
-    }
-
-    public boolean isHistoryDisplay() {
-        return isForElementPresent(tvHistory);
     }
 
     public String getCurrentTime() {
@@ -73,10 +78,6 @@ public class CalendarPage extends BasePage {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MMMM-yyyy");
         String strDate = formatter.format(date);
         return strDate;
-    }
-
-    public void scrollToElement(MobileElement element) {
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public CalendarPage swipeToTheLeft(AppiumDriver driver) {
@@ -115,6 +116,18 @@ public class CalendarPage extends BasePage {
         return "";
     }
 
+    public CalendarPage clickDailyDozenButton() {
+        return this;
+    }
+
+    public CalendarPage clickInfoButton() {
+        return this;
+    }
+
+    public CalendarPage clickSettingsButton() {
+        return this;
+    }
+
     public boolean isCurrentTime() {
         String[] parts = currentTime.split("(?=-)");
         String month = parts[1];
@@ -122,5 +135,24 @@ public class CalendarPage extends BasePage {
         return ((getTextTime().contains(month)) && (getTextTime().contains(year)));
     }
 
+    public CalendarPage scrollToElement(MobileElement element) {
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+        return this;
+    }
+
+    public String getTextHistory(){
+        waitForElementDisplay(tvHistory);
+        return tvHistory.getText();
+    }
+
+    public void isItemCorrect(){
+        clickBtnBack();
+        HomePage homePage = new PageFactory<>(HomePage.class).create();
+        homePage.isPageDisplayed();
+        String foodName = homePage.getTextFoodName(pos);
+        homePage.clickBtnCalendar(pos);
+        Assert.assertEquals(foodName,this.getTextTitle());
+        pos++;
+    }
 }
 

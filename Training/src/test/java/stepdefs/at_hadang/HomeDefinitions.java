@@ -8,7 +8,7 @@ import page.at_hadang.HomePage;
 
 public class HomeDefinitions extends BaseDefinitions implements En {
     HomePage homePage = new PageFactory<>(HomePage.class).create();
-//    HistoryPage historyPage = new PageFactory<>(HistoryPage.class).create();
+    //HistoryPage historyPage = new PageFactory<>(HistoryPage.class).create();
 //    ServicesPage servicesPage = new PageFactory<>(ServicesPage.class).create();
 //    TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
 //    InfoPage infoPage = new PageFactory<>(InfoPage.class).create();
