@@ -64,7 +64,7 @@ public class HomePageAndroid extends HomePage {
 
     @Override
     public HomePage clickFoodDetails(int pos) {
-        waitForElementDisplay(listFoodName.get(pos),5);
+        waitForElementDisplay(listFoodName.get(pos), 5);
         listFoodName.get(pos).click();
         return this;
     }
@@ -84,13 +84,12 @@ public class HomePageAndroid extends HomePage {
 
     @Override
     public String getTextFoodName(int pos) {
-        waitForElementDisplay(listFoodName.get(pos));
         return listFoodName.get(pos).getText();
     }
 
     @Override
     public HomePage clickBtnChart() {
-        waitForElementDisplay(subHeader,2);
+        waitForElementDisplay(subHeader, 2);
         subHeader.click();
         return this;
     }

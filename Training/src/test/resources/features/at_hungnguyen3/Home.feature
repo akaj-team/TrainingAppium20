@@ -29,22 +29,22 @@ Feature: Test on Home screen
 
   Scenario Outline: Verify display of items in the Servings list
     When I check display of Food Name in the Servings list
-    Then Texts of Food Names contains "<food name>"
-
+    Then I see "<name>" item at the <pos> position on list
     Examples:
-      | food name              |
-      | Beans                  |
-      | Berries                |
-      | Other Fruits           |
-      | Cruciferous Vegetables |
-      | Greens                 |
-      | Other Vegetables       |
-      | Flaxseeds              |
-      | Nuts and Seeds         |
-      | Herbs and Spices       |
-      | Whole Grains           |
-      | Beverages              |
-      | Exercise               |
+      | pos | name                   |
+      | 1   | Beans                  |
+      | 2   | Berries                |
+      | 3   | Other Fruits           |
+      | 4   | Cruciferous Vegetables |
+      | 5   | Greens                 |
+      | 6   | Other Vegetables       |
+      | 7   | Flaxseeds              |
+      | 8   | Nuts and Seeds         |
+      | 9   | Herbs and Spices       |
+      | 10  | Whole Grains           |
+      | 11  | Beverages              |
+      | 12  | Exercise               |
+      | 13  | Vitamin B12            |
 
   Scenario: Check function of More Info button of Vitamin B12 item
     When I click on the More Info button of VitaminB12 item

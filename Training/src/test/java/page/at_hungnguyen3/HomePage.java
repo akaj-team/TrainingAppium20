@@ -36,7 +36,6 @@ public class HomePage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        waitForElementDisplay(tvServings);
         return isForElementPresent(tvServings);
     }
 

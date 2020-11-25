@@ -28,8 +28,8 @@ public class HomeDefinitions extends BaseDefinitions implements En {
             if (homePage.isPageDisplayed()) {
                 String actualFoodName = homePage.getTextFoodName(pos);
                 actualFoodName.contains(foodName);
-                pos++;
             }
+            pos++;
         });
 
         When("^I click Info button$", () -> homePage.clickFoodDetails(0));
@@ -64,6 +64,15 @@ public class HomeDefinitions extends BaseDefinitions implements En {
             Assert.assertFalse(homePage.isPageDisplayed());
             driver().resetApp();
         });
+
+        Then("^I see \"([^\"]*)\" item at the (\\d+) position on list$", (String name, Integer pos) -> {
+//            System.out.println(name);
+//            System.out.println(homePage.getTextFoodName(pos - 1));
+//            Assert.assertTrue(homePage.getTextFoodName(pos - 1).contains(name));
+            String actualFoodName = homePage.getTextFoodName(pos);
+            actualFoodName.contains(name);
+        });
+
     }
 
 }
