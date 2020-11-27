@@ -9,8 +9,6 @@ import java.util.List;
 
 public class CalendarPageIOS extends CalendarPage {
 
-    MobileElement actionBar = (MobileElement) getDriver().findElementByClassName("UIANavigationBar");
-
     @iOSFindBy(className = "UIATabBar")
     private MobileElement tabBar ;
 
@@ -32,19 +30,19 @@ public class CalendarPageIOS extends CalendarPage {
         super(driver);
     }
 
-    public CalendarPage clickDailyDozenButton(){
+    public CalendarPageIOS clickDailyDozenButton(){
         waitForElementDisplay(dailyDozenButton);
         dailyDozenButton.click();
         return this;
     }
 
-    public CalendarPage clickInfoButton(){
+    public CalendarPageIOS clickInfoButton(){
         waitForElementDisplay(info);
         info.click();
         return this;
     }
 
-    public CalendarPage clickSettingsButton(){
+    public CalendarPageIOS clickSettingsButton(){
         waitForElementDisplay(settings);
         settings.click();
         return this;
@@ -59,5 +57,4 @@ public class CalendarPageIOS extends CalendarPage {
     public String getTextTime() {
         return monthList.get(1).getText();
     }
-
 }

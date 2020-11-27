@@ -1,16 +1,9 @@
 package page.at_hungnguyen3;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import page.at_hoatran.InfoPageAndroid;
 
-public class CalendarPageAndroid extends CalendarPage {
-
-    @AndroidFindBy(id = "action_bar")
-    private MobileElement actionBar;
+public class CalendarPageAndroid extends CalendarPage{
 
     @AndroidFindBy(id = "month_name")
     private MobileElement time;
@@ -21,23 +14,18 @@ public class CalendarPageAndroid extends CalendarPage {
     @AndroidFindBy(id = "next")
     private MobileElement next;
 
-    MobileElement item = actionBar.findElementByClassName("android.widget.TextView");
+    private MobileElement item = actionBar.findElementByClassName("android.widget.TextView");
 
-    public CalendarPage clickToNextButton() {
+    public CalendarPageAndroid clickToNextButton(){
         waitForElementDisplay(next);
         next.click();
         return this;
     }
 
-    public CalendarPage clickToPreviousButton() {
+    public CalendarPageAndroid clickToPreviousButton(){
         waitForElementDisplay(previous);
         previous.click();
         return this;
-    }
-
-    @Override
-    public CalendarPage clickDailyDozenButton() {
-        return clickBtnBack();
     }
 
     public CalendarPageAndroid(MobileDriver driver) {
@@ -52,12 +40,6 @@ public class CalendarPageAndroid extends CalendarPage {
     @Override
     public String getTextTime() {
         return time.getText();
-    }
-
-    public CalendarPage backKeyDevice() {
-        AndroidDriver driver = (AndroidDriver) getDriver();
-        driver.pressKey(new KeyEvent(AndroidKey.BACK));
-        return this;
     }
 
 }
