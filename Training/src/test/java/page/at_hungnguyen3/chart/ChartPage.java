@@ -1,10 +1,12 @@
 package page.at_hungnguyen3.chart;
 
 import at.base.BasePage;
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import page.at_hungnguyen3.home.HomePage;
 
 public class ChartPage extends BasePage {
 
@@ -26,11 +28,28 @@ public class ChartPage extends BasePage {
     }
 
     @Override
-    public BasePage open() {
-        return this;
-    }
+    public ChartPage open() {
+            if (!isPageDisplayed()){
+                HomePage homePage = new PageFactory<>(HomePage.class).create();
+                homePage.clickChartButton();
+                waitForElementDisplay(tvHeader);
+            }
+            return this;
+        }
 
     public ChartPage clickBackButton() {
         return this;
+    }
+
+    public String getTextTvHeader(){
+        return tvHeader.getText();
+    }
+
+    public ChartPage clickBtnButton () {
+        return this;
+    }
+
+    public String getTextTitle(){
+        return "";
     }
 }

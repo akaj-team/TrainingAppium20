@@ -11,14 +11,14 @@ import page.at_hungnguyen3.tweaks.TweaksPage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TweakPageDefinitions extends BaseDefinitions implements En {
+public class TweakDefinitions extends BaseDefinitions implements En {
     TweaksPage tweaksPage = new PageFactory<>(TweaksPage.class).create();
     HomePage homePage = new PageFactory<>(HomePage.class).create();
     List<MobileElement> list = new ArrayList<>();
 
     int pos = 0;
 
-    public TweakPageDefinitions() {
+    public TweakDefinitions() {
         Given("^TweaksPage screen is opened$", () -> {
             Assert.assertTrue(tweaksPage.open().isPageDisplayed());
         });
@@ -34,7 +34,6 @@ public class TweakPageDefinitions extends BaseDefinitions implements En {
 
         Then("^Title contains \"([^\"]*)\"$", (String arg0) -> {
             Assert.assertTrue(tweaksPage.getTitle().contains(arg0));
-            System.out.println(tweaksPage.getTitle());
         });
 
         When("^I click About Menu button$", () -> {
