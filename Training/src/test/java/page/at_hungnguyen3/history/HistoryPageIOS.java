@@ -7,8 +7,19 @@ import org.openqa.selenium.By;
 
 public class HistoryPageIOS extends HistoryPage {
 
+    @iOSFindBy(id = "Info")
+    private MobileElement info ;
+
+    @iOSFindBy(className = "Settings")
+    private MobileElement settings ;
+
     @iOSFindBy(id = "Daily Dozen")
     private MobileElement tvBack;
+
+    @iOSFindBy(className = "UIACollectionView")
+    private MobileElement monthCollection;
+
+    MobileElement item = actionBar.findElementByClassName("UIAStaticText");
 
     public HistoryPageIOS(MobileDriver driver) {
         super(driver);
@@ -23,5 +34,10 @@ public class HistoryPageIOS extends HistoryPage {
     public HistoryPage clickBackButton() {
         tvBack.click();
         return this;
+    }
+
+    @Override
+    public String getTextTime() {
+        return monthCollection.findElements(By.className("UIAStaticText")).get(1).getText();
     }
 }
