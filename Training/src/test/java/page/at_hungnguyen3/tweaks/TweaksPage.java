@@ -17,7 +17,7 @@ public class TweaksPage extends BasePage {
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIANavigationBar")
-    public MobileElement actionBar;
+    protected MobileElement actionBar;
 
     @iOSFindBy(id = "Daily Dozen")
     @AndroidFindBy(id = "menu_toggle_modes")

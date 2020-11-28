@@ -5,7 +5,6 @@ import cucumber.api.java8.En;
 import org.junit.Assert;
 import page.at_hungnguyen3.chart.ChartPage;
 import page.at_hungnguyen3.tweaks.TweaksPage;
-import sun.jvm.hotspot.debugger.Page;
 
 public class ChartDefinitions implements En {
     ChartPage chartPage = new PageFactory<>(ChartPage.class).create();
@@ -31,7 +30,5 @@ public class ChartDefinitions implements En {
         Then("^Title is \"([^\"]*)\" or \"([^\"]*)\"$", (String arg0, String arg1) -> {
             Assert.assertTrue(chartPage.getTextTitle().equals(arg0) || chartPage.getTextTitle().equals(arg1));
         });
-
-
     }
 }

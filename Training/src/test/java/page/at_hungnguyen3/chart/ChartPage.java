@@ -16,7 +16,7 @@ public class ChartPage extends BasePage {
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIANavigationBar")
-    public MobileElement actionBar;
+    protected MobileElement actionBar;
 
     public ChartPage(MobileDriver driver) {
         super(driver);

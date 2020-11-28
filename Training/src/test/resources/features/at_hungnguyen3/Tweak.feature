@@ -14,7 +14,7 @@ Feature: Test on Tweaks screen
     When I click About Menu button
     Then Menu About is displayed
     When I click Lastest Video Button
-    Then Move to LoginGoogle screen
+    Then TweaksPage screen is not displayed
 
   Scenario: Check Function of CheckBox
     Then I click CheckBox and CheckBox is checked

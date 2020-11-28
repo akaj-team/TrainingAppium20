@@ -50,22 +50,19 @@ public class TweakDefinitions extends BaseDefinitions implements En {
             Thread.sleep(2000);
         });
 
-        Then("^Move to LoginGoogle screen$", () -> {
-            Assert.assertTrue(!tweaksPage.isPageDisplayed());
-            driver().resetApp();
-        });
-
         Then("^I click CheckBox and CheckBox is checked$", () -> {
             list = tweaksPage.getListCheckBox();
             for (int i = 0; i < list.size(); i++) {
                 if (!tweaksPage.isCheckBoxChecked(list, i)) {
                     tweaksPage.clickCheckBox(list, i);
                     pos = i;
-                    Assert.assertTrue(tweaksPage.isCheckBoxChecked(list,pos));
+                    Assert.assertTrue(tweaksPage.isCheckBoxChecked(list, pos));
                     break;
                 }
             }
         });
-
+        Then("^TweaksPage screen is not displayed$", () -> {
+            Assert.assertFalse(tweaksPage.isPageDisplayed());
+        });
     }
 }
