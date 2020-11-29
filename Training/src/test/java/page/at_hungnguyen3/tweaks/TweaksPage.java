@@ -8,6 +8,7 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TweaksPage extends BasePage {
 
@@ -64,7 +65,7 @@ public class TweaksPage extends BasePage {
     }
 
     public boolean isAboutMenuDisplayed() {
-        return isForElementPresent(listAbout.get(0));
+        return isForElementPresent(listAbout.get(randomNumber()));
     }
 
     public TweaksPage clickLastestVideoButton () {
@@ -87,5 +88,10 @@ public class TweaksPage extends BasePage {
 
     public boolean isCheckBoxChecked(List<MobileElement> list, int pos){
         return false;
+    }
+
+    public static int randomNumber(){
+        Random random = new Random(8);
+        return random.nextInt();
     }
 }

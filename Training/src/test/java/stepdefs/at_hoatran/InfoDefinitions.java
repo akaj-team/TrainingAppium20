@@ -8,9 +8,11 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import org.testng.Assert;
 import page.at_hoatran.InfoPage;
+import page.at_hungnguyen3.home.HomePage;
 
 public class InfoDefinitions extends BaseDefinitions implements En {
     InfoPage infoPage = new PageFactory<>(InfoPage.class).create();
+    HomePage homePage = new PageFactory<>(HomePage.class).create();
 
     public InfoDefinitions() {
         Given("^Info screen is opened$", () -> {
@@ -18,11 +20,15 @@ public class InfoDefinitions extends BaseDefinitions implements En {
         });
 
         When("^Check Title of Info screen$", () -> Assert.assertTrue(true));
+
         Then("^Title is displayed correctly with content \"([^\"]*)\"$", (String text) -> Assert.assertEquals(infoPage.getTitleOfPage(), text));
+
         When("^Tap on Title of Info screen$", () -> infoPage.clickTitleOfPage());
+
         Then("^Nothing happens$", () -> Assert.assertTrue(infoPage.open().isPageDisplayed()));
 
         When("^Check content of (\\d+) th menu$", (Integer n) -> Assert.assertTrue(true));
+
         Then("^Content of (\\d+) th menu is displayed correctly \"([^\"]*)\"$", (Integer n, String text) -> Assert.assertEquals(infoPage.getTitle(n), text));
 
         When("^Tap on (\\d+) th menu$", (Integer n) -> infoPage.clickTitleButton(n));
@@ -40,5 +46,10 @@ public class InfoDefinitions extends BaseDefinitions implements En {
         Then("^About this app screen is displayed correctly$", () -> {
             Assert.assertTrue(infoPage.isAboutThisAppDisplayed());
         });
+
+        Then("^InfoPage is not displayed$", () -> { Assert.assertFalse(infoPage.isPageDisplayed()); });
+
+        Then("^Homepage screen is not displayed$", () -> { Assert.assertFalse(homePage.isPageDisplayed()); });
+
     }
 }

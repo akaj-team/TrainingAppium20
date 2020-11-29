@@ -8,8 +8,12 @@ import org.openqa.selenium.By;
 import java.util.List;
 
 public class InfoPageIOS extends InfoPage {
+
     @iOSFindBy(className = "UIANavigationBar")
-    public MobileElement txtTitleOfPage;
+    protected MobileElement txtTitleOfPage;
+
+    @iOSFindBy(id = "Info")
+    protected MobileElement backButton;
 
     public InfoPageIOS(MobileDriver driver) {
         super(driver);
@@ -18,5 +22,11 @@ public class InfoPageIOS extends InfoPage {
     @Override
     public List<MobileElement> getListItem() {
         return listTitle.findElements(By.className("UIAStaticText"));
+    }
+
+    @Override
+    public InfoPage clickBackButton() {
+        backButton.click();
+        return this;
     }
 }
