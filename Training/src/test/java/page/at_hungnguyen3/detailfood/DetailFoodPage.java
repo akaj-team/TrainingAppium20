@@ -57,7 +57,7 @@ public class DetailFoodPage extends BasePage {
     }
 
     public static int randomNumber(){
-        Random random = new Random(8);
+        Random random = new Random(4);
         return random.nextInt();
     }
 
