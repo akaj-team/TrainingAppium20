@@ -40,12 +40,17 @@ public class DetailFoodPageIOS extends DetailFoodPage {
 
     @Override
     public DetailFoodPage clickFirstTvVideo() {
-        actionBar.findElement(By.id("VIDEOS")).click();
+        getDriver().findElement(By.id("VIDEOS")).click();
         return this;
     }
 
     @Override
     public boolean isListServingAndTypeDisplayed() {
         return container.findElements(By.className("UIAStaticText")).size() > 0;
+    }
+
+    @Override
+    public boolean isFirstVideoDisplayed() {
+        return actionBar.findElement(By.id("VIDEOS")).isDisplayed();
     }
 }

@@ -16,13 +16,12 @@ public class DetailFoodPage extends BasePage {
     protected MobileElement actionBar;
 
     @AndroidFindBy(xpath = "//*[@text='Serving Sizes']")
-    @iOSFindBy(xpath = "//*[@text='Serving Sizes']")
+    @iOSFindBy(id = "Serving Sizes")
     protected MobileElement tvHeader;
 
     @AndroidFindBy(id = "food_info_image")
     @iOSFindBy(className = "UIAImage")
     private MobileElement foodImage;
-
 
     public DetailFoodPage(MobileDriver driver) {
         super(driver);
@@ -36,8 +35,9 @@ public class DetailFoodPage extends BasePage {
     @Override
     public DetailFoodPage open() {
         if(!isPageDisplayed()){
+            int i = randomNumber();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickMoreInfoButton(randomNumber());
+            homePage.clickMoreInfoButton(i);
             waitForElementDisplay(tvHeader);
         }
         return this;
@@ -57,8 +57,8 @@ public class DetailFoodPage extends BasePage {
     }
 
     public static int randomNumber(){
-        Random random = new Random(4);
-        return random.nextInt();
+        Random random = new Random();
+        return random.nextInt(6);
     }
 
     public DetailFoodPage clickBtnHomeButton(){
@@ -78,6 +78,15 @@ public class DetailFoodPage extends BasePage {
     }
 
     public boolean isListServingAndTypeDisplayed(){
+        return false;
+    }
+
+    public DetailFoodPage waitForPageDisplay(){
+        waitForElementDisplay(tvHeader);
+        return this;
+    }
+
+    public boolean isFirstVideoDisplayed(){
         return false;
     }
 }

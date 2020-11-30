@@ -1,9 +1,11 @@
 package page.at_hungnguyen3.detailfood;
 
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
+import page.at_hungnguyen3.home.HomePage;
 
 import java.util.List;
 
@@ -40,6 +42,11 @@ public class DetailFoodPageAndroid extends DetailFoodPage {
     public DetailFoodPage clickBtnHomeButton() {
         btnHomeButton.click();
         return this;
+    }
+
+    @Override
+    public boolean isFirstVideoDisplayed() {
+        return firstTvVideo.isDisplayed();
     }
 
     @Override
