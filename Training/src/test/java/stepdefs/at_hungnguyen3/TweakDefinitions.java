@@ -19,6 +19,7 @@ public class TweakDefinitions extends BaseDefinitions implements En {
     int pos = 0;
 
     public TweakDefinitions() {
+
         Given("^TweaksPage screen is opened$", () -> {
             Assert.assertTrue(tweaksPage.open().isPageDisplayed());
         });
@@ -34,20 +35,20 @@ public class TweakDefinitions extends BaseDefinitions implements En {
 
         Then("^Title contains \"([^\"]*)\"$", (String arg0) -> {
             Assert.assertTrue(tweaksPage.getTitle().contains(arg0));
+            System.out.println(tweaksPage.getTitle());
         });
 
         When("^I click About Menu button$", () -> {
             tweaksPage.clickAboutButton();
-            Thread.sleep(2000);
         });
 
         Then("^Menu About is displayed$", () -> {
+            Thread.sleep(5000);
             tweaksPage.isAboutMenuDisplayed();
         });
 
         When("^I click Lastest Video Button$", () -> {
             tweaksPage.clickLastestVideoButton();
-            Thread.sleep(2000);
         });
 
         Then("^I click CheckBox and CheckBox is checked$", () -> {
@@ -62,7 +63,9 @@ public class TweakDefinitions extends BaseDefinitions implements En {
             }
         });
         Then("^TweaksPage screen is not displayed$", () -> {
-            Assert.assertFalse(tweaksPage.isPageDisplayed());
+            Thread.sleep(5000);
+            Assert.assertFalse(homePage.isPageDisplayed());
+            homePage.openApp();
         });
     }
 }

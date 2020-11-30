@@ -1,13 +1,16 @@
+package stepdefs.at_hungnguyen3;
+
 import at.core.PageFactory;
 import cucumber.api.java8.En;
-import io.appium.java_client.AppiumDriver;
 import org.junit.Assert;
 import page.at_hungnguyen3.history.HistoryPage;
 
 public class HistoryDefinitions implements En {
+
     HistoryPage historyPage = new PageFactory<>(HistoryPage.class).create();
 
     public HistoryDefinitions() {
+
         Given("^HistoryPage screen is opened$", () -> {
             Assert.assertTrue(historyPage.open().isPageDisplayed());
         });
@@ -30,7 +33,9 @@ public class HistoryDefinitions implements En {
             Thread.sleep(2000);
         });
 
-        Then("^The time is not current time$", () -> {Assert.assertFalse(historyPage.isCurrentTime()); });
+        Then("^The time is not current time$", () -> {
+            Assert.assertFalse(historyPage.isCurrentTime());
+        });
 
         When("^I swipe from the right$", () -> {
             historyPage.swipeToTheLeft();

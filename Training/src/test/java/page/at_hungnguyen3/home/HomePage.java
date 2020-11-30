@@ -32,7 +32,7 @@ public class HomePage extends BasePage {
 
     @iOSFindBy(id = "21 Tweaks")
     @AndroidFindBy(id = "menu_toggle_modes")
-    private MobileElement btnTweaks;
+    protected MobileElement btnTweaks;
 
     private int listSize = getListFoodName().size();
     private int lastPos = 0;
@@ -47,7 +47,7 @@ public class HomePage extends BasePage {
     }
 
     @Override
-    public BasePage open() {
+    public HomePage open() {
         if (!isPageDisplayed()) {
             getDriver().launchApp();
             waitForPageDisplayed(actionBar);

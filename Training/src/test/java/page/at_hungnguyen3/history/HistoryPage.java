@@ -2,7 +2,6 @@ package page.at_hungnguyen3.history;
 
 import at.base.BasePage;
 import at.core.PageFactory;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -63,8 +62,8 @@ public class HistoryPage extends BasePage {
     }
 
     public static int randomNumber(){
-        Random random = new Random(8);
-        return random.nextInt();
+        Random random = new Random();
+        return random.nextInt(6);
     }
 
     public HistoryPage swipeToTheLeft() {

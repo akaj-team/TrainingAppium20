@@ -1,10 +1,12 @@
 package page.at_hungnguyen3.tweaks;
 
 import at.base.BasePage;
+import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
+import page.at_hungnguyen3.home.HomePage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +16,7 @@ public class TweaksPage extends BasePage {
 
     @AndroidFindBy(id = "title")
     @iOSFindBy(className = "UIAStaticText")
-    List<MobileElement> listAbout;
+    protected List<MobileElement> listAbout;
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIANavigationBar")
@@ -28,7 +30,7 @@ public class TweaksPage extends BasePage {
     @iOSFindBy(id = "21 Tweaks")
     private MobileElement tvHeader;
 
-    @AndroidFindBy(id ="date_tweaks")
+    @AndroidFindBy(id = "date_tweaks")
     @iOSFindBy(className = "UIATable")
     private MobileElement listTweaks;
 
@@ -38,11 +40,16 @@ public class TweaksPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return false;
+        return true;
     }
 
     @Override
     public TweaksPage open() {
+        if (!isPageDisplayed()) {
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            homePage.clickTweaksButton();
+            waitForElementDisplay(tvHeader);
+        }
         return this;
     }
 
@@ -65,33 +72,33 @@ public class TweaksPage extends BasePage {
     }
 
     public boolean isAboutMenuDisplayed() {
-        return isForElementPresent(listAbout.get(randomNumber()));
+        return listAbout.size() > 0;
     }
 
-    public TweaksPage clickLastestVideoButton () {
+    public TweaksPage clickLastestVideoButton() {
         return this;
     }
 
-    public List<MobileElement> getListCheckBox(){
+    public List<MobileElement> getListCheckBox() {
         return new ArrayList<>();
     }
 
-    public TweaksPage clickCheckBox(int pos){
+    public TweaksPage clickCheckBox(int pos) {
         getListCheckBox().get(pos).click();
         return this;
     }
 
-    public TweaksPage clickCheckBox(List<MobileElement> list, int pos){
+    public TweaksPage clickCheckBox(List<MobileElement> list, int pos) {
         list.get(pos).click();
         return this;
     }
 
-    public boolean isCheckBoxChecked(List<MobileElement> list, int pos){
+    public boolean isCheckBoxChecked(List<MobileElement> list, int pos) {
         return false;
     }
 
-    public static int randomNumber(){
-        Random random = new Random(8);
-        return random.nextInt();
+    public static int randomNumber() {
+        Random random = new Random();
+        return random.nextInt(9);
     }
 }

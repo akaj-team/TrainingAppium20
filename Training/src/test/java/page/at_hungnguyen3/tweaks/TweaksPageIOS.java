@@ -5,6 +5,7 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.iOSFindBy;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import page.at_hungnguyen3.home.HomePage;
 
 public class TweaksPageIOS extends TweaksPage {
@@ -26,29 +27,19 @@ public class TweaksPageIOS extends TweaksPage {
     }
 
     @Override
-    public boolean isPageDisplayed() {
-        return isForElementPresent(today);
-    }
-
-    @Override
     public String getTitle() {
         return actionBar.findElement(By.className("UIAStaticText")).getText();
-    }
-
-    @Override
-    public TweaksPage open() {
-        if (!isPageDisplayed()) {
-            HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickTweaksButton();
-            waitForElementDisplay(actionBar.findElement(By.className("android.widget.TextView")));
-        }
-        return this;
     }
 
     @Override
     public TweaksPage clickAboutButton() {
         btnAbout.click();
         return this;
+    }
+
+    @Override
+    public boolean isPageDisplayed() {
+        return actionBar.findElement(By.className("UIAStaticText")).getText().equals("21 Tweaks");
     }
 
     @Override

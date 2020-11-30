@@ -38,23 +38,8 @@ public class TweaksPageAndroid extends TweaksPage {
     }
 
     @Override
-    public boolean isPageDisplayed() {
-        return isForElementPresent(everyDay);
-    }
-
-    @Override
     public String getTitle() {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
-    }
-
-    @Override
-    public TweaksPage open() {
-        if (!isPageDisplayed()) {
-            HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickTweaksButton();
-            waitForElementDisplay(actionBar.findElement(By.className("android.widget.TextView")));
-        }
-        return this;
     }
 
     @Override
@@ -67,6 +52,11 @@ public class TweaksPageAndroid extends TweaksPage {
     public TweaksPage clickLastestVideoButton() {
         aboutMenu.get(0).click();
         return this;
+    }
+
+    @Override
+    public boolean isPageDisplayed() {
+        return isForElementPresent(everyDay);
     }
 
     @Override
