@@ -28,7 +28,7 @@ public class ChartDefinitions implements En {
             Assert.assertTrue(true);
         });
         Then("^Title is \"([^\"]*)\" or \"([^\"]*)\"$", (String arg0, String arg1) -> {
-            Assert.assertTrue(chartPage.getTextTitle().equals(arg0) || chartPage.getTextTitle().equals(arg1));
+            Assert.assertTrue(chartPage.isTitleCorrect());
         });
     }
 }

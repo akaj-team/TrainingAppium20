@@ -11,7 +11,7 @@ import page.at_hungnguyen3.home.HomePage;
 public class ChartPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='Time Scale']")
-    @iOSFindBy(xpath = "//*[@text='Time Scale']")
+    @iOSFindBy(id = "Time Scale")
     private MobileElement tvHeader;
 
     @AndroidFindBy(id = "action_bar")
@@ -51,5 +51,9 @@ public class ChartPage extends BasePage {
 
     public String getTextTitle(){
         return "";
+    }
+
+    public boolean isTitleCorrect (){
+        return false;
     }
 }

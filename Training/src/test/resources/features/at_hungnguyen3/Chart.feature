@@ -5,7 +5,7 @@ Feature: Test on Chart screen
 
   Scenario: Check Text of tv Header
     When I Check Text of tv Header
-    Then Text is "Time scale"
+    Then Text is "Time Scale"
 
   Scenario: Check function of Home Button
     When I click Home Button
