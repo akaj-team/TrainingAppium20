@@ -18,7 +18,7 @@ public class ChartDefinitions implements En {
             Assert.assertTrue(true);
         });
         Then("^Text is \"([^\"]*)\"$", (String arg0) -> {
-            Assert.assertEquals(tweaksPage.getTitle(), arg0);
+            Assert.assertEquals(chartPage.getTextTvHeader(), arg0);
         });
         When("^I click Home Button$", () -> {
             chartPage.clickBtnButton();
