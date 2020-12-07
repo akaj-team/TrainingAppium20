@@ -11,7 +11,7 @@ public class HistoryPageIOS extends HistoryPage {
     private MobileElement info ;
 
     @iOSFindBy(className = "Settings")
-    private MobileElement settings ;
+    private MobileElement tvSettings ;
 
     @iOSFindBy(id = "Daily Dozen")
     private MobileElement tvBack;

@@ -31,7 +31,7 @@ public class ChartPage extends BasePage {
     public ChartPage open() {
             if (!isPageDisplayed()){
                 HomePage homePage = new PageFactory<>(HomePage.class).create();
-                homePage.clickChartButton();
+                homePage.open().clickChartButton();
                 waitForElementDisplay(tvHeader);
             }
             return this;
@@ -45,15 +45,7 @@ public class ChartPage extends BasePage {
         return tvHeader.getText();
     }
 
-    public ChartPage clickBtnButton () {
-        return this;
-    }
-
     public String getTextTitle(){
         return "";
-    }
-
-    public boolean isTitleCorrect (){
-        return false;
     }
 }

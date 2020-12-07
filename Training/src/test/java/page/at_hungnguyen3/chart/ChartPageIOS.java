@@ -20,21 +20,8 @@ public class ChartPageIOS extends ChartPage {
     }
 
     @Override
-    public ChartPage clickBtnButton() {
-        actionBar.findElement(By.className("UIAButton")).click();
-        return this;
-    }
-
-    @Override
     public String getTextTitle() {
         return actionBar.findElement(By.className("UIAStaticText")).getText();
     }
 
-    @Override
-    public boolean isTitleCorrect() {
-        if (getTextTitle().equals("Servings History")){
-            return true;
-        }
-        else return false;
-    }
 }

@@ -2,7 +2,6 @@ package page.at_hungnguyen3.info;
 
 import at.base.BasePage;
 import at.core.PageFactory;
-import cucumber.api.java.sl.In;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -30,10 +29,10 @@ public abstract class InfoPage extends BasePage {
 
     @Override
     public InfoPage open() {
-        if (!isPageDisplayed()){
+        if (!isPageDisplayed()) {
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickInfoMenuButton();
-            waitForPageDisplayed();
+            homePage.open().clickInfoMenuButton();
+            waitForElementDisplay(getListItem().get(2));
         }
         return this;
     }
@@ -52,31 +51,31 @@ public abstract class InfoPage extends BasePage {
         return new ArrayList<>();
     }
 
-    public InfoPage waitForPageDisplayed(){
+    public InfoPage waitForPageDisplayed() {
         waitForElementDisplay(getListItem().get(randomNumber()));
         return this;
     }
 
-    public static int randomNumber(){
-        Random random = new Random(8);
-        return random.nextInt();
+    public static int randomNumber() {
+        Random random = new Random();
+        return random.nextInt(8);
     }
 
-    public String getTextInfo(int pos){
+    public String getTextInfo(int pos) {
         return getListItem().get(pos).getText();
     }
 
-    public InfoPage clickAboutItem(){
+    public InfoPage clickAboutItem() {
         getListItem().get(10).click();
         return this;
     }
 
-    public InfoPage clickDonateItem(){
+    public InfoPage clickDonateItem() {
         getListItem().get(5).click();
         return this;
     }
 
-    public InfoPage clickBackButton(){
+    public InfoPage clickBackButton() {
         return this;
     }
 }

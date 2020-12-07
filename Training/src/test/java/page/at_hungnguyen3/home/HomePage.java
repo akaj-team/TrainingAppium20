@@ -111,7 +111,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage clickTweaksButton() {
+    public HomePage     clickTweaksButton() {
         btnTweaks.click();
         return this;
     }

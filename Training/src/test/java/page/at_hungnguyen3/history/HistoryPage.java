@@ -42,7 +42,7 @@ public class HistoryPage extends BasePage {
     public HistoryPage open() {
         if(!isPageDisplayed()){
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickCalendarButton(randomNumber());
+            homePage.open().clickCalendarButton(randomNumber());
             waitForElementDisplay(tvHistory);
         }
         return this;

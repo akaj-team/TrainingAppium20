@@ -4,6 +4,7 @@ Feature: Test on Info screen
     Given InfoPage is opened
 
   Scenario Outline: Check List Info
+    When I check List Info
     Then Info Menu is "<name>"
     Examples:
       | name                    |

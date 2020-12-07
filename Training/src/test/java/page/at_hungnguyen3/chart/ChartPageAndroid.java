@@ -20,22 +20,9 @@ public class ChartPageAndroid extends ChartPage {
         return this;
     }
 
-    @Override
-    public ChartPage clickBtnButton() {
-        btnHome.click();
-        return this;
-    }
 
     @Override
     public String getTextTitle() {
         return actionBar.findElement(By.className("android.widget.TextView")).getText();
-    }
-
-    @Override
-    public boolean isTitleCorrect() {
-        if (getTextTitle().equals("Daily Servings History")){
-            return true;
-        }
-        else return false;
     }
 }

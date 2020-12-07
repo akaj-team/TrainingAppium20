@@ -47,7 +47,7 @@ public class TweaksPage extends BasePage {
     public TweaksPage open() {
         if (!isPageDisplayed()) {
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickTweaksButton();
+            homePage.open().clickTweaksButton();
             waitForElementDisplay(tvHeader);
         }
         return this;

@@ -14,13 +14,13 @@ public class HistoryPageAndroid extends HistoryPage {
     private MobileElement actionBar;
 
     @AndroidFindBy(id = "month_name")
-    private MobileElement time;
+    private MobileElement tvTime;
 
     @AndroidFindBy(id = "previous")
-    private MobileElement previous;
+    private MobileElement icPrevious;
 
     @AndroidFindBy(id = "next")
-    private MobileElement next;
+    private MobileElement icNext;
 
     public HistoryPageAndroid(MobileDriver driver) {
         super(driver);
@@ -45,6 +45,6 @@ public class HistoryPageAndroid extends HistoryPage {
 
     @Override
     public String getTextTime() {
-        return time.getText();
+        return tvTime.getText();
     }
 }

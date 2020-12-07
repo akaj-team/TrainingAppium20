@@ -7,7 +7,6 @@ import page.at_hungnguyen3.info.InfoPage;
 
 public class InfoDefinitions implements En {
     int pos = 0;
-
     InfoPage infoPage = new PageFactory<>(InfoPage.class).create();
 
     public InfoDefinitions() {
@@ -30,6 +29,9 @@ public class InfoDefinitions implements En {
         });
 
         When("^I click Donate$", () -> { infoPage.clickDonateItem(); });
+
+        When("^I check List Info$", () -> { Assert.assertTrue(true);
+        });
 
     }
 }

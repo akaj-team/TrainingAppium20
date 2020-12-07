@@ -21,14 +21,14 @@ public class ChartDefinitions implements En {
             Assert.assertEquals(chartPage.getTextTvHeader(), arg0);
         });
         When("^I click Home Button$", () -> {
-            chartPage.clickBtnButton();
+            chartPage.clickBackButton();
             Thread.sleep(2000);
         });
         When("^I check title of Chart screen$", () -> {
             Assert.assertTrue(true);
         });
-        Then("^Title is \"([^\"]*)\" or \"([^\"]*)\"$", (String arg0, String arg1) -> {
-            Assert.assertTrue(chartPage.isTitleCorrect());
+        Then("^Title is \"([^\"]*)\" or \"([^\"]*)\"$", (String text1, String text2) -> {
+            Assert.assertTrue(chartPage.getTextTitle().equals(text1) || chartPage.getTextTitle().equals(text2));
         });
     }
 }

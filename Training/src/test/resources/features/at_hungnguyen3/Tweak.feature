@@ -18,8 +18,3 @@ Feature: Test on Tweaks screen
 
   Scenario: Check Function of CheckBox
     Then I click CheckBox and CheckBox is checked
-
-
-
-
-
