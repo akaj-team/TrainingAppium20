@@ -10,13 +10,12 @@ import page.at_hungnguyen3.home.HomePage;
 
 public class ChartPage extends BasePage {
 
-    @AndroidFindBy(xpath = "//*[@text='Time Scale']")
-    @iOSFindBy(id = "Time Scale")
-    private MobileElement tvHeader;
-
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIANavigationBar")
     protected MobileElement actionBar;
+    @AndroidFindBy(xpath = "//*[@text='Time Scale']")
+    @iOSFindBy(id = "Time Scale")
+    private MobileElement tvHeader;
 
     public ChartPage(MobileDriver driver) {
         super(driver);
@@ -29,31 +28,35 @@ public class ChartPage extends BasePage {
 
     @Override
     public ChartPage open() {
-            if (!isPageDisplayed()){
-                HomePage homePage = new PageFactory<>(HomePage.class).create();
-                homePage.clickChartButton();
-                waitForElementDisplay(tvHeader);
+        if (!isPageDisplayed()) {
+            HomePage homePage = new PageFactory<>(HomePage.class).create();
+            homePage.open();
+            if (!homePage.isCheckboxChecked(0)) {
+                homePage.clickCheckbox(0);
             }
-            return this;
+            homePage.clickChartButton();
+            waitForElementDisplay(tvHeader);
         }
+        return this;
+    }
 
     public ChartPage clickBackButton() {
         return this;
     }
 
-    public String getTextTvHeader(){
+    public String getTextTvHeader() {
         return tvHeader.getText();
     }
 
-    public ChartPage clickBtnButton () {
+    public ChartPage clickBtnButton() {
         return this;
     }
 
-    public String getTextTitle(){
+    public String getTextTitle() {
         return "";
     }
 
-    public boolean isTitleCorrect (){
+    public boolean isTitleCorrect() {
         return false;
     }
 }

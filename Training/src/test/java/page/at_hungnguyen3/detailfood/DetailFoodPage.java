@@ -37,7 +37,7 @@ public class DetailFoodPage extends BasePage {
         if(!isPageDisplayed()){
             int i = randomNumber();
             HomePage homePage = new PageFactory<>(HomePage.class).create();
-            homePage.clickMoreInfoButton(i);
+            homePage.open().clickMoreInfoButton(i);
             waitForElementDisplay(tvHeader);
         }
         return this;

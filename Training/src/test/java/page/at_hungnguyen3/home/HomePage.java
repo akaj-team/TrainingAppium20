@@ -139,7 +139,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public boolean isCheckboxChecked(List<MobileElement> list, int pos) {
+    public boolean isCheckboxChecked(int pos) {
         return false;
     }
 }

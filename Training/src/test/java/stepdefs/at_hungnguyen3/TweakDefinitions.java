@@ -35,7 +35,6 @@ public class TweakDefinitions extends BaseDefinitions implements En {
 
         Then("^Title contains \"([^\"]*)\"$", (String arg0) -> {
             Assert.assertTrue(tweaksPage.getTitle().contains(arg0));
-            System.out.println(tweaksPage.getTitle());
         });
 
         When("^I click About Menu button$", () -> {

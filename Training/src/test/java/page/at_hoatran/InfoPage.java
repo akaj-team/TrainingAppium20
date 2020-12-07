@@ -5,7 +5,6 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.iOSFindBy;
-import org.openqa.selenium.By;
 
 public abstract class InfoPage extends BasePage {
 
@@ -30,7 +29,7 @@ public abstract class InfoPage extends BasePage {
 
     @Override
     public boolean isPageDisplayed() {
-        return isForElementPresent(listTitle.findElement(By.id("Latest Videos")));
+        return isForElementPresent(btnLatestVideo);
     }
 
     public String getTitleOfPage() {

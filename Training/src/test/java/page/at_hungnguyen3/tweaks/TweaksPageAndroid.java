@@ -65,7 +65,7 @@ public class TweaksPageAndroid extends TweaksPage {
     }
 
     @Override
-    public boolean isCheckBoxChecked(List<MobileElement> list, int pos) {
-        return list.get(pos).getAttribute("checked").equals("true");
+    public boolean isCheckBoxChecked(MobileElement el) {
+        return el.getAttribute("checked").equals("true");
     }
 }

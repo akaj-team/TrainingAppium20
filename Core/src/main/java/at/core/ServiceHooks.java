@@ -13,7 +13,7 @@ public class ServiceHooks {
         if (isFirstStep) {
             Runtime.getRuntime().addShutdownHook(new Thread(this::afterAll));
             isFirstStep = false;
-            AppiumController.instance.getDriver().launchApp();
+//            AppiumController.instance.getDriver().launchApp();
         }
     }
 

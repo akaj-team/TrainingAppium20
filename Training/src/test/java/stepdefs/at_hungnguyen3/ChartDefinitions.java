@@ -14,12 +14,11 @@ public class ChartDefinitions implements En {
         Given("^ChartPage screen is opened$", () -> {
             Assert.assertTrue(chartPage.open().isPageDisplayed());
         });
-        When("^I Check Text of tv Header$", () -> {
-            Assert.assertTrue(true);
-        });
-        Then("^Text is \"([^\"]*)\"$", (String arg0) -> {
-            Assert.assertEquals(chartPage.getTextTvHeader(), arg0);
-        });
+
+        When("^I Check Text of tv Header$", () -> Assert.assertTrue(true));
+
+        Then("^Text is \"([^\"]*)\"$", (String text) -> Assert.assertEquals(chartPage.getTextTvHeader(), text));
+
         When("^I click Home Button$", () -> {
             chartPage.clickBtnButton();
             Thread.sleep(2000);
@@ -27,6 +26,7 @@ public class ChartDefinitions implements En {
         When("^I check title of Chart screen$", () -> {
             Assert.assertTrue(true);
         });
+
         Then("^Title is \"([^\"]*)\" or \"([^\"]*)\"$", (String arg0, String arg1) -> {
             Assert.assertTrue(chartPage.isTitleCorrect());
         });

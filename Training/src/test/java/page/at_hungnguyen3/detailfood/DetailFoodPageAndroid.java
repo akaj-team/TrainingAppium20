@@ -1,11 +1,9 @@
 package page.at_hungnguyen3.detailfood;
 
-import at.core.PageFactory;
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
-import page.at_hungnguyen3.home.HomePage;
 
 import java.util.List;
 
@@ -62,9 +60,7 @@ public class DetailFoodPageAndroid extends DetailFoodPage {
 
     @Override
     public boolean isListServingAndTypeDisplayed() {
-        if (listServing.size() > 0) {
-            scrollToView();
-            return listServing.size() > 0 && listType.size() > 0;
-        } else return false;
+        scrollToView();
+        return listServing.size() > 0 && listType.size() > 0;
     }
 }

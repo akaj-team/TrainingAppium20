@@ -93,7 +93,7 @@ public class TweaksPage extends BasePage {
         return this;
     }
 
-    public boolean isCheckBoxChecked(List<MobileElement> list, int pos) {
+    public boolean isCheckBoxChecked(MobileElement el) {
         return false;
     }
 

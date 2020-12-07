@@ -9,7 +9,7 @@ import java.util.List;
 
 public class HomePageAndroid extends HomePage {
     @AndroidFindBy(id = "sub_header")
-    private MobileElement txtSubHeader;
+    private MobileElement containerSubHeader;
 
     public HomePageAndroid(MobileDriver driver) {
         super(driver);
@@ -33,7 +33,7 @@ public class HomePageAndroid extends HomePage {
 
     @Override
     public HomePage clickChartButton() {
-        txtSubHeader.findElements(By.className("android.widget.TextView")).get(3).click();
+        containerSubHeader.findElements(By.className("android.widget.TextView")).get(3).click();
         return this;
     }
 
@@ -43,7 +43,7 @@ public class HomePageAndroid extends HomePage {
     }
 
     @Override
-    public boolean isCheckboxChecked(List<MobileElement> list, int pos) {
-        return list.get(pos).getAttribute("checked").equals("true");
+    public boolean isCheckboxChecked(int pos) {
+        return getListCheckbox().get(pos).getAttribute("checked").equals("true");
     }
 }

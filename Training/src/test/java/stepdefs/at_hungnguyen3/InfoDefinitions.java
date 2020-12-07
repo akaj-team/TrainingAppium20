@@ -16,20 +16,21 @@ public class InfoDefinitions implements En {
             Assert.assertTrue(infoPage.open().isPageDisplayed());
         });
 
-        Then("^Info Menu is \"([^\"]*)\"$", (String arg0) -> {
-            Assert.assertEquals(infoPage.getTextInfo(pos),arg0);
-            pos++; });
-
         When("^I click About$", () -> {
             infoPage.clickAboutItem();
-            Thread.sleep(2000); });
+            Thread.sleep(2000);
+        });
 
         When("^I click back button$", () -> {
             infoPage.clickBackButton();
             Thread.sleep(2000);
         });
 
-        When("^I click Donate$", () -> { infoPage.clickDonateItem(); });
+        When("^I click Donate$", () -> {
+            infoPage.clickDonateItem();
+        });
 
+        Then("^I see \"([^\"]*)\" item at the (\\d+) position on list info$", (String text, Integer pos) ->
+                Assert.assertEquals(text, infoPage.getTextInfo(pos-1)));
     }
 }
