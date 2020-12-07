@@ -11,6 +11,6 @@ Feature: Test on Chart screen
     When I click Home Button
     Then Homepage screen is opened
 
-#  Scenario: Check Title of Chart screen
-#    When I check title of Chart screen
-#    Then Title is "Daily Tweaks History" or "Servings History"
+  Scenario: Check Title of Chart screen
+    When I check title of Chart screen
+    Then Title is "Daily Tweaks History" or "Servings History"
