@@ -1,4 +1,4 @@
-Feature: Test on Info screen
+Feature: Test on DetailFood screen
 
   Background:
     Given FoodDetailPage is opened

@@ -102,7 +102,7 @@ class AppiumController {
 
     private synchronized void startDefaultServer() throws MalformedURLException {
         XmlTest xmlTest = new XmlTest();
-        xmlTest.setParameters(defaultIosParameters());
+        xmlTest.setParameters(defaultAndroidParameters());
         start(xmlTest);
     }
 

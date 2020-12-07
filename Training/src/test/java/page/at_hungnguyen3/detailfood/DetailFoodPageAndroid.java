@@ -62,9 +62,7 @@ public class DetailFoodPageAndroid extends DetailFoodPage {
 
     @Override
     public boolean isListServingAndTypeDisplayed() {
-        if (listServing.size() > 0) {
             scrollToView();
             return listServing.size() > 0 && listType.size() > 0;
-        } else return false;
     }
 }
