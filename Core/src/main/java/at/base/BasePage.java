@@ -28,6 +28,10 @@ public abstract class BasePage {
     private static final double OFFSET2 = 0.2;
     private static final int DURATION = 500;
     private static final int OFFSET_X = 10;
+    private static final double OFFSET_RIGHT1 = 0.7;
+    private static final double OFFSET_RIGHT2 = 0.3;
+    private static final double OFFSET_LEFT1 = 0.2;
+    private static final double OFFSET_LEFT2 = 0.9;
     private MobileDriver driver;
 
     public BasePage(MobileDriver driver) {
@@ -50,6 +54,34 @@ public abstract class BasePage {
         Integer scrollEnd = screenHeightEnd.intValue();
         scrollHash.put("end", scrollEnd);
         return scrollHash;
+    }
+
+    public BasePage swipeRight() {
+        Dimension size = getDriver().manage().window().getSize();
+        int startY = (size.height / 2);
+        int startX = (int) (size.width * OFFSET_RIGHT1);
+        int endX = (int) (size.width * OFFSET_RIGHT2);
+        (new TouchAction(getDriver()))
+                .press(PointOption.point(startX, startY))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(DURATION)))
+                .moveTo(PointOption.point(endX, startY))
+                .release()
+                .perform();
+        return this;
+    }
+
+    public BasePage swipeLeft() {
+        Dimension size = getDriver().manage().window().getSize();
+        int startY = (size.height / 2);
+        int endX = (int) (size.width * OFFSET_LEFT1);
+        int startX = (int) (size.width * OFFSET_LEFT2);
+        (new TouchAction(getDriver()))
+                .press(PointOption.point(endX, startY))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(DURATION)))
+                .moveTo(PointOption.point(startX, startY))
+                .release()
+                .perform();
+        return this;
     }
 
     /**

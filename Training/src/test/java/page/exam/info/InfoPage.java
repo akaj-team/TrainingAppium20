@@ -9,7 +9,7 @@ import io.appium.java_client.pagefactory.iOSFindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class InfoPage extends BasePage {
+public class InfoPage extends BasePage {
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIATabBar")

@@ -62,9 +62,9 @@ public class HomePageIOS extends HomePage {
     }
 
     @Override
-    public boolean isCheckboxChecked(List<MobileElement> list, int pos) {
+    public boolean isCheckboxChecked(int pos) {
         try {
-            return list.get(pos).getAttribute("name").equals("ic checkmark white green");
+            return getListCheckbox().get(pos).getAttribute("name").equals("ic checkmark white green");
         } catch (Exception e) {
             return false;
         }

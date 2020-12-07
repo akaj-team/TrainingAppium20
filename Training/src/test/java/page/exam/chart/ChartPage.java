@@ -11,7 +11,7 @@ import io.appium.java_client.pagefactory.iOSFindBy;
  *
  * @author at-anh.quach
  */
-public class    ChartPage extends BasePage {
+public class ChartPage extends BasePage {
 
     @AndroidFindBy(xpath = "//*[@text='Time Scale']")
     @iOSFindBy(xpath = "//*[@text='Time Scale']")

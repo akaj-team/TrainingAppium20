@@ -43,7 +43,7 @@ public class HomePageAndroid extends HomePage {
     }
 
     @Override
-    public boolean isCheckboxChecked(List<MobileElement> list, int pos) {
-        return list.get(pos).getAttribute("checked").equals("true");
+    public boolean isCheckboxChecked(int pos) {
+        return getListCheckbox().get(pos).getAttribute("checked").equals("true");
     }
 }

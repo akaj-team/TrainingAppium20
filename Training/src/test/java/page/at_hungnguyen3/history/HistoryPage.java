@@ -67,30 +67,12 @@ public class HistoryPage extends BasePage {
     }
 
     public HistoryPage swipeToTheLeft() {
-        Dimension dimension = getDriver().manage().window().getSize();
-        int startY = (dimension.height / 2);
-        int startX = (int) (dimension.width * 0.05);
-        int endX = (int) (dimension.width * 0.90);
-        new TouchAction(getDriver())
-                .press(PointOption.point(startX, startY))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(3000)))
-                .moveTo(PointOption.point(endX, startY))
-                .release()
-                .perform();
+        swipeLeft();
         return this;
     }
 
     public HistoryPage swipeToTheRight() {
-        Dimension dimension = getDriver().manage().window().getSize();
-        int startY = (int) (dimension.height / 2);
-        int startX = (int) (dimension.width * 0.90);
-        int endX = (int) (dimension.width * 0.05);
-        new TouchAction(getDriver())
-                .press(PointOption.point(startX, startY))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(3000)))
-                .moveTo(PointOption.point(endX, startY))
-                .release()
-                .perform();
+        swipeRight();
         return this;
     }
 

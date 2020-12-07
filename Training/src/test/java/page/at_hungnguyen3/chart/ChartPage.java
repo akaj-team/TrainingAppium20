@@ -31,7 +31,11 @@ public class ChartPage extends BasePage {
     public ChartPage open() {
             if (!isPageDisplayed()){
                 HomePage homePage = new PageFactory<>(HomePage.class).create();
-                homePage.open().clickChartButton();
+                homePage.open();
+                if (!homePage.isCheckboxChecked(0)) {
+                    homePage.clickCheckbox(0);
+                }
+                homePage.clickChartButton();
                 waitForElementDisplay(tvHeader);
             }
             return this;

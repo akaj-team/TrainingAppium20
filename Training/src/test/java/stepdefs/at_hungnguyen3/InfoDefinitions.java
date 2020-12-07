@@ -6,8 +6,9 @@ import org.junit.Assert;
 import page.at_hungnguyen3.info.InfoPage;
 
 public class InfoDefinitions implements En {
-    int pos = 0;
+
     InfoPage infoPage = new PageFactory<>(InfoPage.class).create();
+    int pos = 0;
 
     public InfoDefinitions() {
 

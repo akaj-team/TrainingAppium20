@@ -13,4 +13,4 @@ Feature: Test on Chart screen
 
   Scenario: Check Title of Chart screen
     When I check title of Chart screen
-    Then Title is "Daily Tweaks History" or "Servings History"
+    Then Title is "Servings History" or "Daily Servings History"
