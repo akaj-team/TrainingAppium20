@@ -33,16 +33,14 @@ public class InfoDefinitions implements En {
             Assert.assertTrue(true);
         });
 
-        Then("^InfoPage screen is not displayed$", () -> {
+        Then("^I see \"([^\"]*)\" item or \"([^\"]*)\" at the (\\d+) position on list info$", (String arg0, String arg1, Integer pos) -> {
+            Assert.assertTrue(infoPage.checkItemInListCorrect(pos, arg0) || infoPage.checkItemInListCorrect(pos, arg1));
+        });
+
+        Then("^Move to About Details screen$", () -> {
             Thread.sleep(2000);
             Assert.assertFalse(infoPage.isPageDisplayed());
         });
-
-        Then("^I see \"([^\"]*)\" item or \"([^\"]*)\" at the (\\d+) position on list info$", (String arg0, String arg1 , Integer pos) -> {
-        Assert.assertTrue(infoPage.checkItemInListCorrect(pos,arg0) || infoPage.checkItemInListCorrect(pos,arg1) );
-        });
-
-
     }
-    }
+}
 

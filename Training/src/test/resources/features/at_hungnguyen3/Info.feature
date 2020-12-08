@@ -23,7 +23,7 @@ Feature: Test on Info screen
 
   Scenario: Check function About button
     When I click About
-    Then InfoPage screen is not displayed
+    Then Move to About Details screen
     When I click back button
     Then Homepage screen is displayed
 
