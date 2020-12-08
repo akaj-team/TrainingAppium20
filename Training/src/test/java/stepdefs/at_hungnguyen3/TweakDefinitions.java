@@ -30,6 +30,7 @@ public class TweakDefinitions extends BaseDefinitions implements En {
         });
 
         Then("^Homepage screen is displayed$", () -> {
+            Thread.sleep(2000);
             Assert.assertTrue(homePage.isPageDisplayed());
         });
 

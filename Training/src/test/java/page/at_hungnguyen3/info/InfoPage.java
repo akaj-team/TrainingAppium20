@@ -10,9 +10,8 @@ import page.at_hungnguyen3.home.HomePage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-public abstract class InfoPage extends BasePage {
+public class InfoPage extends BasePage {
 
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIATabBar")
@@ -21,7 +20,6 @@ public abstract class InfoPage extends BasePage {
     @AndroidFindBy(className = "android.widget.ListView")
     @iOSFindBy(className = "UIATable")
     protected MobileElement listTitle;
-
 
     public InfoPage(MobileDriver driver) {
         super(driver);
@@ -32,8 +30,24 @@ public abstract class InfoPage extends BasePage {
         if (!isPageDisplayed()) {
             HomePage homePage = new PageFactory<>(HomePage.class).create();
             homePage.open().clickInfoMenuButton();
-            waitForElementDisplay(getListItem().get(2));
+            waitForElementDisplay(getListItem().get(0));
         }
+        return this;
+    }
+
+    public List<MobileElement> getListItem() {
+        return new ArrayList<>();
+    }
+
+    public String getTextInfo(int pos) {
+        return getListItem().get(pos).getText();
+    }
+
+    public InfoPage clickAboutItem() {
+        return this;
+    }
+
+    public InfoPage clickDonateItem() {
         return this;
     }
 
@@ -47,35 +61,11 @@ public abstract class InfoPage extends BasePage {
         return false;
     }
 
-    public List<MobileElement> getListItem() {
-        return new ArrayList<>();
-    }
-
-    public InfoPage waitForPageDisplayed() {
-        waitForElementDisplay(getListItem().get(randomNumber()));
-        return this;
-    }
-
-    public static int randomNumber() {
-        Random random = new Random();
-        return random.nextInt(8);
-    }
-
-    public String getTextInfo(int pos) {
-        return getListItem().get(pos).getText();
-    }
-
-    public InfoPage clickAboutItem() {
-        getListItem().get(10).click();
-        return this;
-    }
-
-    public InfoPage clickDonateItem() {
-        getListItem().get(5).click();
-        return this;
-    }
-
     public InfoPage clickBackButton() {
         return this;
+    }
+
+    public boolean checkItemInListCorrect(int pos , String itemName){
+        return false;
     }
 }
