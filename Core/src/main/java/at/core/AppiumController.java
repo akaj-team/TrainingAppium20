@@ -121,7 +121,7 @@ class AppiumController {
     private Map<String, String> defaultIosParameters() {
         Map<String, String> parameters = new HashMap<>();
         parameters.put(MobileCapabilityType.PLATFORM_NAME, "ios");
-        parameters.put(MobileCapabilityType.DEVICE_NAME, "iPhone SE (2nd generation)");
+        parameters.put(MobileCapabilityType.DEVICE_NAME, "SE (2nd generation)");
         parameters.put(MobileCapabilityType.PLATFORM_VERSION, "13.7");
         parameters.put(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
         parameters.put(MobileCapabilityType.APP, "org.nutritionfacts.dailydozen.app");
