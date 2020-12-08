@@ -19,8 +19,6 @@ import java.util.Random;
 
 public class HistoryPage extends BasePage {
 
-    String currentTime = getCurrentTime();
-
     @AndroidFindBy(id = "action_bar")
     @iOSFindBy(className = "UIANavigationBar")
     protected MobileElement actionBar;
@@ -83,11 +81,12 @@ public class HistoryPage extends BasePage {
         return strDate;
     }
 
-    public boolean isCurrentTime() {
+    public String getCurrentTimeFollowFormatDDMMYY () {
+        String currentTime = getCurrentTime();
         String[] parts = currentTime.split("(?=-)");
-        String month = parts[1];
-        String year = parts[2];
-        return ((getTextTime().contains(month)) && (getTextTime().contains(year)));
+        String month = parts[1].substring(1);
+        String year = parts[2].substring(1);
+        return month + " " + year;
     }
 
     public String getTextTime(){

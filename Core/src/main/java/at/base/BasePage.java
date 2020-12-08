@@ -28,8 +28,8 @@ public abstract class BasePage {
     private static final double OFFSET2 = 0.2;
     private static final int DURATION = 500;
     private static final int OFFSET_X = 10;
-    private static final double OFFSET_RIGHT1 = 0.7;
-    private static final double OFFSET_RIGHT2 = 0.3;
+    private static final double OFFSET_RIGHT1 = 0.9;
+    private static final double OFFSET_RIGHT2 = 0.2;
     private static final double OFFSET_LEFT1 = 0.2;
     private static final double OFFSET_LEFT2 = 0.9;
     private MobileDriver driver;

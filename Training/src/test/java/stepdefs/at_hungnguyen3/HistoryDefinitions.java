@@ -25,20 +25,26 @@ public class HistoryDefinitions implements En {
         });
 
         Then("^The initial time is current time$", () -> {
-            historyPage.isCurrentTime();
+            System.out.println(historyPage.getTextTime());
+            System.out.println(historyPage.getCurrentTimeFollowFormatDDMMYY());
+            Assert.assertEquals(historyPage.getTextTime(),(historyPage.getCurrentTimeFollowFormatDDMMYY()));
         });
 
         When("^I swipe from the left$", () -> {
-            historyPage.swipeToTheRight();
+            System.out.println(historyPage.getTextTime());
+            System.out.println(historyPage.getCurrentTimeFollowFormatDDMMYY());
+            historyPage.swipeToTheLeft();
             Thread.sleep(2000);
         });
 
         Then("^The time is not current time$", () -> {
-            Assert.assertFalse(historyPage.isCurrentTime());
+            Assert.assertNotSame(historyPage.getTextTime(),historyPage.getCurrentTimeFollowFormatDDMMYY());
         });
 
         When("^I swipe from the right$", () -> {
-            historyPage.swipeToTheLeft();
+            System.out.println(historyPage.getTextTime());
+            System.out.println(historyPage.getCurrentTimeFollowFormatDDMMYY());
+            historyPage.swipeToTheRight();
             Thread.sleep(2000);
         });
 
